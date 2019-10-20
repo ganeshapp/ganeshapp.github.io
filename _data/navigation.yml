@@ -11,7 +11,7 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
   - title: "Data Science"
-    url: /data-science/
+    url: /datascience/
   - title: "Blog"
     url: /year-archive/
   - title: "Teaching"
