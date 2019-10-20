@@ -16,34 +16,17 @@ Education
 
 Work experience
 ======
-* 2019: CFO  
-  * Peri-O
-  * Duties included: 
+
+* 2017 - Present: Entrepreneur  
   * Location: Singapore
 
-* 2017: CEO  
-  * Spark.Toys
-  * Duties included: 
-  * Location: Singapore
-  
-* 2017: Management Consultant
-  * X-Pan Consulting Services
-  * Duties included: 
-  * Location: Singapore
-
-* 2015-2016: Winter Intern Management Consultant
-  * Sterlite
-  * Duties included: 
+* 2015-2017: Management Consultant
   * Location: Shanghai, China and Singapore
 
 * 2012 - 2015: IT Consultant
-  * Great Eastern Life
-  * Duties included: 
   * Location: Singapore
   
 * 2008 - 2012: Senior Software Engineer
-  * Infosys Limited
-  * Duties included: 
   * Location: Shanghai, China and Bangalore, India
   
   
@@ -87,4 +70,10 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Have dug many water wells in remote villages in Cambodia/India without access to clean water.
+* Was part of the rescue mission during the natural disaster by Typhoon Haiyan in Philippines. 
+* Started the Roof Top Film Festival movement in Chennai, India.
+* Organized Barcamps, Blogcamps, WikiCamp, Podcamp and other unconferences in India.
+* Founded/Captained many Ultimate Frisbee teams in India, Singapore and China.
+* Taught over 100 people to rock climb.
+
