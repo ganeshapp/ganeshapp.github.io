@@ -1,6 +1,8 @@
 ---
 title: "First Project: Kaggle's Titanic"
 excerpt: "An easy first project to do some basics of Datascience."
+classes: wide
+
 ---
 
 ## Loading a bunch of stuff
