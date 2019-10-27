@@ -3,7 +3,7 @@ layout: single
 title: "First Project: Kaggle's Titanic"
 excerpt: "An easy first project to do some basics of Datascience."
 classes: wide
-
+author_profile: true
 ---
 
 ## Loading a bunch of stuff
