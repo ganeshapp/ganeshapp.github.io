@@ -26,6 +26,8 @@ gallery:
     image_path: /assets/images/interests/frisbee_10.JPG
   - url: /assets/images/interests/running_8.jpg
     image_path: /assets/images/interests/running_8.jpg
+  - url: /assets/images/interests/running_8.jpg
+    image_path: /assets/images/home/virginia.jpg
 ---
 
 Interests
