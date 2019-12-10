@@ -28,8 +28,6 @@ gallery:
     image_path: /assets/images/interests/running_8.jpg
 ---
 
-Interests
-======
 I love trying out a lot of new things and I also enjoy recommending people things I like. Here are some of the things I enjoyed in the last few years.
 
 Sports
