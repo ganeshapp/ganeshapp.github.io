@@ -20,7 +20,52 @@ gallery:
     image_path: /assets/images/interests/windsurfing.jpg
   - url: /assets/images/interests/kendo.JPG
     image_path: /assets/images/interests/kendo.JPG
-
+  - url: /assets/images/interests/frisbee_2.jpg
+    image_path: /assets/images/interests/frisbee_2.jpg
+  - url: /assets/images/interests/frisbee_10.JPG
+    image_path: /assets/images/interests/frisbee_10.JPG
+  - url: /assets/images/interests/running_8.jpg
+    image_path: /assets/images/interests/running_8.jpg
+  - url: /assets/images/interests/archery_2.jpg
+    image_path: /assets/images/interests/archery_2.jpg
+  - url: /assets/images/interests/climbing_1.jpg
+    image_path: /assets/images/interests/climbing_1.jpg
+  - url: /assets/images/interests/hackathon_4.jpg
+    image_path: /assets/images/interests/hackathon_4.jpg
+  - url: /assets/images/interests/climbing_4.jpg
+    image_path: /assets/images/interests/climbing_4.jpg
+  - url: /assets/images/interests/frisbee_3.jpg
+    image_path: /assets/images/interests/frisbee_3.jpg
+  - url: /assets/images/interests/climbing_5.jpg
+    image_path: /assets/images/interests/climbing_5.jpg
+  - url: /assets/images/interests/frisbee_5.JPG
+    image_path: /assets/images/interests/frisbee_5.JPG
+  - url: /assets/images/interests/running_4.jpg
+    image_path: /assets/images/interests/running_4.jpg
+  - url: /assets/images/interests/running_5.jpg
+    image_path: /assets/images/interests/running_5.jpg
+  - url: /assets/images/interests/hackathon_3.jpg
+    image_path: /assets/images/interests/hackathon_3.jpg
+  - url: /assets/images/interests/running_6.jpg
+    image_path: /assets/images/interests/running_6.jpg
+  - url: /assets/images/interests/frisbee_7.jpg
+    image_path: /assets/images/interests/frisbee_7.jpg
+  - url: /assets/images/interests/kendo_1.jpg
+    image_path: /assets/images/interests/kendo_1.jpg
+  - url: /assets/images/interests/frisbee_8.jpg
+    image_path: /assets/images/interests/frisbee_8.jpg
+  - url: /assets/images/interests/scuba_2.jpg
+    image_path: /assets/images/interests/scuba_2.jpg
+  - url: /assets/images/interests/frisbee_9.jpg
+    image_path: /assets/images/interests/frisbee_9.jpg
+  - url: /assets/images/interests/uwh.jpg
+    image_path: /assets/images/interests/uwh.jpg
+  - url: /assets/images/interests/hackathon_2.jpg
+    image_path: /assets/images/interests/hackathon_2.jpg
+  - url: /assets/images/interests/uwh_2.jpg
+    image_path: /assets/images/interests/uwh_2.jpg
+  - url: /assets/images/interests/hackathon_1.jpg
+    image_path: /assets/images/interests/hackathon_1.jpg
 ---
 
 I love trying out a lot of new things and I also enjoy recommending people things I like. Here are some of the things I enjoyed in the last few years.
