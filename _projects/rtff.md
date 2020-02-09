@@ -14,5 +14,5 @@ We watched films all night, under the stars, and had 30 minute breaks between ea
 
 RTFF became a monthly event. New organizers took over after I left Chennai. A Bangalore Chapter was started called the BRTFF.
 
-https://www.facebook.com/pg/ChennaiRTFF/about/
+[https://www.facebook.com/pg/ChennaiRTFF/about/](https://www.facebook.com/pg/ChennaiRTFF/about/)
 
