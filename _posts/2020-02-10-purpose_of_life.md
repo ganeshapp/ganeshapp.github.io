@@ -1,70 +1,22 @@
 ---
-title: "Edge Case: Nested and Mixed Lists"
+title: "Purpose of Life"
 categories:
-  - Edge Case
+  - Philosophy
 tags:
-  - content
-  - css
-  - edge case
-  - lists
-  - markup
+  - Philosophy
+toc: true
+
 last_modified_at: 2020-02-11T15:12:19-04:00
 
 ---
 
-Nested and mixed lists are an interesting beast. It's a corner case to make sure that
+# What is the Purpose of Life?
 
-* Lists within lists do not break the ordered list numbering order
-* Your list styles go deep enough.
+Most people would say it is happiness. But happiness is not what drives action, it is the result of the action achieving its goal.
 
-### Ordered -- Unordered -- Ordered
+To me, the purpose of life is to feel important. It is what drives us to wake up in the morning everyday and do what we do. 
 
-1. ordered item
-2. ordered item 
-  * **unordered**
-  * **unordered** 
-    1. ordered item
-    2. ordered item
-3. ordered item
-4. ordered item
+# To be important vs To feel Important
 
-### Ordered -- Unordered -- Unordered
+It is not necessary to be important. It is more important to feel important, than actually be important
 
-1. ordered item
-2. ordered item 
-  * **unordered**
-  * **unordered** 
-    * unordered item
-    * unordered item
-3. ordered item
-4. ordered item
-
-### Unordered -- Ordered -- Unordered
-
-* unordered item
-* unordered item 
-  1. ordered
-  2. ordered 
-    * unordered item
-    * unordered item
-* unordered item
-* unordered item
-
-### Unordered -- Unordered -- Ordered
-
-* unordered item
-* unordered item 
-  * unordered
-  * unordered 
-    1. **ordered item**
-    2. **ordered item**
-* unordered item
-* unordered item
-
-### Task Lists
-
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-  - [ ] Follow discussions
-  - [x] Push new commits
