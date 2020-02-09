@@ -28,8 +28,6 @@ gallery:
     image_path: /assets/images/interests/running_8.jpg
   - url: /assets/images/interests/archery_2.jpg
     image_path: /assets/images/interests/archery_2.jpg
-  - url: /assets/images/interests/hackathon_5.jpg
-    image_path: /assets/images/interests/hackathon_5.jpg
   - url: /assets/images/interests/climbing_1.jpg
     image_path: /assets/images/interests/climbing_1.jpg
   - url: /assets/images/interests/hackathon_4.jpg
