@@ -38,7 +38,7 @@ gallery:
     image_path: /assets/images/interests/frisbee_3.jpg
   - url: /assets/images/interests/climbing_5.jpg
     image_path: /assets/images/interests/climbing_5.jpg
-   - url: /assets/images/interests/frisbee_5.JPG
+  - url: /assets/images/interests/frisbee_5.JPG
     image_path: /assets/images/interests/frisbee_5.JPG
   - url: /assets/images/interests/running_4.jpg
     image_path: /assets/images/interests/running_4.jpg
@@ -135,4 +135,3 @@ TV-Shows
 
 
 {% include gallery caption="" %}
-
