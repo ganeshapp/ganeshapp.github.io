@@ -11,6 +11,7 @@ Education
 ======
 * B.E. in Electrical and Electronics, Anna University, 2008
 * MBA in Finance, National University of Singapore, 2017
+* MBA exchange, Korea University, 2017
 * MBA in Operations, Fudan University, 2016
 * Pricing Strategy Specialization, University of Virginia & BCG, 2017
 
@@ -50,23 +51,6 @@ Skills
   * Zeppelin
 * Operations Management
 
-Projects
-======
-  <ul>{% for post in site.projects %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Data Science
-======
-  <ul>{% for post in site.datascience %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
 Service and leadership
 ======
