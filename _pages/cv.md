@@ -12,19 +12,19 @@ Education
 * B.E. in Electrical and Electronics, Anna University, 2008
 * MBA in Finance, National University of Singapore, 2017
 * MBA exchange, Korea University, 2017
-* MBA in Operations, Fudan University, 2016
+* MBA in Operations, Fudan University, 2015
 * Pricing Strategy Specialization, University of Virginia & BCG, 2017
 
 Work experience
 ======
 
-* 2017 - Present: Entrepreneur  
-  * Location: Singapore
+* 2017 - Present: FP&A  
+  * Location: Seoul
 
 * 2015-2017: Management Consultant
   * Location: Shanghai, China and Singapore
 
-* 2012 - 2015: IT Consultant
+* 2012 - 2015: Consultant
   * Location: Singapore
   
 * 2008 - 2012: Senior Software Engineer
@@ -34,10 +34,18 @@ Work experience
 Skills
 ======
 * Financial Planning & Analysis
+* P&L Profitability and Productivity Improvement
+* Strategic and Tactical Planning
+* Pricing Strategy and Analytics
+* Supply Chain and Operational Strategy
+* Go-To-Market Optimization
+* Process Improvement
+* People Development and Team-Building
 * Management Consulting
-* Strategy Development
+* Emerging Markets Development
 * Product Design and execution
 * Program Management
+* New Business-Start up
 * Data Analysis
 * Machine Learning
 * Coding
@@ -50,7 +58,7 @@ Skills
   * Redash
   * Zeppelin
 * Operations Management
-
+* Adaptability to Diverse Business Environments 
   
 Service and leadership
 ======
