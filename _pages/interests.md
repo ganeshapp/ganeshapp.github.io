@@ -22,26 +22,26 @@ gallery:
     image_path: /assets/images/interests/windsurfing.jpg
   - url: /assets/images/interests/kendo.JPG
     image_path: /assets/images/interests/kendo.JPG
+  - url: /assets/images/interests/frisbee_10.JPG
+    image_path: /assets/images/interests/frisbee_10.JPG
   - url: /assets/images/interests/nemo.jpg
     image_path: /assets/images/interests/nemo.jpg
   - url: /assets/images/interests/frisbee_2.jpg
     image_path: /assets/images/interests/frisbee_2.jpg
   - url: /assets/images/interests/archery_2.jpg
     image_path: /assets/images/interests/archery_2.jpg
-  - url: /assets/images/interests/frisbee_10.JPG
-    image_path: /assets/images/interests/frisbee_10.JPG
   - url: /assets/images/interests/running_8.jpg
     image_path: /assets/images/interests/running_8.jpg
   - url: /assets/images/interests/climbing_1.jpg
     image_path: /assets/images/interests/climbing_1.jpg
+  - url: /assets/images/interests/hackathon_4.jpg
+    image_path: /assets/images/interests/hackathon_4.jpg
   - url: /assets/images/interests/climbing_4.jpg
     image_path: /assets/images/interests/climbing_4.jpg
   - url: /assets/images/interests/running_4.jpg
     image_path: /assets/images/interests/running_4.jpg
   - url: /assets/images/interests/climbing_5.jpg
     image_path: /assets/images/interests/climbing_5.jpg
-  - url: /assets/images/interests/hackathon_4.jpg
-    image_path: /assets/images/interests/hackathon_4.jpg
   - url: /assets/images/interests/frisbee_3.jpg
     image_path: /assets/images/interests/frisbee_3.jpg
   - url: /assets/images/interests/frisbee_5.JPG
