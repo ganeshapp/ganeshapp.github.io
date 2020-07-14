@@ -8,7 +8,7 @@ header:
 
 In 2008 I co-organized and took part in The Big Race. Satish, a seasoned traveler and blogger, and I decided to open up an adventure race.
 
-Participants with Rs.1000 (USD $20) and a backpack, were grouped in teams of 2, with starting points either Hyderabad, Bangalore or Chennai.
+Participants with Rs. 1000 (USD $20) and a backpack, were grouped in teams of 2, with starting points either Hyderabad, Bangalore or Chennai.
 
 The challenge was to travel to 10 locations spread across the states of Kerala, Karanataka, Andra Pradesh and Tamil Nadu covering over 5000km, in 15 days with just the Rs. 1000. Your transport, food, accommodation etc. for 15 days have to be managed withing $20.
 
