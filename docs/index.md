@@ -1,11 +1,7 @@
-# Obsidian Notes
+I spend most of my time coding. Not for work. But I just enjoy it more than anything else. Many of the apps/softwares I use are things I built by myself. I would spend 8 hours coding an automation than doing a 10 minute manual work.
 
-Publish your public notes with MkDocs
+I run/bike ultra long distances, play ultimate frisbee with a club and hit the bouldering gym regularly. I also am a PADI certified Dive Master, Star Awared 3 Sea Kayaker. I used to go on kayaking tours and divign trips, but I no longer do both of them. I regularly create accounts on chess.com and lichess.org, get addicted to playing chess, feel guilty and delete my account.
 
-## Hello World!
+I am generally interested in the farming/agricultre space, food-tech space and education space.
 
-The `index.md` in the `/docs` folder is the homepage you see here.
-
-The folders in `/docs` appear as the main sections on the navigation bar.
-
-The notes appear as pages within these sections. For example, [[Note 1]] in `Topic 1`
+Super-skill: I can find stories in numbers/data.

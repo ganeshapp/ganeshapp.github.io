@@ -1,4 +1,7 @@
-site_name: obsidian-mkdocs template
+site_name: GAPP
+site_url: https://www.gapp.in
+site_author: Gapp
+site_description: My personal digital garden
 
 theme:
     name: 'material'
@@ -7,7 +10,7 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: pink
+      primary: indigo
       accent: indigo
       toggle:
         icon: material/toggle-switch-off-outline
@@ -16,8 +19,8 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: pink
-      accent: blue
+      primary: indigo
+      accent: light blue
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -39,29 +42,28 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
 
   - toc:
       permalink: true
+      baselevel: 2
 
 plugins:
   - search
-  - roamlinks
-  - blog
-  - rss:
-      match_path: blog/posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
-
+  - roamlinks 
+  - mermaid2
+      
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js 
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/ganeshapp
+    - icon: fontawesome/brands/square-twitter
+      link: https://twitter.com/sagaro
+
+copyright: Copyright &copy; 2004 - 2023 Ganesh APP
