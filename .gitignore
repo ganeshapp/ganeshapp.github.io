@@ -1,2 +1,7 @@
 .vscode/settings.json
 .obsidian/*
+docs/.obsidian
+docs/.vscode
+docs/.gitignore
+docs/.git
+docs/.obsidian/*
