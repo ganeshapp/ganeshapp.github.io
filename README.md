@@ -5,3 +5,4 @@ My blog
     - git remote add template https://github.com/jobindjohn/obsidian-publish-mkdocs.git
     - git fetch --all
     - git merge template/main --allow-unrelated-histories
+- Settings: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
