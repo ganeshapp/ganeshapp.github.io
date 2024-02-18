@@ -64,7 +64,7 @@ plugins:
   - roamlinks 
   - blog:
       post_url_format: "{slug}"
-   - rss:
+  - rss:
       match_path: blog/posts/.* 
       date_from_meta:
         as_creation: date
