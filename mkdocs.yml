@@ -63,5 +63,7 @@ extra:
       link: https://github.com/ganeshapp
     - icon: fontawesome/brands/square-twitter
       link: https://twitter.com/sagaro
+    - icon: fontawesome/brands/hacker-news
+      link: https://news.ycombinator.com/user?id=sagaro
 
 copyright: Copyright &copy; 2004 - 2024 Ganesh APP
