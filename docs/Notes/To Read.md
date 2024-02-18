@@ -1,4 +1,2 @@
-Math Solutions to interesting problems: https://www.youtube.com/watch?v=PbJaOaXthhk
-
-The decline of friendship: https://www.youtube.com/watch?v=VpOan0hqdNA
-
+- Math Solutions to interesting problems: https://www.youtube.com/watch?v=PbJaOaXthhk
+- The decline of friendship: https://www.youtube.com/watch?v=VpOan0hqdNA

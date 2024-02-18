@@ -1,7 +1,5 @@
-I spend most of my time coding. Not for work. But I just enjoy it more than anything else. Many of the apps/softwares I use are things I built by myself. I would spend 8 hours coding an automation than doing a 10 minute manual work.
+I spend most of my free time coding. Not for work. But I just enjoy it more than anything else. Many of the apps/softwares I use are things I built by myself. I would spend 8 hours coding an automation than doing a 10 minute manual work.
 
-I run/bike ultra long distances, play ultimate frisbee with a club and hit the bouldering gym regularly. I also am a PADI certified Dive Master, Star Awared 3 Sea Kayaker. I used to go on kayaking tours and divign trips, but I no longer do both of them. I regularly create accounts on chess.com and lichess.org, get addicted to playing chess, feel guilty and delete my account.
+I run/bike ultra long distances, play ultimate frisbee with a club and hit the bouldering gym regularly. I used to be into water sports a lot back in 2010 to 2016 in Shanghai/Singapore. I used to play Underwater Hockey twice a week, got my PADI Dive Master Certification after 300 odd Scuba dives (in Malaysia, Indonesia, Philippines etc.), got my Star Award 3 Sea Kayaking certification and logged 1000s of miles of kayaking in the sea visting random islands and camping there, raced Dragon Boat for a club in Shanghai, wind surfed regularly at the sea, and surfed the wves in Bali/Kuta. But I no longer do them and prefer running/biking/climbing over them. I regularly create accounts on chess.com and lichess.org, get addicted to playing chess, feel guilty and delete my account.
 
-I am generally interested in the farming/agricultre space, food-tech space and education space.
-
-Super-skill: I can find stories in numbers/data.
+I am generally interested in the farming/agricultre, food-tech and education space. I love discussing ideas and I can get occupied for many hours just working on logical puzzles, math/physics problems etc. 
