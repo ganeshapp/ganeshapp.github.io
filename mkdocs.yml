@@ -86,5 +86,7 @@ extra:
       link: https://twitter.com/sagaro
     - icon: fontawesome/brands/hacker-news
       link: https://news.ycombinator.com/user?id=sagaro
+    - icon: fontawesome/brands/strava
+      link: https://www.strava.com/athletes/35037865
 
 copyright: Copyright &copy; 2004 - 2024 Ganesh APP
