@@ -3,3 +3,5 @@ I spend most of my free time coding. Not for work, but for the pure joy of solvi
 I run/bike ultra long distances, play ultimate frisbee with a club and hit the bouldering gym regularly. I used to be into water sports a lot back in 2010 to 2016 in Shanghai/Singapore. I used to play Underwater Hockey twice a week, got my PADI Divemaster certification after 300 odd Scuba dives (in Malaysia, Indonesia, Philippines etc.), got my Star Award 3 Sea Kayaking certification and logged 1000s of miles of kayaking in the sea visiting random islands and camping there, raced Dragon Boat for a club in Shanghai, wind surfed regularly at the sea, and surfed the waves in Bali/Lombok. But I no longer do them and prefer running/biking/climbing. I regularly create accounts on chess.com and lichess.org, get addicted to playing chess, feel guilty and delete my account.
 
 I am generally interested in the farming/agriculture, the food-tech and the education space. I love discussing ideas and I can get occupied for many hours just working on logical [puzzles](https://www.gapp.in/games/), math/physics problems etc.
+
+Test
