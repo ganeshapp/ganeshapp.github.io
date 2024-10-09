@@ -3,8 +3,6 @@ date: 2024-10-09
 modified: 2024-10-09
 ---
 
-# # Singapore Legal Hire
-
 So if your parent is a Singaporean and passes away outside Singapore then to claim the estate/property/assets under his/her name is complicated even if you are the legal hire. 
 
 Even if you are his wife and the CPF savings is transferred to you, the other assets won't be transferred to you. 
