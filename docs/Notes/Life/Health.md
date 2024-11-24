@@ -29,7 +29,7 @@ Upper Body:
 - Chest Flys
 - Kickbacks
 
-Core:
+[Core](https://darebee.com/pdf/programs/code-of-abs.pdf):
 
 - Stomach Vacuum
 - Crunches/Situps
@@ -66,6 +66,7 @@ Lower Body:
 - Hamstring Curls
 - Calf Raises
 - Clamshells
+- Kicks (Front, Side, Back)
 
 Back:
 
@@ -75,7 +76,7 @@ Back:
 - Bird Dogs
 - Truck Rotations
 
-Full Body:
+[Full Body](https://darebee.com/pdf/programs/total-body.pdf):
 
 - Burpees
 - Skipping Rope/High Knees
@@ -83,6 +84,7 @@ Full Body:
 - Squat Jumps/Crunches/Leg Lifts
 - Inversion Table
 - Handstands
+- [Avatar Upgrade](https://darebee.com/pdf/programs/avatar-upgrade.pdf)
 
 Sports
 
@@ -94,8 +96,8 @@ Sports
 
 Flexibility
 
-- Animal Flow
-- Yoga
+- [Animal Flow](https://darebee.com/pdf/programs/primal-strength.pdf))
+- [Yoga](https://darebee.com/pdf/programs/30-days-more-of-yoga.pdf)
 - Stretching
 - Foam Rolling
 - Splits
