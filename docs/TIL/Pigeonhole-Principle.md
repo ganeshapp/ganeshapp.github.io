@@ -1,6 +1,8 @@
 ---
 date: 2024-10-09
 modified: 2024-10-09
+tags:
+- math
 ---
 
 # Pigeonhole Principle
