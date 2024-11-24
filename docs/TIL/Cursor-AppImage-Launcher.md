@@ -1,3 +1,11 @@
+---
+date: 2024-11-24
+modified: 2024-11-24
+tags:
+    - Linux
+    - Howto
+---
+
 [Cursor.com](https://www.cursor.com/) provides an AppImage for Linux. But it doesn't provide a launcher for it. So you have to manually run the AppImage file to start Cursor.
 
 To create a launcher for Cursor, you can create a `.desktop` file. 
