@@ -110,6 +110,9 @@ Flexibility
 - Learning something new (Language, Skill, etc.)
     - Duolingo
     - Pimsleur
+    - [Khan Academy](https://www.khanacademy.org/) - Economics Track, Math Track
+    - [Coursera](https://www.coursera.org/)
+    - [3Blue1Brown](https://www.3blue1brown.com/)
 - Mental Math
 - NYT Games (Crosswords, Sudoku, etc.)
 - Chess
