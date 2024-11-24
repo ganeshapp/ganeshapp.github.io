@@ -9,7 +9,7 @@ modified: 2024-10-09
 
 Though this is a simple principle, it is very useful in solving complex problems.
 
-## Example
+## Examples
 
 ### 1. When 5 points are placed on a sphere, at least one hemisphere must contain at least 4 points.
 
@@ -95,3 +95,6 @@ Any person has 5 connections (friends or strangers). By the Pigeonhole Principle
 
 Focus on these 3 connections: If they are friends, they form a triangle of friends. If strangers, the same argument applies.
 
+## Notes
+
+The difficulty is not in understanding the principle, which is quite simple, but in applying it to a given problem. Setting up the "pigeon" and the "pigeonholes" is the hard part. And even identifying if a problem can be solved using the pigeonhole principle is not always obvious.
