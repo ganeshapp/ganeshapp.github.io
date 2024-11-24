@@ -1,6 +1,6 @@
 ---
-date: 2024-10-09
-modified: 2024-10-09
+date: 2024-11-24
+modified: 2024-11-24
 tags:
 - math
 ---
