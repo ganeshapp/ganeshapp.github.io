@@ -1,9 +1,9 @@
 ---
 date: 2024-10-09
-modified: 2024-10-09
+modified: 2024-11-24
+tags:
+    - Howto
 ---
-
-# # Singapore Legal Hire
 
 So if your parent is a Singaporean and passes away outside Singapore then to claim the estate/property/assets under his/her name is complicated even if you are the legal hire. 
 
