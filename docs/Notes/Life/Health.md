@@ -108,10 +108,20 @@ Flexibility
 - Blogging/Journaling
 - Reading (preferably non-fiction)
 - Learning something new (Language, Skill, etc.)
+    - Duolingo
+    - Pimsleur
 - Mental Math
 - NYT Games (Crosswords, Sudoku, etc.)
 - Chess
 - Memorization
+- Coding
+    - [Advent of Code](https://adventofcode.com/)
+    - [Exercism](https://exercism.io/)
+    - [Boot.dev](https://boot.dev/)
+    - [Project Euler](https://projecteuler.net/)
+    - [USACO](https://usaco.org/)
+    - [Kaggle](https://www.kaggle.com/)
+    - [Codewars](https://www.codewars.com/)
 
 ## Diet
 
