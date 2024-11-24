@@ -5,8 +5,6 @@ tags:
 - math
 ---
 
-# Pigeonhole Principle
-
 > If you have more pigeons than pigeonholes, at least one pigeonhole must contain more than one pigeon.
 
 Though this is a simple principle, it is very useful in solving complex problems.
