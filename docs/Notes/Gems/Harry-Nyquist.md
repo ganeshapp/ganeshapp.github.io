@@ -12,4 +12,4 @@ Turns out, the one thing these productive geniuses had in common (besides being 
 
 Now, Harry wasn’t out here handing people ideas on a silver platter. But what he did do was get people talking, thinking, and sparking ideas just by being curious and encouraging. One scientist said, “He drew people out, got them thinking.”
 
-Meet people in small groups, discuss ideas (not people or events), stretch the ideas with hypotheticals and exagerrations, and bounce them off each other. This also plays into the [Ads 2.0 philosophy](https://www.gapp.in/Notes/Startup/Ads%202.0%20Philosophy/).
+Be Harry.Meet people in small groups, discuss ideas (not people or events), stretch the ideas with hypotheticals and exagerrations, and bounce them off each other. This also plays into the [Ads 2.0 philosophy](https://www.gapp.in/Notes/Startup/Ads%202.0%20Philosophy/).
