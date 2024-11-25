@@ -1,7 +1,7 @@
 site_name: GAPP
 site_url: https://www.gapp.in
 site_author: Gapp
-site_description: My personal digital garden
+site_description: Gapp's personal digital garden
 
 theme:
     name: 'material'
