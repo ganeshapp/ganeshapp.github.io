@@ -1,1 +1,10 @@
 media: docs/assets
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: docs/blog/posts
+    fields:
+      - {name: date, label: Date, type: date }
+      - {name: body, label: Body, type: rich-text }
+    
