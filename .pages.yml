@@ -5,7 +5,7 @@ content:
     type: collection
     path: docs/blog/posts
     view:
-      fields: [ body, date ]
+      fields: [ filename, date ]
     fields:
       - {name: date, label: Date, type: date }
       - {name: body, label: Body, type: rich-text }
