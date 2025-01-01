@@ -6,7 +6,7 @@ content:
     label: Posts
     type: collection
     path: docs/blog/posts
-    filename: "{fields.date}.md"
+    filename: "{year}-{month}-{day}.md"
     view:
       fields: [ body, date ]
     fields:
