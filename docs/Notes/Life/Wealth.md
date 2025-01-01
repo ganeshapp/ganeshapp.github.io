@@ -1,1 +1,4 @@
-![[../../assets/Wealth.png]]
+---
+title: Wealth
+---
+!\[\[../../assets/Wealth.png\]\]
