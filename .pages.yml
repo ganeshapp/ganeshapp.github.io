@@ -4,8 +4,9 @@ content:
     label: Posts
     type: collection
     path: docs/blog/posts
+    filename: "{date}.md"
     view:
-      fields: [ filename, date ]
+      fields: [ body, date ]
     fields:
       - {name: date, label: Date, type: date }
       - {name: body, label: Body, type: rich-text }
