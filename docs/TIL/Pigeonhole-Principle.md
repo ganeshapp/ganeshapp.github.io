@@ -1,6 +1,8 @@
 ---
 title: Pigeonhole Principle
 date: 2024-11-24
+tags: 
+- Math
 ---
 > If you have more pigeons than pigeonholes, at least one pigeonhole must contain more than one pigeon.
 

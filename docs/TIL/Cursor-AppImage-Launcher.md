@@ -1,7 +1,9 @@
 ---
 title: Cursor Appimage Launcher
 date: 2024-11-24
-tags: Linux
+tags: 
+- Linux
+- Coding
 ---
 [Cursor.com](https://www.cursor.com/) provides an AppImage for Linux. But it doesn't provide a launcher for it. So you have to manually run the AppImage file to start Cursor.
 
