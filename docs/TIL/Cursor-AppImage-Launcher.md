@@ -23,9 +23,47 @@ To create a launcher for Cursor, you can create a `.desktop` file.
 ```ini
 [Desktop Entry]
 Name=Cursor
-Exec=~/Applications/cursor.AppImage
-Icon=~/Applications/cursor.png
+Exec=home/user/Applications/cursor.AppImage
+Icon=home/user/Applications/cursor.png
 Terminal=false
 Type=Application
 Categories=Development;
 ```
+
+7. If the icon is not showing up in the application menu, try running
+
+```
+xdg-desktop-menu install cursor.desktop
+```
+
+8. If the icon is still not showing up, try running
+
+```
+xdg-desktop-menu forceupdate
+```
+
+9. If the icon is showing up as a gear icon, then you will first have to do the following:
+
+First run the appimage file to get the `WM_CLASS` value. Once it is open go to terminal and run
+
+```
+xprop WM_CLASS
+```
+
+Then click on the gear icon of the application and then click somewhere else in the application. You should see the `WM_CLASS` value in the terminal.
+
+Then go back to the `.desktop` file and replace the `WM_CLASS` value with the value you saw in the terminal.
+
+Example:
+
+```
+[Desktop Entry]
+Name=LM Studio
+Exec=/home/gapp/Applications/lmstudio.AppImage
+Icon=/home/gapp/Applications/lmstudio.png
+StartupWMClass=LM Studio
+Type=Application
+Terminal=false
+```
+
+
