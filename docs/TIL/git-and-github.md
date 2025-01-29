@@ -16,7 +16,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     2. Configure Git
         - After installation, set up your username and email (used in commits):
         
-            ```bash
+            ```
             # Set your Git username
             git config --global user.name "Your Name"
             
@@ -26,7 +26,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     3. Verify Configuration
 
-            ```bash
+            ```
             git config --list
             ```
 
@@ -35,48 +35,48 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     1. Initialize a Repository
         - Start tracking a project with Git:
 
-            ```bash
+            ```
             git init
             ```
 
     2. Clone a Repository
         - Download a repository from GitHub to your local machine:
 
-            ```bash
+            ```
             git clone <repository_url>
             ```
 
     3. Check the Repository Status
         - See changes in your working directory:
 
-            ```bash
+            ```
             git status
             ```
 
     4. Stage Changes
         - Add files to the staging area:
 
-            ```bash
+            ```
             git add <file_name>
             ```
 
         - To add all files:
 
-            ```bash
+            ```
             git add .
             ```
 
     5. Commit Changes
         - Save staged changes with a message:
 
-            ```bash
+            ```
             git commit -m "Your commit message"
             ```
 
     6. View Commit History
         - See a list of commits:
 
-            ```bash
+            ```
             git log
             ```
 
@@ -85,28 +85,28 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     1. Create a Branch
         - Create a new branch:
 
-            ```bash
+            ```
             git branch <branch_name>
             ```
 
     2. Switch to a Branch
         - Move to another branch:
 
-            ```bash
+            ```
             git checkout <branch_name>
             ```
 
     3. Merge a Branch
         - Combine changes from another branch:
 
-            ```bash
+            ```
             git merge <branch_name>
             ```
 
     4. Delete a Branch
         - Remove a branch (after merging):
 
-            ```bash
+            ```
             git branch -d <branch_name>
             ```
 
@@ -115,21 +115,21 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     1. Connect to a Remote Repository
         - Add a GitHub repository:
 
-            ```bash
+            ```
             git remote add origin <repository_url>
             ```
 
     2. Push Changes to GitHub
         - Upload your commits to GitHub:
 
-            ```bash
+            ```
             git push origin <branch_name>
             ```
 
     3. Pull Changes from GitHub
         - Download changes made by others:
 
-            ```bash
+            ```
             git pull origin <branch_name>
             ```
 
@@ -140,13 +140,13 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     2. Open the conflicting files and resolve the differences.
     3. After resolving, stage the files:
 
-            ```bash
+            ```
             git add <file_name>
             ```
 
     4. Complete the merge:
 
-            ```bash
+            ```
             git commit
             ```
 
@@ -166,14 +166,14 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     1. Discard Local Changes
         - Discard changes in a file:
 
-            ```bash
+            ```
             git checkout -- <file_name>
             ```
 
     2. Remove a File from Staging Area
         - Remove a file from the staging area:
 
-            ```bash
+            ```
             git reset <file_name>
             ```
 
@@ -181,14 +181,14 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     3. Undo the Last Commit (Keep Changes)
         - Keep changes in the working directory:
 
-            ```bash
+            ```
             git reset --soft HEAD~1
             ```
 
     4. Undo the Last Commit (Discard Changes)
         - Discard changes in the working directory:
 
-            ```bash
+            ```
             git reset --hard HEAD~1
             ```
 
@@ -204,25 +204,25 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 1. Scenario: Create a Feature Branch and Push to GitHub
     1. Create and switch to a new branch:
 
-            ```bash
+            ```
             git checkout -b feature/new-feature
             ```
 
     2. Make changes and stage them:
 
-            ```bash
+            ```
             git add .
             ```
 
     3. Commit the changes:
 
-            ```bash
+            ```
             git commit -m "Add new feature"
             ```
 
     4. Push the branch to GitHub:
 
-            ```bash
+            ```
             git push origin feature/new-feature
             ```
 
@@ -230,7 +230,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     1. Pull changes from the main branch:
 
-            ```bash
+            ```
             git pull origin main
             ```
 
@@ -238,7 +238,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     3. Edit the files to resolve conflicts.
     4. Stage and commit the resolved files:
 
-            ```bash
+            ```
             git add .
             git commit
             ```
@@ -267,7 +267,7 @@ You come across an open-source project on GitHub and notice an open issue that y
 
     1. Comment on the issue to let others know you are working on it. Example comment:
 
-            ```bash
+            ```
             Hi, I’d like to work on this issue. Assign it to me if possible!
             ```
 
@@ -282,13 +282,13 @@ You come across an open-source project on GitHub and notice an open issue that y
     1. Copy the forked repository’s URL (found under the green Code button).
     2. Clone it to your local machine:
 
-            ```bash
+            ```
             git clone <forked_repository_url>
             ```
 
     2. Navigate into the project directory:
 
-            ```bash
+            ```
             cd <repository_name>
             ```
 
@@ -296,13 +296,13 @@ You come across an open-source project on GitHub and notice an open issue that y
 
     1. Create and switch to a new branch for your work:
 
-            ```bash
+            ```
             git checkout -b fix/issue-<issue_number>
             ```
 
     2. Example: If the issue number is 42:
 
-            ```bash
+            ```
             git checkout -b fix/issue-42
             ```
 
@@ -316,19 +316,19 @@ You come across an open-source project on GitHub and notice an open issue that y
 
     1. Stage the changes you’ve made:
 
-            ```bash
+            ```
             git add .
             ```
 
     2. Commit your changes with a descriptive message:
 
-            ```bash
+            ```
             git commit -m "Fix issue #<issue_number>: <short_description>"
             ```
 
     3. Example:
 
-            ```bash
+            ```
             git commit -m "Fix issue #42: Resolve incorrect calculation in the stats module"
             ```
 
@@ -336,7 +336,7 @@ You come across an open-source project on GitHub and notice an open issue that y
 
     1. Push your branch to your forked repository on GitHub:
 
-            ```bash
+            ```
             git push origin fix/issue-<issue_number>
             ```
 
@@ -347,7 +347,7 @@ You come across an open-source project on GitHub and notice an open issue that y
     3. Choose your forked branch as the source and the original repository’s branch (usually main or master) as the target.
     4. Add a clear title and description for your pull request. Example:
 
-            ```bash
+            ```
             Fix issue #42: Resolve incorrect calculation in the stats module
             ```
 
@@ -364,7 +364,7 @@ You come across an open-source project on GitHub and notice an open issue that y
         - Make the changes in your local branch.
         - Stage, commit, and push the updates:
 
-                ```bash
+                ```
                 git add .
                 git commit -m "Address feedback for issue #<issue_number>"
                 git push origin fix/issue-<issue_number>
@@ -378,7 +378,7 @@ You come across an open-source project on GitHub and notice an open issue that y
     2. Delete your branch locally and on GitHub if it's no longer needed:
         - Locally:
 
-                ```bash
+                ```
                 git branch -d fix/issue-<issue_number>
                 ```
 
@@ -388,7 +388,7 @@ You come across an open-source project on GitHub and notice an open issue that y
 
 1. Always pull the latest changes from the original repository before starting work:
 
-        ```bash
+        ```
         git remote add upstream <original_repository_url>
         git pull upstream main
         ```
@@ -415,7 +415,7 @@ You’re working in a company, and a teammate reports a bug in the project you�
 
     1. Ensure your local repository is up to date:
 
-            ```bash
+            ```
             git checkout main
             git pull origin main
             ```
@@ -424,13 +424,13 @@ You’re working in a company, and a teammate reports a bug in the project you�
 
     1. Create a new branch for your fix:
 
-            ```bash
+            ```
             git checkout -b bugfix/<issue-description>
             ```
 
     2. Example:
 
-            ```bash
+            ```
             git checkout -b bugfix/fix-user-login
             ```
 
@@ -440,7 +440,7 @@ You’re working in a company, and a teammate reports a bug in the project you�
     2. Fix the issue and test your changes locally.
     3. Run the project's test suite to confirm that your fix doesn’t break anything else:
 
-            ```bash
+            ```
             npm test   # Example for a Node.js project
             ```
 
@@ -448,14 +448,14 @@ You’re working in a company, and a teammate reports a bug in the project you�
 
     1. Stage and commit the changes:
        
-            ```bash
+            ```
             git add .
             git commit -m "Fix: Resolve user login issue caused by token expiration logic"
             ```
 
     2. Push your branch to the repository:
 
-            ```bash
+            ```
             git push origin bugfix/fix-user-login
             ```
 
@@ -476,7 +476,7 @@ You’re working in a company, and a teammate reports a bug in the project you�
         - Make them in your branch.
         - Push updates:
 
-            ```bash
+            ```
             git add .
             git commit -m "Refactor: Address PR feedback for login issue"
             git push origin bugfix/fix-user-login
@@ -488,13 +488,13 @@ You’re working in a company, and a teammate reports a bug in the project you�
 
     1. Delete your local branch:
         
-            ```bash
+            ```
             git branch -d bugfix/fix-user-login
             ```
 
     2. Pull the latest main branch for future work:
        
-            ```bash
+            ```
             git pull origin main
             ```
 
@@ -515,7 +515,7 @@ Your product manager requests a new feature. The feature is small enough for you
 
     1. Start by updating your local repository:
         
-            ```bash
+            ```
             git checkout main
             git pull origin main
             ```
@@ -524,13 +524,13 @@ Your product manager requests a new feature. The feature is small enough for you
 
     1. Create a branch for the feature:
         
-            ```bash
+            ```
             git checkout -b feature/<feature-description>
             ```
 
     2. Example:
         
-            ```bash
+            ```
             git checkout -b feature/add-dark-mode
             ```
 
@@ -544,14 +544,14 @@ Your product manager requests a new feature. The feature is small enough for you
 
     1. Stage and commit your changes:
        
-            ```bash
+            ```
             git add .
             git commit -m "Feat: Add dark mode functionality"
             ```
 
     2. Push the branch:
        
-            ```bash
+            ```
             git push origin feature/add-dark-mode
             ```
 
@@ -585,7 +585,7 @@ You’re trying to merge your branch into main, but Git reports a merge conflict
 
     1. Pull the latest main branch into your branch:
         
-            ```bash
+            ```
             git pull origin main
             ```
 
@@ -593,13 +593,13 @@ You’re trying to merge your branch into main, but Git reports a merge conflict
 
     1. Git will list the files with conflicts. Example:
         
-            ```bash
+            ```
             CONFLICT (content): Merge conflict in index.html
             ```
 
     2. Open the conflicting files in your editor. Git marks conflicts with:
         
-            ```bash
+            ```
             <<<<<<< HEAD
             Your changes
             =======
@@ -616,13 +616,13 @@ You’re trying to merge your branch into main, but Git reports a merge conflict
 
     1. Once resolved, stage the files:
         
-            ```bash
+            ```
             git add <file_name>
             ```
 
     2. Commit the resolution:
         
-            ```bash
+            ```
             git commit -m "Resolve merge conflict in <file_name>"
             ```
 
@@ -630,7 +630,7 @@ You’re trying to merge your branch into main, but Git reports a merge conflict
 
     1. Push your branch with the resolved conflicts:
         
-            ```bash
+            ```
             git push origin <branch_name>
             ```
 
@@ -646,13 +646,13 @@ You’re working on a feature branch, but the main branch has received several u
 
     1. Switch to the main branch:
         
-            ```bash
+            ```
             git checkout main
             ```
 
     2. Pull the latest updates:
         
-            ```bash
+            ```
             git pull origin main
             ```
 
@@ -660,13 +660,13 @@ You’re working on a feature branch, but the main branch has received several u
 
     1. Switch back to your feature branch:
         
-            ```bash
+            ```
             git checkout feature/<branch_name>
             ```
 
     2. Rebase onto main:
         
-            ```bash
+            ```
             git rebase main
             ```
 
@@ -675,13 +675,13 @@ You’re working on a feature branch, but the main branch has received several u
     1. If conflicts occur, Git will pause the rebase and notify you.
     2. Open the conflicting files, resolve the conflicts, and stage them:
         
-            ```bash
+            ```
             git add <file_name>
             ```
 
     3. Continue the rebase:
         
-            ```bash
+            ```
             git rebase --continue
             ```
 
@@ -689,7 +689,7 @@ You’re working on a feature branch, but the main branch has received several u
 
     1. After rebasing, force-push your branch (required because the history has changed):
         
-            ```bash
+            ```
             git push origin feature/<branch_name> --force
             ```
 
@@ -706,7 +706,7 @@ You’ve made multiple commits while working on a feature, but some of them are 
 
     1. Check the number of commits in your branch:
         
-            ```bash
+            ```
             git log --oneline
             ```
 
@@ -714,13 +714,13 @@ You’ve made multiple commits while working on a feature, but some of them are 
 
     1. Rebase your branch interactively to squash commits:
         
-            ```bash
+            ```
             git rebase -i HEAD~<number_of_commits>
             ```
 
     2. Example: To squash the last 3 commits:
         
-            ```bash
+            ```
             git rebase -i HEAD~3
             ```
 
@@ -728,7 +728,7 @@ You’ve made multiple commits while working on a feature, but some of them are 
 
     1. In the rebase editor, mark the first commit as pick and the others as squash:
         
-            ```bash
+            ```
             pick 123abc First commit message
             squash 456def Second commit message
             squash 789ghi Third commit message
@@ -744,7 +744,7 @@ You’ve made multiple commits while working on a feature, but some of them are 
 
     1. After rebasing, force-push your branch (required because the history has changed):
         
-            ```bash
+            ```
             git push origin feature/<branch_name> --force
             ```
 
@@ -758,27 +758,27 @@ You accidentally committed changes you didn’t want to include. Depending on th
 
 Option 1: Undo the Last Commit (Keep Changes Locally)
 
-    1. Check the number of commits in your branch:
+1. Check the number of commits in your branch:
         
-            ```bash
-            git log --oneline
-            ```
+        ```
+        git log --oneline
+        ```
 
 Option 2: Undo the Last Commit (Discard Changes)
 
-    1. If you want to completely discard the changes:
+1. If you want to completely discard the changes:
         
-            ```bash
-            git reset --hard HEAD~1
-            ```
+        ```
+        git reset --hard HEAD~1
+        ```
 
 Option 3: Undo a Specific Commit (Without Rewriting History)
 
-    1. If the commit is already pushed, create a new commit to undo it:
+1. If the commit is already pushed, create a new commit to undo it:
         
-            ```bash
-            git revert <commit_hash>
-            ```
+        ```
+        git revert <commit_hash>
+        ```
 
 ### Scenario 8: Managing a Stuck Pull Request
 
@@ -792,7 +792,7 @@ You opened a pull request, but the reviewers requested several changes, and it�
 
     1. Pull updates from the main branch into your branch:
         
-            ```bash
+            ```
             git checkout feature/<branch_name>
             git pull origin main
             ```
@@ -802,7 +802,7 @@ You opened a pull request, but the reviewers requested several changes, and it�
     1. Address all feedback from the reviewers.
     2. Stage and commit your changes:
         
-            ```bash
+            ```
             git add .
             git commit -m "Refactor: Address PR feedback"
             ```
@@ -811,7 +811,7 @@ You opened a pull request, but the reviewers requested several changes, and it�
 
     1. Push the changes to your branch. This will update the pull request automatically:
         
-            ```bash
+            ```
             git push origin feature/<branch_name>
             ```
 
@@ -832,14 +832,14 @@ You’re starting a new project from scratch and want to set up a Git repository
 
     1. Create a new directory and navigate into it:
         
-            ```bash
+            ```
             mkdir <project_name>
             cd <project_name>
             ```
 
     2. Initialize Git:
         
-            ```bash
+            ```
             git init
             ```
 
@@ -848,7 +848,7 @@ You’re starting a new project from scratch and want to set up a Git repository
     1. Create a file (e.g., README.md) and add some content.
     2. Stage and commit the file:
         
-            ```bash
+            ```
             git add README.md
             git commit -m "Initial commit"
             ```
@@ -862,13 +862,13 @@ You’re starting a new project from scratch and want to set up a Git repository
 
     1. Add the GitHub repository as a remote:
         
-            ```bash
+            ```
             git remote add origin <repository_url>
             ```
 
     2. Push your local repository to GitHub:
         
-            ```bash
+            ```
             git push -u origin main
             ```
 
@@ -884,7 +884,7 @@ You need to apply a specific commit from one branch to another without merging t
 
     1. Get the commit hash from the git log:
         
-            ```bash
+            ```
             git log --oneline
             ```
 
@@ -892,7 +892,7 @@ You need to apply a specific commit from one branch to another without merging t
 
     1. Checkout the branch where you want to apply the commit:
         
-            ```bash
+            ```
             git checkout <target_branch>
             ```
 
@@ -900,7 +900,7 @@ You need to apply a specific commit from one branch to another without merging t
 
     1. Apply the commit to your current branch:
         
-            ```bash
+            ```
             git cherry-pick <commit_hash>
             ```
 
@@ -908,7 +908,7 @@ You need to apply a specific commit from one branch to another without merging t
 
     1. If there are conflicts, resolve them, then stage and commit:
         
-            ```bash
+            ```
             git add <file_name>
             git cherry-pick --continue
             ```
@@ -930,7 +930,7 @@ You deployed a buggy version of your app and need to roll back to the previous s
 
     1. Hard reset your branch to the stable commit:
         
-            ```bash
+            ```
             git reset --hard <stable_commit_hash>
             ```
 
@@ -938,7 +938,7 @@ You deployed a buggy version of your app and need to roll back to the previous s
 
     1. Force-push the rollback to the remote branch:
         
-            ```bash
+            ```
             git push origin main --force
             ```
 
@@ -958,19 +958,19 @@ You need to add a large file (e.g., a dataset or media file) to your repository,
 
     1. Install Git LFS:
         
-            ```bash
+            ```
             git lfs install
             ```
 
     2. Track the large file type:
         
-            ```bash
+            ```
             git lfs track "*.mp4"  # Replace with your file type
             ```
 
     3. Stage the .gitattributes file created by Git LFS:
         
-            ```bash
+            ```
             git add .gitattributes
             ```
 
@@ -978,14 +978,14 @@ You need to add a large file (e.g., a dataset or media file) to your repository,
 
     1. Add the large file as usual:
         
-            ```bash
+            ```
             git add large_file.mp4
             git commit -m "Add large video file"
             ```
 
     2. Push the Changes:
         
-            ```bash
+            ```
             git push origin main
             ```
 
@@ -1005,7 +1005,7 @@ You accidentally deleted a file and committed the deletion. Now you need to reco
 
     1. Use git log to locate the commit where the file was last present:
         
-            ```bash
+            ```
             git log -- <file_name>
             ```
 
@@ -1013,13 +1013,13 @@ You accidentally deleted a file and committed the deletion. Now you need to reco
 
     1. Restore the file from the commit:
         
-            ```bash
+            ```
             git checkout <commit_hash> -- <file_name>
             ```
 
     2. Example:
         
-            ```bash
+            ```
             git checkout HEAD~1 -- src/config.json
             ```
 
@@ -1027,7 +1027,7 @@ You accidentally deleted a file and committed the deletion. Now you need to reco
 
     1. Stage and commit the restored file:
         
-            ```bash
+            ```
             git add <file_name>
             git commit -m "Restore deleted file: <file_name>"
             ```
@@ -1045,12 +1045,12 @@ You’re joining a new team and need to clone the project repository to your loc
     1. Get the repository URL (from GitHub, GitLab, etc.).
     2. Clone the repository:
         
-            ```bash
+            ```
             git clone <repository_url>
             ```
     3. Navigate into the Repository Directory
         
-            ```bash
+            ```
             cd <repository_name>
             ```
 
@@ -1059,7 +1059,7 @@ You’re joining a new team and need to clone the project repository to your loc
     1. Follow the setup instructions in the README.md file.
         - Install dependencies:
             
-                ```bash
+                ```
                 npm install  # Example for Node.js
                 ```
 
@@ -1070,7 +1070,7 @@ You’re joining a new team and need to clone the project repository to your loc
 
     1. Run the project locally to ensure it works:
         
-            ```bash
+            ```
             npm start  # Example for a Node.js project
             ```
 
@@ -1088,7 +1088,7 @@ A pull request was merged into main, but it introduced a critical bug. You need 
 
     1. Identify the merge commit hash using:
         
-            ```bash
+            ```
             git log --oneline
             ```
 
@@ -1098,7 +1098,7 @@ A pull request was merged into main, but it introduced a critical bug. You need 
 
     1. Use the git revert command:
         
-            ```bash
+            ```
             git revert -m 1 <merge_commit_hash>
             ```
 
@@ -1108,7 +1108,7 @@ A pull request was merged into main, but it introduced a critical bug. You need 
 
     1. Push the changes to the remote repository:
         
-            ```bash
+            ```
             git push origin main
             ```
 
@@ -1124,7 +1124,7 @@ Your team is preparing for a new release, and you need to create a dedicated bra
 
     1. Ensure your main branch is up to date:
         
-            ```bash
+            ```
             git checkout main
             git pull origin main
             ```
@@ -1133,13 +1133,13 @@ Your team is preparing for a new release, and you need to create a dedicated bra
 
     1. Create and switch to a new branch:
         
-            ```bash
+            ```
             git checkout -b release/<version_number>
             ```
 
         Example:
         
-            ```bash
+            ```
             git checkout -b release/v1.2.0
             ```
 
@@ -1156,20 +1156,20 @@ Your team is preparing for a new release, and you need to create a dedicated bra
 
     1. Once the release is ready, merge it into main:
         
-            ```bash
+            ```
             git checkout main
             git merge release/<version_number>
             ```
 
     2. Create a tag for the release:
         
-            ```bash
+            ```
             git tag -a v1.2.0 -m "Release version 1.2.0"
             ```
 
     3. Push the tag:
         
-            ```bash
+            ```
             git push origin v1.2.0
             ```
 
@@ -1185,7 +1185,7 @@ You accidentally checked out a commit instead of a branch, and now you’re in a
 
     1. Confirm you’re in a detached HEAD state:
         
-            ```bash
+            ```
             git status
             ```
 
@@ -1193,13 +1193,13 @@ You accidentally checked out a commit instead of a branch, and now you’re in a
 
     1. Create and switch to a new branch to save your changes:
         
-            ```bash
+            ```
             git checkout -b <new_branch_name>
             ```
 
     2. Example:
         
-            ```bash
+            ```
             git checkout -b hotfix/detached-head
             ```
 
@@ -1207,7 +1207,7 @@ You accidentally checked out a commit instead of a branch, and now you’re in a
 
     1. Your changes are now safe in the new branch. Commit them as usual:
         
-            ```bash
+            ```
             git add .
             git commit -m "Fix: Resolve detached HEAD state"
             ```
@@ -1224,7 +1224,7 @@ A bug has been introduced, and you need to identify which commit caused it using
 
     1. Start the bisect process:
         
-            ```bash
+            ```
             git bisect start
             ```
 
@@ -1232,13 +1232,13 @@ A bug has been introduced, and you need to identify which commit caused it using
 
     1. Mark the current commit as bad:
         
-            ```bash
+            ```
             git bisect bad
             ```
 
     2. Mark an older commit as good (where the bug didn’t exist):
         
-            ```bash
+            ```
             git bisect good <commit_hash>
             ```
 
@@ -1246,7 +1246,7 @@ A bug has been introduced, and you need to identify which commit caused it using
 
     1. Git will automatically check out a commit. Test the code to determine if the bug is present.
         
-            ```bash
+            ```
             git bisect good   # If the bug is NOT present
             git bisect bad    # If the bug IS present
             ```
@@ -1255,6 +1255,6 @@ A bug has been introduced, and you need to identify which commit caused it using
 
     1. Git will narrow down the commit range until it identifies the problematic commit.
         
-            ```bash
+            ```
             git bisect reset
             ```
