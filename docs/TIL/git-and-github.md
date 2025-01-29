@@ -15,12 +15,14 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     2. Configure Git
         - After installation, set up your username and email (used in commits):
+        
         ```bash
         git config --global user.name "Your Name"
         git config --global user.email "your.email@example.com"
         ```
 
     3. Verify Configuration
+
         ```bash
         git config --list
         ```
@@ -29,40 +31,47 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     1. Initialize a Repository
         - Start tracking a project with Git:
+
         ```bash
         git init
         ```
 
     2. Clone a Repository
         - Download a repository from GitHub to your local machine:
+
         ```bash
         git clone <repository_url>
         ```
 
     3. Check the Repository Status
         - See changes in your working directory:
+
         ```bash
         git status
         ```
 
     4. Stage Changes
         - Add files to the staging area:
+
         ```bash
         git add <file_name>
         ```
         - To add all files:
+
         ```bash
         git add .
         ```
 
     5. Commit Changes
         - Save staged changes with a message:
+
         ```bash
         git commit -m "Your commit message"
         ```
 
     6. View Commit History
         - See a list of commits:
+
         ```bash
         git log
         ```
@@ -71,24 +80,28 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     1. Create a Branch
         - Create a new branch:
+
         ```bash
         git branch <branch_name>
         ```
 
     2. Switch to a Branch
         - Move to another branch:
+
         ```bash
         git checkout <branch_name>
         ```
 
     3. Merge a Branch
         - Combine changes from another branch:
+
         ```bash
         git merge <branch_name>
         ```
 
     4. Delete a Branch
         - Remove a branch (after merging):
+
         ```bash
         git branch -d <branch_name>
         ```
@@ -97,18 +110,21 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     1. Connect to a Remote Repository
         - Add a GitHub repository:
+
         ```bash
         git remote add origin <repository_url>
         ```
 
     2. Push Changes to GitHub
         - Upload your commits to GitHub:
+
         ```bash
         git push origin <branch_name>
         ```
 
     3. Pull Changes from GitHub
         - Download changes made by others:
+
         ```bash
         git pull origin <branch_name>
         ```
@@ -119,10 +135,12 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     1. When you encounter a merge conflict, Git will notify you.
     2. Open the conflicting files and resolve the differences.
     3. After resolving, stage the files:
+
         ```bash
         git add <file_name>
         ```
     4. Complete the merge:
+
         ```bash
         git commit
         ```
@@ -142,12 +160,14 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     1. Discard Local Changes
         - Discard changes in a file:
+
         ```bash
         git checkout -- <file_name>
         ```
 
     2. Remove a File from Staging Area
         - Remove a file from the staging area:
+
         ```bash
         git reset <file_name>
         ```
@@ -155,12 +175,14 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
     3. Undo the Last Commit (Keep Changes)
         - Keep changes in the working directory:
+
         ```bash
         git reset --soft HEAD~1
         ```
 
     4. Undo the Last Commit (Discard Changes)
         - Discard changes in the working directory:
+
         ```bash
         git reset --hard HEAD~1
         ```
@@ -176,21 +198,25 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 
 1. Scenario: Create a Feature Branch and Push to GitHub
     1. Create and switch to a new branch:
+
         ```bash
         git checkout -b feature/new-feature
         ```
 
     2. Make changes and stage them:
+
         ```bash
         git add .
         ```
 
     3. Commit the changes:
+
         ```bash
         git commit -m "Add new feature"
         ```
 
     4. Push the branch to GitHub:
+
         ```bash
         git push origin feature/new-feature
         ```
@@ -198,6 +224,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
 2. Scenario: Resolve a Merge Conflict
 
     1. Pull changes from the main branch:
+
         ```bash
         git pull origin main
         ```
@@ -205,6 +232,7 @@ Git and Github are tools that help you manage your code. Below is pretty much ev
     2. Git will highlight conflicting files.
     3. Edit the files to resolve conflicts.
     4. Stage and commit the resolved files:
+
         ```bash
         git add .
         git commit
@@ -233,6 +261,7 @@ You come across an open-source project on GitHub and notice an open issue that y
 2. Communicate Your Intent
 
     1. Comment on the issue to let others know you are working on it. Example comment:
+
         ```bash
         Hi, I’d like to work on this issue. Assign it to me if possible!
         ```
@@ -247,11 +276,13 @@ You come across an open-source project on GitHub and notice an open issue that y
 
     1. Copy the forked repository’s URL (found under the green Code button).
     2. Clone it to your local machine:
+
         ```bash
         git clone <forked_repository_url>
         ```
 
     2. Navigate into the project directory:
+
         ```bash
         cd <repository_name>
         ```
@@ -259,11 +290,13 @@ You come across an open-source project on GitHub and notice an open issue that y
 5. Create a New Branch
 
     1. Create and switch to a new branch for your work:
+
         ```bash
         git checkout -b fix/issue-<issue_number>
         ```
 
     2. Example: If the issue number is 42:
+
         ```bash
         git checkout -b fix/issue-42
         ```
@@ -277,16 +310,19 @@ You come across an open-source project on GitHub and notice an open issue that y
 7. Stage and Commit Your Changes
 
     1. Stage the changes you’ve made:
+
         ```bash
         git add .
         ```
 
     2. Commit your changes with a descriptive message:
+
         ```bash
         git commit -m "Fix issue #<issue_number>: <short_description>"
         ```
 
     3. Example:
+
         ```bash
         git commit -m "Fix issue #42: Resolve incorrect calculation in the stats module"
         ```
@@ -294,6 +330,7 @@ You come across an open-source project on GitHub and notice an open issue that y
 8. Push the Changes to Your Fork
 
     1. Push your branch to your forked repository on GitHub:
+
         ```bash
         git push origin fix/issue-<issue_number>
         ```
@@ -304,6 +341,7 @@ You come across an open-source project on GitHub and notice an open issue that y
     2. Click the Pull Requests tab and then click New Pull Request.
     3. Choose your forked branch as the source and the original repository’s branch (usually main or master) as the target.
     4. Add a clear title and description for your pull request. Example:
+
         ```bash
         Fix issue #42: Resolve incorrect calculation in the stats module
         ```
@@ -320,6 +358,7 @@ You come across an open-source project on GitHub and notice an open issue that y
     2. If they request changes:
         - Make the changes in your local branch.
         - Stage, commit, and push the updates:
+
         ```bash
         git add .
         git commit -m "Address feedback for issue #<issue_number>"
@@ -333,14 +372,17 @@ You come across an open-source project on GitHub and notice an open issue that y
     1. Once your PR is merged, celebrate your contribution!
     2. Delete your branch locally and on GitHub if it's no longer needed:
         - Locally:
+
         ```bash
         git branch -d fix/issue-<issue_number>
         ```
+
         - On GitHub: Go to the forked repository, navigate to Branches, and delete the branch.
 
 **Notes for Best Practices**
 
     1. Always pull the latest changes from the original repository before starting work:
+
         ```bash
         git remote add upstream <original_repository_url>
         git pull upstream main
@@ -366,6 +408,7 @@ You’re working in a company, and a teammate reports a bug in the project you�
 2. Pull the Latest Changes
 
     1. Ensure your local repository is up to date:
+
         ```bash
         git checkout main
         git pull origin main
@@ -374,11 +417,13 @@ You’re working in a company, and a teammate reports a bug in the project you�
 3. Create a Bugfix Branch
 
     1. Create a new branch for your fix:
+
         ```bash
         git checkout -b bugfix/<issue-description>
         ```
 
     2. Example:
+
         ```bash
         git checkout -b bugfix/fix-user-login
         ```
