@@ -2,12 +2,12 @@
 *(Last updated: Jan 2025)*  
 
 ## 📍 Where I Am  
-I'm currently based in **Seoul, South Korea**.  
+I'm currently based in **Seoul, South Korea** and **Karaikudi, India**. I spend 1-2 months in each location. 
 
-## 🎸 What I'm Learning  
+## 📚 What I'm Learning  
+- Speaking fluently in **Korean**
 - Playing the **guitar**  
-- **Korean language**
-- Arduino
+- Building simple tools with **Arduino**
 
 ## 💼 What I'm Working On  
 I’m the **Director of Operations** at a **food delivery company in Korea** and also run a **hydroponic smart farm in India**. On the side, I’m building:  
@@ -15,7 +15,11 @@ I’m the **Director of Operations** at a **food delivery company in Korea** and
 - A **Python library** for **financial analysis** focused on FP&A
 
 ## 💡 What I’m Thinking About  
-I spend a lot of time analyzing **unsexy businesses** with **low productivity** and exploring ways to use **technology** to make them more efficient.  
+- **Unsexy Industries** with **low productivity** in India and ways **technology** can make them more efficient.  
+- Building in public and contributing to **open-source**.
+- **Apps** that are offline-first and require no registration
+- **Hardware manufacturing** in small batches
+- China's future generation that is STEM focused with a strong work ethic VS the rest of the world that is distracted with social media, entertainment, politics and creating dance videos in TikTok.
 
 ## 🏋️‍♂️ Personal Goals  
 I'm focused on improving my **fitness and recovery**, aiming to:  
