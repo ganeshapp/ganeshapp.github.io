@@ -5,27 +5,27 @@
 I'm currently based in **Seoul, South Korea** and **Karaikudi, India**. I spend 1-2 months in each location. 
 
 ## 📚 What I'm Learning  
-- Speaking fluently in **Korean**
+- Speaking fluently in **Korean**  
 - Playing the **guitar**  
-- Building simple tools with **Arduino**
+- Building simple tools with **Arduino**  
 
 ## 💼 What I'm Working On  
-I’m the **Director of Operations** at a **food delivery company in Korea** and also run a **hydroponic smart farm in India**. On the side, I’m building:  
-- A **Flutter app** to improve **mental math** skills
-- A **Python library** for **financial analysis** focused on FP&A
+I'm the **Director of Operations** at a **food delivery company in Korea** and also run a **hydroponic smart farm in India**. On the side, I'm building:  
+- A **Flutter app** to improve **mental math** skills  
+- A **Python library** for **financial analysis** focused on FP&A  
 
 ## 💡 What I’m Thinking About  
 - **Unsexy Industries** with **low productivity** in India and ways **technology** can make them more efficient.  
-- Building in public and contributing to **open-source**.
-- **Apps** that are offline-first and require no registration.
-- **Hardware manufacturing** in small batches.
-- China's future generation that is STEM focused with a strong work ethic VS the rest of the world that is distracted with social media, entertainment, politics and creating dance videos in TikTok.
+- Building in public and contributing to **open-source**.  
+- **Apps** that are offline-first and require no registration.  
+- **Hardware manufacturing** in small batches.  
+- China's future generation that is STEM focused with a strong work ethic VS the rest of the world that is distracted with social media, entertainment, politics and creating dance videos in TikTok.  
 
 ## 🏋️‍♂️ Personal Goals  
 I'm focused on improving my **fitness and recovery**, aiming to:  
 - Bring my **resting heart rate** to the **early 40s**.  
-- Improve my **VO2 Max** through workout, diet, and sleep.
-- Clock at least 1000 km in biking and 500 km in running.
+- Improve my **VO2 Max** through workout, diet, and sleep.  
+- Clock at least 1000 km in biking and 500 km in running.  
 
 ## 👍 What I'm Enjoying  
 - **Podcast:** [*All-In Podcast*](https://allin.com/)  
