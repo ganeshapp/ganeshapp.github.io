@@ -11,3 +11,10 @@ https://www.npmjs.com/package/simple-peer
 https://www.youtube.com/results?search_query=peerjs+game+tutorial
 
 https://github.com/Pythagora-io/gpt-pilot
+
+## LM-Studio VS-Code integration for Deepseek
+
+https://www.youtube.com/watch?v=AjzoCJ9yZjM
+
+https://github.com/deepseek-ai/DeepSeek-Coder
+

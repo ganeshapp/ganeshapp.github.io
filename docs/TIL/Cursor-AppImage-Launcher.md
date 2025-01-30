@@ -59,7 +59,7 @@ Example:
 ```
 [Desktop Entry]
 Name=LM Studio
-Exec=/home/gapp/Applications/lmstudio.AppImage
+Exec=/home/gapp/Applications/lmstudio.AppImage --no-sandbox
 Icon=/home/gapp/Applications/lmstudio.png
 StartupWMClass=LM Studio
 Type=Application
