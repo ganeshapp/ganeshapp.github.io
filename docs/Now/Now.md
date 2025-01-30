@@ -47,4 +47,4 @@ I'm focused on improving my **fitness and recovery**, aiming to:
 - **Running Shoes**: [*Vibram FiveFingers V-Run*](https://www.vibram.com/us/shop/fivefingers/men/v-run-mens/M31_2_BlackYellow.html)
 - **Walking Shoes**: [*Vivo Barefoot Motus Flex*](https://www.vivobarefoot.com/rw/motus-flex-mens?colour=Obsidian)
 - **Chess App**: [*Lichess*](https://lichess.org/)
-- **Chess Openings**: [*White: Ponziani*](https://en.wikipedia.org/wiki/Ponziani_Opening), [Black: Advanced French Defense*](https://en.wikipedia.org/wiki/French_Defence#Advance_Variation:_3.e5)
+- **Chess Openings**: [*White: Ponziani*](https://en.wikipedia.org/wiki/Ponziani_Opening), [*Black: Advanced French Defense*](https://en.wikipedia.org/wiki/French_Defence#Advance_Variation:_3.e5)
