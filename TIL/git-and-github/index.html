@@ -1,0 +1,3343 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Gapp's personal digital garden">
+      
+      
+        <meta name="author" content="Gapp">
+      
+      
+        <link rel="canonical" href="https://www.gapp.in/TIL/git-and-github/">
+      
+      
+        <link rel="prev" href="../Singapore-Legal-Hire/">
+      
+      
+        <link rel="next" href="../github-actions/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Git and Github - GAPP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-git-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GAPP" class="md-header__button md-logo" aria-label="GAPP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224 96c-88.4 0-160 71.6-160 160s71.6 160 160 160c77.4 0 142-55 156.8-128H256c-17.7 0-32-14.3-32-32s14.3-32 32-32h144c25.8 0 49.6 21.4 47.2 50.6C437.8 389.6 341.4 480 224 480 100.3 480 0 379.7 0 256S100.3 32 224 32c57.4 0 109.7 21.6 149.3 57 13.2 11.8 14.3 32 2.5 45.2s-32 14.3-45.2 2.5C302.3 111.4 265 96 224 96"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GAPP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git and Github
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Notes/Notes/" class="md-tabs__link">
+          
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Now/Now/" class="md-tabs__link">
+          
+  
+  Now
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Cursor-AppImage-Launcher/" class="md-tabs__link">
+          
+  
+  TIL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GAPP" class="md-nav__button md-logo" aria-label="GAPP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224 96c-88.4 0-160 71.6-160 160s71.6 160 160 160c77.4 0 142-55 156.8-128H256c-17.7 0-32-14.3-32-32s14.3-32 32-32h144c25.8 0 49.6 21.4 47.2 50.6C437.8 389.6 341.4 480 224 480 100.3 480 0 379.7 0 256S100.3 32 224 32c57.4 0 109.7 21.6 149.3 57 13.2 11.8 14.3 32 2.5 45.2s-32 14.3-45.2 2.5C302.3 111.4 265 96 224 96"/></svg>
+
+    </a>
+    GAPP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Gems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Gems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Gems/Harry-Nyquist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Harry Nyquist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Life
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Health/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Health
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Hidden%20Angel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hidden Angel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Life/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Life
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Off%20Consumption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Off Consumption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Purpose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Purpose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Relationship/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relationship
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Life/Wealth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wealth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Startup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Startup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Startup/Ads%202.0%20Philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ads 2.0 Philosophy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Startup/Core%20Areas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core Areas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Startup/Rock%20Climbing%20Gym/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rock Climbing Gym
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Startup/Startup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Startup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Working
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Working
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Working/To%20Read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    To Read
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Notes/Working/To%20follow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    To follow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Now
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Now
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Now/Now/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Now
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    TIL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            TIL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cursor-AppImage-Launcher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cursor Appimage Launcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Make-Magazine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Make Magazine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pigeonhole-Principle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pigeonhole Principle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singapore-Legal-Hire/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Singapore Legal Hire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Git and Github
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Git and Github
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Git Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-contributing-to-an-open-source-project-with-an-open-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Contributing to an Open Source Project with an Open Issue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-fixing-a-bug-in-an-internal-repository-at-your-company" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Fixing a Bug in an Internal Repository at Your Company
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-adding-a-new-feature-to-an-existing-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: Adding a New Feature to an Existing Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-4-fixing-a-merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 4: Fixing a Merge Conflict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-5-rebasing-your-branch-to-stay-up-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 5: Rebasing Your Branch to Stay Up to Date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-6-squashing-commits-before-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 6: Squashing Commits Before Merging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-7-undoing-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 7: Undoing a Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-8-managing-a-stuck-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 8: Managing a Stuck Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-9-starting-a-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 9: Starting a New Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-10-cherry-picking-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 10: Cherry-Picking a Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-11-rolling-back-a-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 11: Rolling Back a Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-12-handling-large-files-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 12: Handling Large Files in Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-13-restoring-a-deleted-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 13: Restoring a Deleted File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-14-cloning-a-repository-and-setting-up-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 14: Cloning a Repository and Setting Up the Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-15-reverting-a-merged-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 15: Reverting a Merged Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-16-creating-a-release-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 16: Creating a Release Branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-17-fixing-a-detached-head-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 17: Fixing a Detached HEAD State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-18-bisecting-to-find-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 18: Bisecting to Find a Bug
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Git Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-contributing-to-an-open-source-project-with-an-open-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Contributing to an Open Source Project with an Open Issue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-fixing-a-bug-in-an-internal-repository-at-your-company" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Fixing a Bug in an Internal Repository at Your Company
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-adding-a-new-feature-to-an-existing-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: Adding a New Feature to an Existing Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-4-fixing-a-merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 4: Fixing a Merge Conflict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-5-rebasing-your-branch-to-stay-up-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 5: Rebasing Your Branch to Stay Up to Date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-6-squashing-commits-before-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 6: Squashing Commits Before Merging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-7-undoing-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 7: Undoing a Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-8-managing-a-stuck-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 8: Managing a Stuck Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-9-starting-a-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 9: Starting a New Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-10-cherry-picking-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 10: Cherry-Picking a Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-11-rolling-back-a-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 11: Rolling Back a Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-12-handling-large-files-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 12: Handling Large Files in Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-13-restoring-a-deleted-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 13: Restoring a Deleted File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-14-cloning-a-repository-and-setting-up-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 14: Cloning a Repository and Setting Up the Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-15-reverting-a-merged-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 15: Reverting a Merged Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-16-creating-a-release-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 16: Creating a Release Branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-17-fixing-a-detached-head-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 17: Fixing a Detached HEAD State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-18-bisecting-to-find-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 18: Bisecting to Find a Bug
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">Coding</span>
+      
+    
+  </nav>
+
+
+
+  <h1>Git and Github</h1>
+
+<p>Git and Github are tools that help you manage your code. Below is pretty much everything you need to know.</p>
+<h3 id="basic-git-commands">Basic Git Commands<a class="headerlink" href="#basic-git-commands" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Setting Up Git</p>
+<ol>
+<li>
+<p>Install Git</p>
+<ul>
+<li>Download and install Git from git-scm.com.</li>
+</ul>
+</li>
+<li>
+<p>Configure Git</p>
+<ul>
+<li>After installation, set up your username and email (used in commits):<pre><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Verify Configuration</p>
+<pre><code>git config --list
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Common Git Commands</p>
+<ol>
+<li>
+<p>Initialize a Repository</p>
+<ul>
+<li>Start tracking a project with Git:<pre><code>git init
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Clone a Repository</p>
+<ul>
+<li>Download a repository from GitHub to your local machine:<pre><code>git clone &lt;repository_url&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Check the Repository Status</p>
+<ul>
+<li>See changes in your working directory:<pre><code>git status
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Stage Changes</p>
+<ul>
+<li>
+<p>Add files to the staging area:</p>
+<pre><code>git add &lt;file_name&gt;
+</code></pre>
+</li>
+<li>
+<p>To add all files:</p>
+<pre><code>git add .
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Commit Changes</p>
+<ul>
+<li>Save staged changes with a message:<pre><code>git commit -m "Your commit message"
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>View Commit History</p>
+<ul>
+<li>See a list of commits:<pre><code>git log
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Working with Branches</p>
+<ol>
+<li>
+<p>Create a Branch</p>
+<ul>
+<li>Create a new branch:<pre><code>git branch &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Switch to a Branch</p>
+<ul>
+<li>Move to another branch:<pre><code>git checkout &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Merge a Branch</p>
+<ul>
+<li>Combine changes from another branch:<pre><code>git merge &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Delete a Branch</p>
+<ul>
+<li>Remove a branch (after merging):<pre><code>git branch -d &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Pushing and Pulling from GitHub</p>
+<ol>
+<li>
+<p>Connect to a Remote Repository</p>
+<ul>
+<li>Add a GitHub repository:<pre><code>git remote add origin &lt;repository_url&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Push Changes to GitHub</p>
+<ul>
+<li>Upload your commits to GitHub:<pre><code>git push origin &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Pull Changes from GitHub</p>
+<ul>
+<li>Download changes made by others:<pre><code>git pull origin &lt;branch_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Handling Merge Conflicts</p>
+<ol>
+<li>When you encounter a merge conflict, Git will notify you.</li>
+<li>Open the conflicting files and resolve the differences.</li>
+<li>
+<p>After resolving, stage the files:</p>
+<pre><code>git add &lt;file_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Complete the merge:</p>
+<pre><code>git commit
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Working with Pull Requests on GitHub</p>
+<ol>
+<li>
+<p>Fork a Repository</p>
+<ul>
+<li>Click Fork on GitHub to create a copy under your account.</li>
+</ul>
+</li>
+<li>
+<p>Create a Pull Request</p>
+<ul>
+<li>Make changes in a new branch.</li>
+<li>Push the branch to your GitHub fork.</li>
+<li>Go to the original repository and click New Pull Request.</li>
+<li>Describe your changes and submit.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Helpful Git Commands</p>
+<ol>
+<li>
+<p>Discard Local Changes</p>
+<ul>
+<li>Discard changes in a file:<pre><code>git checkout -- &lt;file_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Remove a File from Staging Area</p>
+<ul>
+<li>Remove a file from the staging area:<pre><code>git reset &lt;file_name&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Undo the Last Commit (Keep Changes)</p>
+<ul>
+<li>Keep changes in the working directory:<pre><code>git reset --soft HEAD~1
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Undo the Last Commit (Discard Changes)</p>
+<ul>
+<li>Discard changes in the working directory:<pre><code>git reset --hard HEAD~1
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Best Practices</p>
+<p>Commit small, meaningful changes with descriptive messages.
+Always pull the latest changes before starting new work.
+Use branches for new features or bug fixes.
+Regularly push your changes to avoid losing progress.</p>
+</li>
+</ol>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Scenario: Create a Feature Branch and Push to GitHub</p>
+<ol>
+<li>
+<p>Create and switch to a new branch:</p>
+<pre><code>git checkout -b feature/new-feature
+</code></pre>
+</li>
+<li>
+<p>Make changes and stage them:</p>
+<pre><code>git add .
+</code></pre>
+</li>
+<li>
+<p>Commit the changes:</p>
+<pre><code>git commit -m "Add new feature"
+</code></pre>
+</li>
+<li>
+<p>Push the branch to GitHub:</p>
+<pre><code>git push origin feature/new-feature
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Scenario: Resolve a Merge Conflict</p>
+<ol>
+<li>
+<p>Pull changes from the main branch:</p>
+<pre><code>git pull origin main
+</code></pre>
+</li>
+<li>
+<p>Git will highlight conflicting files.</p>
+</li>
+<li>Edit the files to resolve conflicts.</li>
+<li>Stage and commit the resolved files:<pre><code>git add .
+git commit
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="advanced-examples">Advanced Examples<a class="headerlink" href="#advanced-examples" title="Permanent link">&para;</a></h3>
+<h4 id="scenario-1-contributing-to-an-open-source-project-with-an-open-issue">Scenario 1: Contributing to an Open Source Project with an Open Issue<a class="headerlink" href="#scenario-1-contributing-to-an-open-source-project-with-an-open-issue" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You come across an open-source project on GitHub and notice an open issue that you feel confident you can solve. Here’s a step-by-step guide on how you should approach this:</p>
+<p><strong>Steps to Solve the Issue</strong></p>
+<ol>
+<li>
+<p>Read and Understand the Issue</p>
+<ol>
+<li>Navigate to the repository on GitHub.</li>
+<li>Open the Issues tab and find the issue you want to solve.</li>
+<li>Read the issue description carefully. Look for:<ul>
+<li>Problem details</li>
+<li>Expected behavior or output</li>
+<li>Any additional comments or discussions about the issue</li>
+</ul>
+</li>
+<li>Check if anyone else is already working on the issue (look for comments like “I’ll take this” or open pull requests).</li>
+</ol>
+</li>
+<li>
+<p>Communicate Your Intent</p>
+<ol>
+<li>
+<p>Comment on the issue to let others know you are working on it. Example comment:</p>
+<pre><code>Hi, I’d like to work on this issue. Assign it to me if possible!
+</code></pre>
+</li>
+<li>
+<p>Wait for confirmation or assignment from the maintainer (optional, but recommended for collaborative projects).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Fork the Repository</p>
+<ol>
+<li>On the repository’s main page, click the Fork button at the top-right to create a copy of the repository under your GitHub account.</li>
+</ol>
+</li>
+<li>
+<p>Clone Your Fork Locally</p>
+<ol>
+<li>Copy the forked repository’s URL (found under the green Code button).</li>
+<li>
+<p>Clone it to your local machine:</p>
+<pre><code>git clone &lt;forked_repository_url&gt;
+</code></pre>
+</li>
+<li>
+<p>Navigate into the project directory:</p>
+<pre><code>cd &lt;repository_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a New Branch</p>
+<ol>
+<li>
+<p>Create and switch to a new branch for your work:</p>
+<pre><code>git checkout -b fix/issue-&lt;issue_number&gt;
+</code></pre>
+</li>
+<li>
+<p>Example: If the issue number is 42:</p>
+<pre><code>git checkout -b fix/issue-42
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Fix the Issue</p>
+<ol>
+<li>Open the project in your preferred editor/IDE.</li>
+<li>Make the necessary code changes to fix the issue.
+3.Test your changes locally to ensure the problem is resolved.</li>
+</ol>
+</li>
+<li>
+<p>Stage and Commit Your Changes</p>
+<ol>
+<li>
+<p>Stage the changes you’ve made:</p>
+<pre><code>git add .
+</code></pre>
+</li>
+<li>
+<p>Commit your changes with a descriptive message:</p>
+<pre><code>git commit -m "Fix issue #&lt;issue_number&gt;: &lt;short_description&gt;"
+</code></pre>
+</li>
+<li>
+<p>Example:</p>
+<pre><code>git commit -m "Fix issue #42: Resolve incorrect calculation in the stats module"
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Changes to Your Fork</p>
+<ol>
+<li>Push your branch to your forked repository on GitHub:<pre><code>git push origin fix/issue-&lt;issue_number&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Open a Pull Request (PR)</p>
+<ol>
+<li>Go to the original repository on GitHub.</li>
+<li>Click the Pull Requests tab and then click New Pull Request.</li>
+<li>Choose your forked branch as the source and the original repository’s branch (usually main or master) as the target.</li>
+<li>
+<p>Add a clear title and description for your pull request. Example:</p>
+<pre><code>Fix issue #42: Resolve incorrect calculation in the stats module
+</code></pre>
+</li>
+<li>
+<p>In the description, explain:</p>
+<ul>
+<li>What the issue was</li>
+<li>How you fixed it</li>
+<li>Any additional details (e.g., edge cases you tested)</li>
+</ul>
+</li>
+<li>Submit the pull request.</li>
+</ol>
+</li>
+<li>
+<p>Respond to Feedback</p>
+<ol>
+<li>Wait for the project maintainers to review your pull request.</li>
+<li>
+<p>If they request changes:</p>
+<ul>
+<li>Make the changes in your local branch.</li>
+<li>Stage, commit, and push the updates:<pre><code>git add .
+git commit -m "Address feedback for issue #&lt;issue_number&gt;"
+git push origin fix/issue-&lt;issue_number&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Your pull request will update automatically.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Celebrate the Merge</p>
+<ol>
+<li>Once your PR is merged, celebrate your contribution!</li>
+<li>
+<p>Delete your branch locally and on GitHub if it's no longer needed:</p>
+<ul>
+<li>
+<p>Locally:</p>
+<pre><code>git branch -d fix/issue-&lt;issue_number&gt;
+</code></pre>
+</li>
+<li>
+<p>On GitHub: Go to the forked repository, navigate to Branches, and delete the branch.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Notes for Best Practices</strong></p>
+<ol>
+<li>
+<p>Always pull the latest changes from the original repository before starting work:</p>
+<pre><code>git remote add upstream &lt;original_repository_url&gt;
+git pull upstream main
+</code></pre>
+</li>
+<li>
+<p>Keep your fork updated regularly to avoid conflicts.</p>
+</li>
+<li>Respect project guidelines (e.g., coding style, commit message format, or contributing documentation).</li>
+</ol>
+<h4 id="scenario-2-fixing-a-bug-in-an-internal-repository-at-your-company">Scenario 2: Fixing a Bug in an Internal Repository at Your Company<a class="headerlink" href="#scenario-2-fixing-a-bug-in-an-internal-repository-at-your-company" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’re working in a company, and a teammate reports a bug in the project you’re working on. The issue is logged in your internal repository. Here’s how you can address it step by step:</p>
+<p><strong>Steps to Solve the Bug</strong></p>
+<ol>
+<li>
+<p>Sync with the Team</p>
+<ol>
+<li>Open the issue in your internal repository tracker (e.g., GitHub Issues, JIRA, etc.).</li>
+<li>Review the description and discuss with your team (if needed) to fully understand the problem.</li>
+<li>Assign the issue to yourself (or ensure you’re responsible for it).</li>
+</ol>
+</li>
+<li>
+<p>Pull the Latest Changes</p>
+<ol>
+<li>Ensure your local repository is up to date:<pre><code>git checkout main
+git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a Bugfix Branch</p>
+<ol>
+<li>
+<p>Create a new branch for your fix:</p>
+<pre><code>git checkout -b bugfix/&lt;issue-description&gt;
+</code></pre>
+</li>
+<li>
+<p>Example:</p>
+<pre><code>git checkout -b bugfix/fix-user-login
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Debug and Fix the Bug</p>
+<ol>
+<li>Use debugging tools and logs to identify the root cause.</li>
+<li>Fix the issue and test your changes locally.</li>
+<li>Run the project's test suite to confirm that your fix doesn’t break anything else:<pre><code>npm test   # Example for a Node.js project
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Commit and Push Your Changes</p>
+<ol>
+<li>
+<p>Stage and commit the changes:</p>
+<pre><code>git add .
+git commit -m "Fix: Resolve user login issue caused by token expiration logic"
+</code></pre>
+</li>
+<li>
+<p>Push your branch to the repository:</p>
+<pre><code>git push origin bugfix/fix-user-login
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Open a Pull Request (PR)</p>
+<ol>
+<li>Go to your repository’s pull request section.</li>
+<li>Open a pull request from your bugfix branch into the main branch.</li>
+<li>Add a descriptive title and explanation for the PR:<ul>
+<li>What was the problem?</li>
+<li>How did you fix it?</li>
+<li>What tests did you perform to ensure stability?</li>
+</ul>
+</li>
+<li>Submit the pull request.</li>
+</ol>
+</li>
+<li>
+<p>Code Review and Merge</p>
+<ol>
+<li>Wait for teammates to review your PR.</li>
+<li>
+<p>If changes are requested:</p>
+<ul>
+<li>Make them in your branch.</li>
+<li>Push updates:<pre><code>git add .
+git commit -m "Refactor: Address PR feedback for login issue"
+git push origin bugfix/fix-user-login
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Once approved, merge your PR into the main branch (or let the reviewer merge it).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Clean Up</p>
+<ol>
+<li>
+<p>Delete your local branch:</p>
+<pre><code>git branch -d bugfix/fix-user-login
+</code></pre>
+</li>
+<li>
+<p>Pull the latest main branch for future work:</p>
+<pre><code>git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-3-adding-a-new-feature-to-an-existing-project">Scenario 3: Adding a New Feature to an Existing Project<a class="headerlink" href="#scenario-3-adding-a-new-feature-to-an-existing-project" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>Your product manager requests a new feature. The feature is small enough for you to handle solo. Here’s how to proceed:</p>
+<p><strong>Steps to Add the Feature</strong></p>
+<ol>
+<li>
+<p>Understand the Feature Requirements</p>
+<ol>
+<li>Read the feature request ticket or documentation.</li>
+<li>Clarify edge cases and functionality with the product manager or teammates.</li>
+</ol>
+</li>
+<li>
+<p>Pull the Latest Changes</p>
+<ol>
+<li>Start by updating your local repository:<pre><code>git checkout main
+git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a New Feature Branch</p>
+<ol>
+<li>
+<p>Create a branch for the feature:</p>
+<pre><code>git checkout -b feature/&lt;feature-description&gt;
+</code></pre>
+</li>
+<li>
+<p>Example:</p>
+<pre><code>git checkout -b feature/add-dark-mode
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Develop the Feature</p>
+<ol>
+<li>Write the code for the new feature.</li>
+<li>Add tests to cover the new functionality.</li>
+<li>Test the feature locally to ensure it works as expected.</li>
+</ol>
+</li>
+<li>
+<p>Commit and Push Your Changes</p>
+<ol>
+<li>
+<p>Stage and commit your changes:</p>
+<pre><code>git add .
+git commit -m "Feat: Add dark mode functionality"
+</code></pre>
+</li>
+<li>
+<p>Push the branch:</p>
+<pre><code>git push origin feature/add-dark-mode
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Open a Pull Request (PR)</p>
+<ol>
+<li>Open a PR from your feature branch to the main branch.</li>
+<li>Include:<ul>
+<li>A summary of the new feature.</li>
+<li>Screenshots (if UI changes were made).</li>
+<li>Any additional notes about implementation.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Code Review and Merge</p>
+<ol>
+<li>Wait for feedback from your teammates.</li>
+<li>Address any comments by pushing updates to your branch.</li>
+<li>Once approved, merge your branch into the main branch.</li>
+</ol>
+</li>
+<li>
+<p>Test in the Staging Environment</p>
+<ol>
+<li>If your company uses a staging environment, test the new feature there before deploying to production.</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-4-fixing-a-merge-conflict">Scenario 4: Fixing a Merge Conflict<a class="headerlink" href="#scenario-4-fixing-a-merge-conflict" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’re trying to merge your branch into main, but Git reports a merge conflict. Here’s what to do:</p>
+<p><strong>Steps to Resolve the Merge Conflict</strong></p>
+<ol>
+<li>
+<p>Pull the Latest Changes</p>
+<ol>
+<li>Pull the latest main branch into your branch:<pre><code>git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Identify the Conflicts</p>
+<ol>
+<li>
+<p>Git will list the files with conflicts. Example:</p>
+<pre><code>CONFLICT (content): Merge conflict in index.html
+</code></pre>
+</li>
+<li>
+<p>Open the conflicting files in your editor. Git marks conflicts with:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Your changes
+=======
+Changes from main
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Resolve the Conflicts</p>
+<ol>
+<li>Edit the file to keep the desired changes.</li>
+<li>Remove the conflict markers (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;).</li>
+</ol>
+</li>
+<li>
+<p>Stage and Commit Resolved Files</p>
+<ol>
+<li>
+<p>Once resolved, stage the files:</p>
+<pre><code>git add &lt;file_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Commit the resolution:</p>
+<pre><code>git commit -m "Resolve merge conflict in &lt;file_name&gt;"
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Push Changes</p>
+<ol>
+<li>Push your branch with the resolved conflicts:<pre><code>git push origin &lt;branch_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-5-rebasing-your-branch-to-stay-up-to-date">Scenario 5: Rebasing Your Branch to Stay Up to Date<a class="headerlink" href="#scenario-5-rebasing-your-branch-to-stay-up-to-date" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’re working on a feature branch, but the main branch has received several updates since you started. Instead of merging, you decide to rebase your branch to incorporate the latest changes.</p>
+<p><strong>Steps to Rebase Your Branch</strong></p>
+<ol>
+<li>
+<p>Pull the Latest Changes to main</p>
+<ol>
+<li>
+<p>Switch to the main branch:</p>
+<pre><code>git checkout main
+</code></pre>
+</li>
+<li>
+<p>Pull the latest updates:</p>
+<pre><code>git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Rebase Your Feature Branch</p>
+<ol>
+<li>
+<p>Switch back to your feature branch:</p>
+<pre><code>git checkout feature/&lt;branch_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Rebase onto main:</p>
+<pre><code>git rebase main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Resolve Conflicts (If Any)</p>
+<ol>
+<li>If conflicts occur, Git will pause the rebase and notify you.</li>
+<li>
+<p>Open the conflicting files, resolve the conflicts, and stage them:</p>
+<pre><code>git add &lt;file_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Continue the rebase:</p>
+<pre><code>git rebase --continue
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Rebased Branch</p>
+<ol>
+<li>After rebasing, force-push your branch (required because the history has changed):<pre><code>git push origin feature/&lt;branch_name&gt; --force
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-6-squashing-commits-before-merging">Scenario 6: Squashing Commits Before Merging<a class="headerlink" href="#scenario-6-squashing-commits-before-merging" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’ve made multiple commits while working on a feature, but some of them are small or redundant. You want to combine them into a single commit before merging.</p>
+<p><strong>Steps to Squash Commits</strong></p>
+<ol>
+<li>
+<p>View the Commit History</p>
+<ol>
+<li>Check the number of commits in your branch:<pre><code>git log --oneline
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Start an Interactive Rebase</p>
+<ol>
+<li>
+<p>Rebase your branch interactively to squash commits:</p>
+<pre><code>git rebase -i HEAD~&lt;number_of_commits&gt;
+</code></pre>
+</li>
+<li>
+<p>Example: To squash the last 3 commits:</p>
+<pre><code>git rebase -i HEAD~3
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Mark Commits to Squash</p>
+<ol>
+<li>
+<p>In the rebase editor, mark the first commit as pick and the others as squash:</p>
+<pre><code>pick 123abc First commit message
+squash 456def Second commit message
+squash 789ghi Third commit message
+</code></pre>
+</li>
+<li>
+<p>Save and close the editor.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Edit the Commit Message</p>
+<ol>
+<li>Git will ask you to combine commit messages. Edit them as needed and save.</li>
+</ol>
+</li>
+<li>
+<p>Push the Squashed Commit</p>
+<ol>
+<li>After rebasing, force-push your branch (required because the history has changed):<pre><code>git push origin feature/&lt;branch_name&gt; --force
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-7-undoing-a-commit">Scenario 7: Undoing a Commit<a class="headerlink" href="#scenario-7-undoing-a-commit" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You accidentally committed changes you didn’t want to include. Depending on the situation, you can undo the commit in different ways.</p>
+<p><strong>Steps to Undo a Commit</strong></p>
+<p>Option 1: Undo the Last Commit (Keep Changes Locally)</p>
+<ol>
+<li>Check the number of commits in your branch:<pre><code>git log --oneline
+</code></pre>
+</li>
+</ol>
+<p>Option 2: Undo the Last Commit (Discard Changes)</p>
+<ol>
+<li>If you want to completely discard the changes:<pre><code>git reset --hard HEAD~1
+</code></pre>
+</li>
+</ol>
+<p>Option 3: Undo a Specific Commit (Without Rewriting History)</p>
+<ol>
+<li>If the commit is already pushed, create a new commit to undo it:<pre><code>git revert &lt;commit_hash&gt;
+</code></pre>
+</li>
+</ol>
+<h4 id="scenario-8-managing-a-stuck-pull-request">Scenario 8: Managing a Stuck Pull Request<a class="headerlink" href="#scenario-8-managing-a-stuck-pull-request" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You opened a pull request, but the reviewers requested several changes, and it’s taking longer than expected to merge. Meanwhile, the main branch is being updated.</p>
+<p><strong>Steps to Manage the Pull Request</strong></p>
+<ol>
+<li>
+<p>Pull Latest Changes from main</p>
+<ol>
+<li>Pull updates from the main branch into your branch:<pre><code>git checkout feature/&lt;branch_name&gt;
+git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Fix Feedback Issues</p>
+<ol>
+<li>Address all feedback from the reviewers.</li>
+<li>Stage and commit your changes:<pre><code>git add .
+git commit -m "Refactor: Address PR feedback"
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Updates to Your Branch</p>
+<ol>
+<li>Push the changes to your branch. This will update the pull request automatically:<pre><code>git push origin feature/&lt;branch_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Re-request Review</p>
+<ol>
+<li>Notify the reviewers that you’ve made the updates.</li>
+<li>Use GitHub’s “Re-request review” feature if available.</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-9-starting-a-new-repository">Scenario 9: Starting a New Repository<a class="headerlink" href="#scenario-9-starting-a-new-repository" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’re starting a new project from scratch and want to set up a Git repository and push it to GitHub.</p>
+<p><strong>Steps to Start a New Repository</strong></p>
+<ol>
+<li>
+<p>Initialize Git Locally</p>
+<ol>
+<li>
+<p>Create a new directory and navigate into it:</p>
+<pre><code>mkdir &lt;project_name&gt;
+cd &lt;project_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Initialize Git:</p>
+<pre><code>git init
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Add Your First File</p>
+<ol>
+<li>Create a file (e.g., README.md) and add some content.</li>
+<li>Stage and commit the file:<pre><code>git add README.md
+git commit -m "Initial commit"
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a New GitHub Repository</p>
+<ol>
+<li>Go to GitHub and create a new repository.</li>
+<li>Copy the repository’s URL.</li>
+</ol>
+</li>
+<li>
+<p>Link Your Local Repo to GitHub</p>
+<ol>
+<li>
+<p>Add the GitHub repository as a remote:</p>
+<pre><code>git remote add origin &lt;repository_url&gt;
+</code></pre>
+</li>
+<li>
+<p>Push your local repository to GitHub:</p>
+<pre><code>git push -u origin main
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-10-cherry-picking-a-commit">Scenario 10: Cherry-Picking a Commit<a class="headerlink" href="#scenario-10-cherry-picking-a-commit" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You need to apply a specific commit from one branch to another without merging the entire branch.</p>
+<p><strong>Steps to Cherry-Pick a Commit</strong></p>
+<ol>
+<li>
+<p>Identify the Commit</p>
+<ol>
+<li>Get the commit hash from the git log:<pre><code>git log --oneline
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Switch to the Target Branch</p>
+<ol>
+<li>Checkout the branch where you want to apply the commit:<pre><code>git checkout &lt;target_branch&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Cherry-Pick the Commit</p>
+<ol>
+<li>Apply the commit to your current branch:<pre><code>git cherry-pick &lt;commit_hash&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Resolve Conflicts (If Any)</p>
+<ol>
+<li>If there are conflicts, resolve them, then stage and commit:<pre><code>git add &lt;file_name&gt;
+git cherry-pick --continue
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-11-rolling-back-a-deployment">Scenario 11: Rolling Back a Deployment<a class="headerlink" href="#scenario-11-rolling-back-a-deployment" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You deployed a buggy version of your app and need to roll back to the previous stable version.</p>
+<p><strong>Steps to Roll Back</strong></p>
+<ol>
+<li>
+<p>Identify the Previous Commit</p>
+<ol>
+<li>Use git log to find the hash of the last stable commit.</li>
+</ol>
+</li>
+<li>
+<p>Reset to the Stable Commit</p>
+<ol>
+<li>Hard reset your branch to the stable commit:<pre><code>git reset --hard &lt;stable_commit_hash&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Rollback</p>
+<ol>
+<li>Force-push the rollback to the remote branch:<pre><code>git push origin main --force
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-12-handling-large-files-in-git">Scenario 12: Handling Large Files in Git<a class="headerlink" href="#scenario-12-handling-large-files-in-git" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You need to add a large file (e.g., a dataset or media file) to your repository, but Git or GitHub blocks it because of size limitations.</p>
+<p><strong>Steps to Handle Large Files</strong></p>
+<ol>
+<li>
+<p>Check the File Size</p>
+<ol>
+<li>Ensure the file size exceeds Git’s default limit (100MB for GitHub).</li>
+</ol>
+</li>
+<li>
+<p>Use Git LFS (Large File Storage)</p>
+<ol>
+<li>
+<p>Install Git LFS:</p>
+<pre><code>git lfs install
+</code></pre>
+</li>
+<li>
+<p>Track the large file type:</p>
+<pre><code>git lfs track "*.mp4"  # Replace with your file type
+</code></pre>
+</li>
+<li>
+<p>Stage the .gitattributes file created by Git LFS:</p>
+<pre><code>git add .gitattributes
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Add and Push the Large File</p>
+<ol>
+<li>
+<p>Add the large file as usual:</p>
+<pre><code>git add large_file.mp4
+git commit -m "Add large video file"
+</code></pre>
+</li>
+<li>
+<p>Push the Changes:</p>
+<pre><code>git push origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Verify the File in the Repository</p>
+<ol>
+<li>Git LFS will upload the file separately, and the repository will only store a reference to it.</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-13-restoring-a-deleted-file">Scenario 13: Restoring a Deleted File<a class="headerlink" href="#scenario-13-restoring-a-deleted-file" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You accidentally deleted a file and committed the deletion. Now you need to recover the file.</p>
+<p><strong>Steps to Restore the Deleted File</strong></p>
+<ol>
+<li>
+<p>Find the Last Commit with the File</p>
+<ol>
+<li>Use git log to locate the commit where the file was last present:<pre><code>git log -- &lt;file_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Restore the File</p>
+<ol>
+<li>
+<p>Restore the file from the commit:</p>
+<pre><code>git checkout &lt;commit_hash&gt; -- &lt;file_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Example:</p>
+<pre><code>git checkout HEAD~1 -- src/config.json
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Add and Commit the Restored File</p>
+<ol>
+<li>Stage and commit the restored file:<pre><code>git add &lt;file_name&gt;
+git commit -m "Restore deleted file: &lt;file_name&gt;"
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-14-cloning-a-repository-and-setting-up-the-project">Scenario 14: Cloning a Repository and Setting Up the Project<a class="headerlink" href="#scenario-14-cloning-a-repository-and-setting-up-the-project" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You’re joining a new team and need to clone the project repository to your local machine, set it up, and start contributing.</p>
+<p><strong>Steps to Clone and Set Up the Repository</strong></p>
+<ol>
+<li>
+<p>Clone the Repository</p>
+<ol>
+<li>Get the repository URL (from GitHub, GitLab, etc.).</li>
+<li>
+<p>Clone the repository:</p>
+<pre><code>git clone &lt;repository_url&gt;
+</code></pre>
+</li>
+<li>
+<p>Navigate into the Repository Directory</p>
+<pre><code>cd &lt;repository_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Set Up the Project</p>
+<ol>
+<li>
+<p>Follow the setup instructions in the README.md file.</p>
+<ul>
+<li>
+<p>Install dependencies:</p>
+<pre><code>npm install  # Example for Node.js
+</code></pre>
+</li>
+<li>
+<p>Set up environment variables (e.g., .env file).</p>
+</li>
+<li>Run any initial database migrations.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Test the Project</p>
+<ol>
+<li>
+<p>Run the project locally to ensure it works:</p>
+<pre><code>npm start  # Example for a Node.js project
+</code></pre>
+</li>
+<li>
+<p>Test the application as per the instructions.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-15-reverting-a-merged-pull-request">Scenario 15: Reverting a Merged Pull Request<a class="headerlink" href="#scenario-15-reverting-a-merged-pull-request" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>A pull request was merged into main, but it introduced a critical bug. You need to revert the changes.</p>
+<p><strong>Steps to Revert a Merged Pull Request</strong></p>
+<ol>
+<li>
+<p>Find the Merge Commit</p>
+<ol>
+<li>
+<p>Identify the merge commit hash using:</p>
+<pre><code>git log --oneline
+</code></pre>
+</li>
+<li>
+<p>Look for a commit message like "Merge pull request #<PR_number>".</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Revert the Merge Commit</p>
+<ol>
+<li>
+<p>Use the git revert command:</p>
+<pre><code>git revert -m 1 &lt;merge_commit_hash&gt;
+</code></pre>
+</li>
+<li>
+<p>The -m 1 flag tells Git to revert the changes while keeping the main branch’s history intact.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Revert Commit</p>
+<ol>
+<li>Push the changes to the remote repository:<pre><code>git push origin main
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-16-creating-a-release-branch">Scenario 16: Creating a Release Branch<a class="headerlink" href="#scenario-16-creating-a-release-branch" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>Your team is preparing for a new release, and you need to create a dedicated branch to stabilize and test the release.</p>
+<p><strong>Steps to Create a Release Branch</strong></p>
+<ol>
+<li>
+<p>Pull the Latest Changes</p>
+<ol>
+<li>Ensure your main branch is up to date:<pre><code>git checkout main
+git pull origin main
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create the Release Branch</p>
+<ol>
+<li>
+<p>Create and switch to a new branch:</p>
+<pre><code>git checkout -b release/&lt;version_number&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>git checkout -b release/v1.2.0
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Finalize Changes</p>
+<ol>
+<li>Fix any remaining bugs or polish the features for the release.</li>
+<li>Commit the changes to the release branch.</li>
+</ol>
+</li>
+<li>
+<p>Test the Release</p>
+<ol>
+<li>Run the test suite and manually test the application on the release branch.</li>
+</ol>
+</li>
+<li>
+<p>Merge and Tag the Release</p>
+<ol>
+<li>
+<p>Once the release is ready, merge it into main:</p>
+<pre><code>git checkout main
+git merge release/&lt;version_number&gt;
+</code></pre>
+</li>
+<li>
+<p>Create a tag for the release:</p>
+<pre><code>git tag -a v1.2.0 -m "Release version 1.2.0"
+</code></pre>
+</li>
+<li>
+<p>Push the tag:</p>
+<pre><code>git push origin v1.2.0
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-17-fixing-a-detached-head-state">Scenario 17: Fixing a Detached HEAD State<a class="headerlink" href="#scenario-17-fixing-a-detached-head-state" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>You accidentally checked out a commit instead of a branch, and now you’re in a "detached HEAD" state.</p>
+<p><strong>Steps to Fix a Detached HEAD State</strong></p>
+<ol>
+<li>
+<p>Check the Current State</p>
+<ol>
+<li>Confirm you’re in a detached HEAD state:<pre><code>git status
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a New Branch</p>
+<ol>
+<li>
+<p>Create and switch to a new branch to save your changes:</p>
+<pre><code>git checkout -b &lt;new_branch_name&gt;
+</code></pre>
+</li>
+<li>
+<p>Example:</p>
+<pre><code>git checkout -b hotfix/detached-head
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Continue Working</p>
+<ol>
+<li>Your changes are now safe in the new branch. Commit them as usual:<pre><code>git add .
+git commit -m "Fix: Resolve detached HEAD state"
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="scenario-18-bisecting-to-find-a-bug">Scenario 18: Bisecting to Find a Bug<a class="headerlink" href="#scenario-18-bisecting-to-find-a-bug" title="Permanent link">&para;</a></h4>
+<p><strong>Scenario Description</strong></p>
+<p>A bug has been introduced, and you need to identify which commit caused it using git bisect.</p>
+<p><strong>Steps to Use Git Bisect</strong></p>
+<ol>
+<li>
+<p>Start Bisecting</p>
+<ol>
+<li>Start the bisect process:<pre><code>git bisect start
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Define Good and Bad Commits</p>
+<ol>
+<li>
+<p>Mark the current commit as bad:</p>
+<pre><code>git bisect bad
+</code></pre>
+</li>
+<li>
+<p>Mark an older commit as good (where the bug didn’t exist):</p>
+<pre><code>git bisect good &lt;commit_hash&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Test Each Commit</p>
+<ol>
+<li>Git will automatically check out a commit. Test the code to determine if the bug is present.<pre><code>git bisect good   # If the bug is NOT present
+git bisect bad    # If the bug IS present
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Identify the Problematic Commit</p>
+<ol>
+<li>Git will narrow down the commit range until it identifies the problematic commit.<pre><code>git bisect reset
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Singapore-Legal-Hire/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Singapore Legal Hire">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Singapore Legal Hire
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../github-actions/" class="md-footer__link md-footer__link--next" aria-label="Next: Github Actions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Github Actions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004 - 2025 Ganesh APP
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ganeshapp" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/sagaro" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm287.3 167.3c0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3-9-6-16.4-14.1-21.5-23.6s-7.8-20.2-7.7-31c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34 .2 2.8.2 5.7.2 8.5"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://news.ycombinator.com/user?id=sagaro" target="_blank" rel="noopener" title="news.ycombinator.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 32v448h448V32zm21.2 197.2H21c.1-.1.2-.3.3-.4 0 .1 0 .3-.1.4m218 53.9V384h-31.4V281.3L128 128h37.3c52.5 98.3 49.2 101.2 59.3 125.6 12.3-27 5.8-24.4 60.6-125.6H320z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.strava.com/athletes/35037865" target="_blank" rel="noopener" title="www.strava.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M158.4 0 7 292h89.2l62.2-116.1L220.1 292h88.5zm150.2 292-43.9 88.2-44.6-88.2h-67.6l112.2 220 111.5-220z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
