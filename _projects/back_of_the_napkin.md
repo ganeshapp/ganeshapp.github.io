@@ -4,12 +4,9 @@ excerpt: "Where Fermi meets your napkin."
 layout: single
 collection: projects
 date: 2025-06-01
-feature_row:
-  - image_path: /assets/images/projects/napkin.png
-    alt: "Back of the Napkin"
-    title: "Back of the Napkin"
-    excerpt: "Helps you make rough calculations with uncertain values and share them."
-    url: /projects/back_of_the_napkin/
+header:
+  teaser: /assets/images/projects/napkin.png
+url: /projects/back_of_the_napkin/
 ---
 
 [Back Of The Napkin](https://www.gapp.in/napkin/) helps you make rough calculations with uncertain values. Instead of exact numbers, you can use ranges and get statistical results. It's perfect for market sizing, forecasting, and numerical estimations.
