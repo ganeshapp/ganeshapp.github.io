@@ -23,7 +23,8 @@ baseurl: ""
 repository: "ganeshapp/ganeshapp.github.io"
 twitter_username: sagaro
 github_username: ganeshapp
-minimal_mistakes_skin: default
+minimal_mistakes_skin: dark #default # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
 search: true
 search_full_content: true
 # logo: 

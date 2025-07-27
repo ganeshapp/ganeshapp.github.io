@@ -7,6 +7,7 @@ date: 2025-06-01
 header:
   teaser: /assets/images/projects/napkin.png
 url: /projects/back_of_the_napkin/
+classes: wide
 ---
 
 [Back Of The Napkin](https://www.gapp.in/napkin/) helps you make rough calculations with uncertain values. Instead of exact numbers, you can use ranges and get statistical results. It's perfect for market sizing, forecasting, and numerical estimations.
@@ -23,7 +24,7 @@ But I travel quite a bit and I can't quickly share what I am thinking. So I want
 
 - Ability to name the input variables, so the person receiving the url, knows what your ranges meant
 
--Also an easy way to share questions with your friends or on social media and track other people's solutions to the same questions
+- Also an easy way to share questions with your friends or on social media and track other people's solutions to the same questions
 
 So I built this tool to have all the features I wanted and more. I hope you enjoy using it as much as I enjoyed building it.
 
