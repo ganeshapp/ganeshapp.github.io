@@ -2,7 +2,7 @@
 title: Harry Nyquist
 date: 2024-11-25
 layout: single
-collection: notes
+collection: til
 tags: [Catalyst, Conversation]
 ---
 

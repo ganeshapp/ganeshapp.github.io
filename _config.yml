@@ -132,8 +132,11 @@ collections:
     output: true
     permalink: /notes/:title/
   weekly:
+      output: true
+      permalink: /weekly/:title/
+  til:
     output: true
-    permalink: /weekly/:title/
+    permalink: /til/:title/
 
 
 category_archive:
