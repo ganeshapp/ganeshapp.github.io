@@ -5,7 +5,7 @@ permalink: /now/
 author_profile: true
 ---
  
-*(Last updated: Jul 2025)*  
+*(Last updated: Aug 2025)*  
 
 ## 📍 Where I Am  
 I'm currently based in **Seoul, South Korea** and **Karaikudi, India**. I spend 1-2 months in each location. 
