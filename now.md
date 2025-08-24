@@ -15,8 +15,8 @@ I'm currently based in **Seoul, South Korea** and **Karaikudi, India**. I spend 
 - Building simple tools with **Arduino**  
 
 ## 💼 What I'm Working On  
-I'm the **FP&A Lead** at a **Fast Fashion Company in Korea** and also run a **hydroponic smart farm in India**. On the side, I'm building:  
-- An AI Feynman type Tutor based on whiteboard  
+I'm the **FP&A Head** at a **Fast Fashion Company in Korea** and also run a **hydroponic smart farm in India**. On the side, I'm building:  
+- An AI Feynman Style Tutor based on whiteboard  
 - A **Flutter app** to improve **mental math** skills  
 - A **Python library** for **financial analysis** focused on FP&A  
 - A **Python Script** to **summarize** Hacker News Comments. 
@@ -35,7 +35,7 @@ I'm focused on improving my **fitness and recovery**, aiming to:
 - Clock at least 1000 km in biking and 500 km in running.  
 
 ## 👍 What I'm Enjoying  
-- **Podcast:** [*All-In Podcast*](https://allin.com/)  
+- **Podcast:** [*All-In Podcast*](https://allin.com/), [WTF Is](https://www.allthingswtf.com/)
 - **Website:** [*Hacker News*](https://news.ycombinator.com/)  
 - **Song:** [*Yennai Izhukkuthadi*](https://www.youtube.com/watch?v=Hho8U12gf1Y)
 - **Playlist**: [*Indian Songs*](https://open.spotify.com/playlist/0KSHIa5MHOjdqA8vB8b1oz?si=8qRxlcaJTmGf9cTAkCD02g)
@@ -49,7 +49,8 @@ I'm focused on improving my **fitness and recovery**, aiming to:
 - **Series**: [*Net Ninja*](https://www.youtube.com/watch?v=j_rCDc_X-k8&list=PL4cUxeGkcC9giLVXCHSQmWqlHc9BLXdVx)
 - **Bike**: [*Giant SCR 2*](https://www.giant-bicycles.com/kr/scr-2-2022)
 - **Virtual Bike**: [*EGOJIN-MTB308A*](https://www.egojin.com/product/detail.html?product_no=5921&cate_no=4&display_group=1)
-- **Virtual Bike App**: [*MyWhoosh*](https://www.mywhoosh.com/)
+- **Treadmill**: *Egojin Maestro X4*
+- **Virtual Bike/Run App**: [*MyWhoosh*](https://www.mywhoosh.com/)
 - **Fitness App**: [*Strava*](https://www.strava.com/)
 - **Smart Watch**: [*Garmin Forerunner 265*](https://www.garmin.com/en-US/p/886785)
 - **Running Shoe**: [*Vibram FiveFingers V-Run*](https://www.vibram.com/us/shop/fivefingers/men/v-run-mens/M31_2_BlackYellow.html)
