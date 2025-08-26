@@ -15,5 +15,5 @@ A better approach would be to automate a lot of the backoffice work. These are m
 
 These are not as sexy as customer facing AI tech, but they will provide immediate returns and verifiable returns. And as for getting the Engineering teams (which love making customer facing toy projects) to get onboard, I feel the below approach posted by a PM on Reddit is the way to go. I think if I got the engineers in my company to do some of the backoffice work for a week, they will completely revamp the entire internal tools we have.  
 
-![](../../_posts/assets/2025-08-24-21-48-11.png)
+![](/assets/images/2025-08-24-21-48-11.png)
 *[Source](https://old.reddit.com/r/Entrepreneur/comments/1mw5yfg/forced_every_engineer_to_take_sales_calls_they/)*
