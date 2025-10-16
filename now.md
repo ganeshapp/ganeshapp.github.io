@@ -15,7 +15,7 @@ I'm currently based in **Seoul, South Korea** and **Karaikudi, India**. I spend 
 - Building simple tools with **Arduino**  
 
 ## 💼 What I'm Working On  
-I'm the **FP&A Head** at a **Fast Fashion Company in Korea** and also run a **hydroponic smart farm in India**. On the side, I'm building:  
+I'm the **Finance guy** who still **codes** and also run a **hydroponic smart farm in India**. On the side, I'm building:  
 - An AI Feynman Style Tutor based on whiteboard  
 - A **Flutter app** to improve **mental math** skills  
 - A **Python library** for **financial analysis** focused on FP&A  
@@ -32,7 +32,7 @@ I'm the **FP&A Head** at a **Fast Fashion Company in Korea** and also run a **hy
 I'm focused on improving my **fitness and recovery**, aiming to:  
 - Bring my **resting heart rate** to the **early 40s**.  
 - Improve my **VO2 Max** through workout, diet, and sleep.  
-- Clock at least 1000 km in biking and 500 km in running.  
+- Clock at least 1500 km in biking and 1000 km in running per year.
 
 ## 👍 What I'm Enjoying  
 - **Podcast:** [*All-In Podcast*](https://allin.com/), [WTF Is](https://www.allthingswtf.com/)
