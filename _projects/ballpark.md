@@ -26,7 +26,7 @@ BallPark is a completely offline-first app. There are no logins, no servers, and
 - **Cross-platform Support**: Works on desktop, mobile, and web with keyboard and touch input
 - **Data Persistence**: Session history and performance tracking
 
-<div style="text-align: center; max-width: 600px; margin: 0 auto;">
+<div style="text-align: center; max-width: 350px; margin: 0 auto;">
   <img src="/assets/images/2025-10-16-14-43-10.png" alt="Ballpark app screenshot">
 </div>
 
