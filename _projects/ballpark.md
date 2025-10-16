@@ -26,6 +26,6 @@ BallPark is a completely offline-first app. There are no logins, no servers, and
 - **Cross-platform Support**: Works on desktop, mobile, and web with keyboard and touch input
 - **Data Persistence**: Session history and performance tracking
 
-![](/assets/images/2025-10-16-14-09-01.png)
+![](/assets/images/2025-10-16-14-20-41.png)
 
 If you are interested in installing it on your android phone, then you can get the APK file [here](/assets/files/ballpark.apk). 
