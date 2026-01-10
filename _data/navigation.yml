@@ -11,5 +11,7 @@ main:
     url: /til/
   - title: "Weekly"
     url: /weekly/
+  - title: "Wiki"
+    url: /wiki/
   - title: "Now"
     url: /now/
