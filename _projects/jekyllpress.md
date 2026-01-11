@@ -35,6 +35,7 @@ On mobile, it's even worse. The GitHub mobile app is designed for code review, n
 ![](/assets/images/projects/jekyllpress.png)
 
 ### Key Features
+
 * **Zero Git Commands:** No `git pull` or `git push`. The app uses the GitHub REST API directly. So there is no bloat and the app is fast and remains small.
 * **Mobile-First Editor:** Write in Markdown with a live preview toggle.
 * **Automated Frontmatter:** The app handles the dates, titles, and file naming conventions for you.
