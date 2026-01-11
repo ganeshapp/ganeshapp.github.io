@@ -44,8 +44,6 @@ On mobile, it's even worse. The GitHub mobile app is designed for code review, n
     * **Auto-Upload:** Uploads to your configured assets folder and inserts the correct Markdown link automatically.
 * **Offline Support:** Write drafts on the plane; sync when you land.
 
----
-
 ## Technical Architecture & Design Choices
 
 I made specific technical trade-offs to keep the app lightweight and fast.
@@ -70,8 +68,6 @@ I made specific technical trade-offs to keep the app lightweight and fast.
 * **Trade-off:** Slightly less flexibility for the user.
 * **Benefit:** Prevents accidental broken links.
 
----
-
 ## Tech Stack
 
 * **Framework:** [Flutter](https://flutter.dev) (Android target)
@@ -80,7 +76,7 @@ I made specific technical trade-offs to keep the app lightweight and fast.
 * **Local DB:** [Hive](https://docs.hivedb.dev/) (NoSQL for drafts & config)
 * **Secure Storage:** [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) (For storing GitHub Tokens)
 
----
+## Download and Repository
 
 APK Download: [Jekyll Press APK](https://github.com/ganeshapp/JekyllPress/releases/tag/v1.0.0)
 
