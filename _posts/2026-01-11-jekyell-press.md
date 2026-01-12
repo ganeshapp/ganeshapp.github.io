@@ -2,7 +2,7 @@
 title: "Jekyell Press"
 date: 2026-01-11
 layout: single
-categories: [blog]
+categories: blog
 ---
 
 I think 2026 is going to be the year of JAM Stack (basically static sites hosted on GitHub Pages or CloudFlare pages). There is a push for indie web and seems like many people are getting back to the early 2000s era of having personal websites not inside a walled garden. 
