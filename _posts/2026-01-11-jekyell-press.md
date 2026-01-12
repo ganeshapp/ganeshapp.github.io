@@ -18,7 +18,10 @@ And yet there are no apps in this space. There are some apps like Gitjournal or 
 So I decided to create a simple app. In fact I am using that very app to write this post. 
 
 
-![image](/assets/images/img_20260111_205839.jpg)
+<figure style="width: 250px" class="align-left">
+  <img src="/assets/images/img_20260111_205839.jpg" alt="">
+  <figcaption>Jekyll Press Editor Screen</figcaption>
+</figure> 
 
 There are two main problems with GitHub pages on mobile app:
 1. Git is extreme bloat. .got folder contains all the history and without the history you can't git pull or git push. For blogs with lots of images this can become too big. 
