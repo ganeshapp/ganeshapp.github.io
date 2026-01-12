@@ -4,11 +4,11 @@
 <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-gKOidNpWwRB/1s8PDCY6F1HqfRmX7xVTIwpQVqtQggZu8WZL64bEEhCo5hXQDkGv" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-HmcYwD4nJQn2a48/K9F3GfJrZuwF21eANnyNSUUodZ15WLcPAmULkQ4pLUHIvU8t" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-bCJOcfiJ+ATUh3qgH3vvolSF/G5gkrbWIhzQI62Rt0VXkzH1eKttJ02Pe1qm1qoz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" onload="if (window.renderMathInElement) { renderMathInElement(document.body, { delimiters: [ { left: '$$', right: '$$', display: true }, { left: '\\\\[', right: '\\\\]', display: true }, { left: '$', right: '$', display: false }, { left: '\\\\(', right: '\\\\)', display: false } ] }); }"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('load', function () {
     if (typeof renderMathInElement === 'function') {
       renderMathInElement(document.body, {
         delimiters: [
