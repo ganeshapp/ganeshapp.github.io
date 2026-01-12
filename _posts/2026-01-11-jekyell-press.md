@@ -1,5 +1,5 @@
 ---
-title: "Jekyell Press"
+title: "Jekyll Press"
 date: 2026-01-11
 layout: single
 categories: blog
