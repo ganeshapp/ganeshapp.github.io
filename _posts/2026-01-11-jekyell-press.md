@@ -17,15 +17,13 @@ And yet there are no apps in this space. There are some apps like Gitjournal or 
 
 So I decided to create a simple app. In fact I am using that very app to write this post. 
 
-
-<figure style="width: 250px" class="align-left">
-  <img src="/assets/images/img_20260111_205839.jpg" alt="">
-  <figcaption>Jekyll Press Editor Screen</figcaption>
-</figure> 
-
 There are two main problems with GitHub pages on mobile app:
 1. Git is extreme bloat. .got folder contains all the history and without the history you can't git pull or git push. For blogs with lots of images this can become too big. 
 2. Git is complex. Branches, merge conflicts and many of the things that happen under the hood are too distracting for authoring. 
+
+<figure style="width: 250px" class="align-left">
+  <img src="/assets/images/img_20260111_205839.jpg" alt="">
+</figure> 
 
 So I simplified a lot of things to make a polished working MPV. This MVP is very strict. It assumes you have a GitHub blog, it is Jekyll and not Hugo, Eleventy etc., it assumes there is a folder to store image, it assumes you know how to get your PAT, it assumes you won't edit the same blog post on two different devices at the same time creating merge conflicts, it doesn't allow you to edit front matter or file names, it doesn't allow you to edit past blog post titles. It auto generates a lot of things, like file names, dates, front matter, attached image path etc. 
 
