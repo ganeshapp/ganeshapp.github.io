@@ -2,7 +2,9 @@
 title: "Testing Latex"
 date: 2026-01-12
 layout: single
-categories: [blog]
+categories: [blog, test]
+math: true
+tags: [latex, math]
 ---
 So I want to do a lot of things. 
 
