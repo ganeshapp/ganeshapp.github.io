@@ -10,13 +10,11 @@ url: /projects/spider_solitaire/
 classes: wide
 ---
 
-## Spider Solitaire
-
 Decided to make a simple webapp for Spider Solitaire. It is a simple card game that is easy to learn and play. It is a good game to play when you are bored.
 
 ![](/assets/images/projects/spider_solitaire.png)
 
-[Spider Solitaire](https://www.gapp.in/spider-solitaire/)
+[Play here](https://www.gapp.in/spider-solitaire/)
 
 I think of all the variants of solitaire, this is the most difficult one. Issue with Spider Solitaire is most random shuffles are not solvable.
 
