@@ -1,6 +1,6 @@
 ---
 title: Next Arbitrage
-date: 2026-04-08
+date: 2026-04-07
 layout: single
 collection: notes
 tags: [Trend]
