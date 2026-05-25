@@ -5,7 +5,7 @@ layout: single
 categories: [blog]
 ---
 
-One of the biggest lies that the show F.R.I.E.N.D.S, How I met your mother, Seinfeld or even Big Bang Theory sold to the world was that it was perfectly common for a bunch of grown adults who had day jobs would meet up regularly in each other's apartment or at a regular place. 
+One of the biggest lies that the show F.R.I.E.N.D.S, How I met your mother, Seinfeld or even Big Bang Theory sold to the world was that it was perfectly common for a bunch of grown ups who had day jobs would meet up regularly in each other's apartment or at a regular place. 
 
 In my experience this is very rare. Most people I know meet irregularly. Once in a while and then most of the time is spent catching up on life and events. 
 
