@@ -2,6 +2,7 @@
 permalink: /wiki/Zone-2-Training/
 title: "Zone 2 Training"
 date: 2026-02-01
+math: true
 ---
 
 Zone 2 training is often called "base training," and for good reason. It’s the physiological foundation upon which all other athletic performance is built. Using an indoor bike is actually one of the most effective ways to nail this because it allows for total control over your variables.
@@ -22,7 +23,7 @@ Physiologically, Zone 2 is the highest intensity at which your body primarily us
 Training in Zone 2 triggers specific adaptations in the heart, primarily **eccentric hypertrophy** of the left ventricle.
 
 - **The "Stretch":** At this intensity, the heart fills completely with blood before contracting. Over time, the left ventricle chamber actually gets larger and more elastic.
-- **Stroke Volume:** A larger chamber means your heart can pump more blood with every single beat ($Stroke Volume$).
+- **Stroke Volume:** A larger chamber means your heart can pump more blood with every single beat (stroke volume).
 - **The Result:** Because your heart is moving more blood per pump, it doesn't need to beat as often to keep you alive while you're sitting on the couch. This is the most direct path to a lower RHR.
 
 ## How it Helps Long Distance Running

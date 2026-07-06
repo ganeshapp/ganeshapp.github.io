@@ -308,4 +308,60 @@
       touchX = null;
     }, { passive: true });
   }
+
+  /* ---------- easter egg: console greeting ---------- */
+  try {
+    var ascii = [
+      '',
+      '   __ _  __ _ _ __  _ __  ',
+      '  / _` |/ _` | \'_ \\| \'_ \\ ',
+      ' | (_| | (_| | |_) | |_) |',
+      '  \\__, |\\__,_| .__/| .__/ ',
+      '   __/ |     | |   | |    ',
+      '  |___/      |_|   |_|    ',
+      ''
+    ].join('\n');
+    var title = 'color:#4fb3e8;font-family:monospace;';
+    console.log('%c' + ascii, title);
+    console.log('%cYou opened the devtools. Of course you did. Here is a Fermi question:', 'font-size:13px');
+    console.log('%cHow many times will your heart beat in a lifetime?', 'font-size:13px;font-weight:bold');
+    console.log('%c(answer, rot13): Nobhg guerr ovyyvba. Fvkgl orngf n zvahgr, sbe nobhg avargl lrnef. Lbhe EUE cebwrpg ohlf lbh fcner pncnpvgl.', 'color:#99a3b3;font-size:12px');
+    console.log('%cDecode at rot13.com, or just be directionally correct → gapp.in/napkin', 'color:#99a3b3;font-size:12px');
+  } catch (e) { /* no console, no problem */ }
+
+  /* ---------- easter egg: birthday candle (June 12) ---------- */
+  (function () {
+    var now = new Date();
+    if (now.getMonth() === 5 && now.getDate() === 12) {
+      var candle = document.querySelector('.birthday-candle');
+      if (candle) candle.hidden = false;
+      // count age in exact days in the footer copyright
+      var born = new Date(1986, 5, 12); // 12 June 1986
+      var days = Math.floor((now - born) / 86400000);
+      var span = document.querySelector('.footer-row > span');
+      if (span && days > 0) {
+        span.innerHTML += ' · ' + days.toLocaleString() + ' days alive today';
+      }
+    }
+  })();
+
+  /* ---------- easter egg: 한글 logo flip on hover ---------- */
+  (function () {
+    var logo = document.querySelector('.site-title');
+    if (!logo) return;
+    var textEl = logo.querySelector('.site-title-text');
+    var hangul = logo.getAttribute('data-hangul');
+    if (!textEl || !hangul) return;
+    var original = textEl.textContent;
+    var timer = null;
+    logo.addEventListener('mouseenter', function () {
+      textEl.textContent = hangul;
+      clearTimeout(timer);
+      timer = setTimeout(function () { textEl.textContent = original; }, 650);
+    });
+    logo.addEventListener('mouseleave', function () {
+      clearTimeout(timer);
+      textEl.textContent = original;
+    });
+  })();
 })();
