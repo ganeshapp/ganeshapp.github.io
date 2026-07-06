@@ -25,6 +25,10 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 
 ## Writing
 
+**Math:** add `math: true` to a page's front matter to load KaTeX on that page only (nothing ships on pages that don't need it). Write inline math as `$...$` and display math as `$$...$$`.
+
+**Easter eggs:** open devtools for a console greeting + a rot13 Fermi question; hover the `gapp` logo to flip it to 갭; on June 12 the title gets a birthday candle and the footer counts days alive; the 404 page has a mate-in-one chess puzzle.
+
 **Blog post:** drop `YYYY-MM-DD-slug.md` in `_posts/` with `title:` and `date:` front matter.
 
 **Wiki page:** drop a `.md` file straight into `_wiki/` — no folders, no filing decisions. Use normal markdown links (not `[[wikilinks]]`). Front matter needs `title:` and a `permalink:` like `/wiki/Page-Name/` (dashes for spaces). Topic hub pages (Running, Living in Korea, etc.) are just ordinary wiki pages with curated link lists; the start page at `wiki/index.md` links to the hubs. People navigate by hopping links or searching.
