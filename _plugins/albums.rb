@@ -15,6 +15,7 @@ require "uri"
 
 module Albums
   IMAGE_EXT = %w[.jpg .jpeg .png .gif .webp .avif].freeze
+  VIDEO_EXT = %w[.mp4 .webm .mov].freeze
 
   class AlbumPage < Jekyll::PageWithoutAFile
     def initialize(site, slug, title, blurb_md, cover, images)
@@ -85,20 +86,24 @@ module Albums
 
         files = Dir.children(dir).sort
         images = files.select { |f| IMAGE_EXT.include?(File.extname(f).downcase) }
-        next if images.empty?
+        videos = files.select { |f| VIDEO_EXT.include?(File.extname(f).downcase) }
+        next if images.empty? && videos.empty?
 
         cover_file = Helpers.pick_cover(images)
-        gallery = images.reject { |f| f == cover_file }
-        gallery = images if gallery.empty?
+        gallery = (images + videos).sort.reject { |f| f == cover_file }
+        gallery = images + videos if gallery.empty?
 
         slug = Jekyll::Utils.slugify(folder)
         blurb_path = File.join(dir, "album.md")
         blurb = File.exist?(blurb_path) ? Helpers.strip_front_matter(File.read(blurb_path)) : ""
 
         base = "/assets/albums/#{folder}"
-        cover = "#{base}/#{cover_file || images.first}"
-        site.pages << AlbumPage.new(site, slug, Helpers.titleize(folder), blurb,
-                                    cover, gallery.map { |f| "#{base}/#{f}" })
+        cover_src = cover_file || images.first
+        cover = cover_src ? "#{base}/#{cover_src}" : nil
+        items = gallery.map do |f|
+          { "url" => "#{base}/#{f}", "video" => VIDEO_EXT.include?(File.extname(f).downcase) }
+        end
+        site.pages << AlbumPage.new(site, slug, Helpers.titleize(folder), blurb, cover, items)
         slugs << slug
       end
       slugs
@@ -127,14 +132,15 @@ module Albums
 
       folders.sort.each do |folder, names|
         images = names.select { |f| IMAGE_EXT.include?(File.extname(f).downcase) }.sort
-        next if images.empty?
+        videos = names.select { |f| VIDEO_EXT.include?(File.extname(f).downcase) }.sort
+        next if images.empty? && videos.empty?
 
         slug = Jekyll::Utils.slugify(folder)
         next if existing_slugs.include?(slug)
 
         cover_file = Helpers.pick_cover(images)
-        gallery = images.reject { |f| f == cover_file }
-        gallery = images if gallery.empty?
+        gallery = (images + videos).sort.reject { |f| f == cover_file }
+        gallery = images + videos if gallery.empty?
 
         blurb = ""
         if names.include?("album.md")
@@ -144,10 +150,13 @@ module Albums
         end
 
         enc = ->(f) { "#{cdn}/#{folder}/#{URI::DEFAULT_PARSER.escape(f)}" }
-        cover = enc.call(cover_file || images.first)
-        site.pages << AlbumPage.new(site, slug, Helpers.titleize(folder), blurb,
-                                    cover, gallery.map(&enc))
-        Jekyll.logger.info "Albums:", "remote album '#{folder}' (#{gallery.size} photos)"
+        cover_src = cover_file || images.first
+        cover = cover_src ? enc.call(cover_src) : nil
+        items = gallery.map do |f|
+          { "url" => enc.call(f), "video" => VIDEO_EXT.include?(File.extname(f).downcase) }
+        end
+        site.pages << AlbumPage.new(site, slug, Helpers.titleize(folder), blurb, cover, items)
+        Jekyll.logger.info "Albums:", "remote album '#{folder}' (#{items.size} items)"
       end
     end
 

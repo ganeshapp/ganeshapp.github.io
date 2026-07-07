@@ -6,10 +6,19 @@ layout: default
   <h1 class="page-title">{{ page.title }}</h1>
   {{ content }}
   <div class="photo-grid" id="photo-grid">
-    {% for img in page.images %}
-      <a href="{{ img | relative_url }}" class="photo-item" data-lightbox>
-        <img src="{{ img | relative_url }}" alt="{{ page.title }} photo {{ forloop.index }}" loading="lazy">
+    {% for item in page.images %}
+      {% if item.video %}
+      <a href="{{ item.url | relative_url }}" class="photo-item is-video" data-lightbox data-video aria-label="{{ page.title }} video {{ forloop.index }}">
+        <video src="{{ item.url | relative_url }}" preload="metadata" muted playsinline></video>
+        <span class="play-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
       </a>
+      {% else %}
+      <a href="{{ item.url | relative_url }}" class="photo-item" data-lightbox>
+        <img src="{{ item.url | relative_url }}" alt="{{ page.title }} photo {{ forloop.index }}" loading="lazy">
+      </a>
+      {% endif %}
     {% endfor %}
   </div>
 </article>

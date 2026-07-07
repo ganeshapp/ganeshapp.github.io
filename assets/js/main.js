@@ -256,12 +256,31 @@
   var lb = document.getElementById('lightbox');
   if (lb) {
     var lbImg = lb.querySelector('img');
+    var lbVideo = lb.querySelector('video');
     var items = [];
     var idx = 0;
 
+    function showItem() {
+      var a = items[idx];
+      lbVideo.pause();
+      if (a.hasAttribute('data-video')) {
+        lbImg.hidden = true;
+        lbImg.src = '';
+        lbVideo.hidden = false;
+        lbVideo.src = a.href;
+        lbVideo.play().catch(function () {}); // user gesture usually allows it
+      } else {
+        lbVideo.hidden = true;
+        lbVideo.removeAttribute('src');
+        lbVideo.load();
+        lbImg.hidden = false;
+        lbImg.src = a.href;
+      }
+    }
+
     function openLb(i) {
       idx = i;
-      lbImg.src = items[idx].href;
+      showItem();
       lb.hidden = false;
       document.body.style.overflow = 'hidden';
     }
@@ -269,13 +288,16 @@
     function closeLb() {
       lb.hidden = true;
       lbImg.src = '';
+      lbVideo.pause();
+      lbVideo.removeAttribute('src');
+      lbVideo.load();
       document.body.style.overflow = '';
     }
 
     function step(d) {
       if (!items.length) return;
       idx = (idx + d + items.length) % items.length;
-      lbImg.src = items[idx].href;
+      showItem();
     }
 
     document.addEventListener('click', function (e) {
