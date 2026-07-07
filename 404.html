@@ -12,13 +12,14 @@ search: false
   <div id="chess" class="chess-board" aria-label="Chess puzzle: white to move, mate in one"></div>
   <p id="chess-msg" class="chess-msg">Tap the piece you want to move, then its destination.</p>
 
-  <p class="post-meta"><a href="{{ '/' | relative_url }}">go home</a> &middot; <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button></p>
+  <p class="post-meta no-preview"><a href="{{ '/' | relative_url }}">go home</a> &middot; <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button></p>
 </div>
 
 <style>
   .chess-board {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     width: min(20rem, 90vw);
     margin: 1.5rem auto 0.5rem;
     border: 1px solid var(--border);

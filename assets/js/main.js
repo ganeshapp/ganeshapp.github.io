@@ -148,7 +148,7 @@
     // only preview links inside the page content, not nav/footer/breadcrumbs,
     // and not portfolio cards or photo grids (too distracting)
     if (!a.closest('main')) return false;
-    if (a.closest('.breadcrumb, .post-nav, .card-grid, .photo-grid')) return false;
+    if (a.closest('.breadcrumb, .post-nav, .card-grid, .photo-grid, .no-preview')) return false;
     return true;
   }
 
