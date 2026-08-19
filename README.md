@@ -34,8 +34,9 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 **Wiki page:** drop a `.md` file straight into `_wiki/` — no folders, no filing decisions. Use normal markdown links (not `[[wikilinks]]`). Front matter needs `title:` and a `permalink:` like `/wiki/Page-Name/` (dashes for spaces). Topic hub pages (Running, Living in Korea, etc.) are just ordinary wiki pages with curated link lists; the start page at `wiki/index.md` links to the hubs. People navigate by hopping links or searching.
 
 **Album:** create a folder under `assets/albums/`, e.g. `jeju_2026/`:
-- `0.jpg` (or `.png` etc.) — the cover shown on the /albums/ grid. It also appears first inside the album, since files sort by name.
-- `0001.jpg`, `0002.mp4`, … — the rest of the photos and videos, in filename order
+- `0001.jpg`, `0002.mp4`, … — the photos and videos, in filename order
+- the **first image** is the album's cover on the /albums/ grid. There's no separate cover
+  file — the cover is simply the first photo, and it appears in the album like any other.
 - `album.md` — plain-text blurb, no front matter needed
 - `album.json` — optional per-photo captions (see below)
 

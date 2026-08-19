@@ -3,16 +3,20 @@
 # Albums are folders under assets/albums/. One folder per album:
 #
 #   assets/albums/cycling_trip/
-#     0.jpg        <- the cover. Also shown first in the album, since it sorts first.
-#     0001.jpg
+#     0001.jpg     <- the first photo, and therefore the album's cover
 #     0002.mp4
 #     album.md     <- the album blurb, plain text
 #     album.json   <- optional per-photo captions, written by glickr
 #
 # Conventions, which the glickr app also implements:
 #   - folder name -> title  ("cycling_trip" -> "Cycling Trip")
-#   - the cover is the file whose basename is "0", and it must be an image
 #   - everything sorts by filename, so filename order IS display order
+#   - the cover is just the FIRST image in that order - there is no separate
+#     cover file. A dedicated `0.jpg` used to exist and meant the cover was
+#     stored twice: once as 0.jpg and once numbered, so it appeared in the
+#     album twice with the caption attached to only one of them. Since 0 sorts
+#     first anyway, an older album that still has a 0.jpg keeps working - it is
+#     simply the first image.
 #
 # This used to also pull albums from a separate repo over jsDelivr, to keep
 # photos off GitHub Pages' storage quota. That indirection is gone: photos now
@@ -100,11 +104,11 @@ module Albums
         videos = files.select { |f| VIDEO_EXT.include?(File.extname(f).downcase) }
         next if images.empty? && videos.empty?
 
-        # The cover is also the album's first photo. It sorts first by name,
-        # which is exactly where it belongs - excluding it from the grid, as
-        # this used to, made a photo the user had uploaded simply disappear.
+        # One sorted list, and the cover is its first image. Nothing is
+        # excluded from the grid: hiding the cover made a photo the user had
+        # uploaded simply disappear from the album it was the cover of.
         gallery = (images + videos).sort
-        cover_file = images.find { |f| File.basename(f, ".*") == "0" } || images.first
+        cover_file = images.first
 
         blurb_path = File.join(dir, "album.md")
         blurb = File.exist?(blurb_path) ? Helpers.strip_front_matter(File.read(blurb_path)) : ""
