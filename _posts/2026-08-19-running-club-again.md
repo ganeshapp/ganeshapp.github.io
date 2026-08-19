@@ -2,14 +2,21 @@
 title: "Running Club - Again?"
 date: 2026-08-19 01:02:17 +0900
 ---
+I have been a part of few running clubs from 2008 to 2020.
 
-I have been to a few running clubs. I never stick for a long time, purely because I was never a tempo runner. I am more a Zatopek type runner. And clubs are too constricting for this type. 
-
-My first club was the Infy runners group. After work we would run around the Infy Blore campus. Some days we would run to work as well. I would just out pace everyone and get in my quick 5k and get out. There was hardly any socializing.
+My first club was the Infy runners group. After work we would run around the Infy B'lore campus. Some days we would run to work as well in the morning. I would just out pace everyone and get in my quick 5k and get out. There was hardly any socializing. It was just pure running. 
 
 Then there was the Blore hash house harriers. This was all about socializing and I loved it. Even if you had raw pace, it didn't matter, because the hares strategically set fake trails to slow the fast hounds. And if they didn't that was their failure. It was all about socializing and I loved it. 
 
 In Shanghai I had two running clubs again, one was the Shanghai Hash house harriers. This was purely for fun. And then the other was the Monday nights Malones run. This was hardcore racing. In my time in Shanghai, I think I probably never missed any of the Monday night Malone's run. 
+
+
+<div style="text-align: center;">
+  <video autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 12px;">
+    <source src="/assets/images/vid_20260819_123545_831.mp4" type="video/mp4">
+  </video>
+</div>
+
 
 In Singapore I was part of the Choa Chu Kang running club. But this was a pretty slow club, with 1 or 2 good runners and mostly I was in it for the social aspect. Fun BBQs. Also Singapore was tiny and had so many races per year and you consistently end up bumping into runners from your locality. 
 
