@@ -357,15 +357,32 @@ th { background: var(--bg-raised); }
   color: #fff;
 }
 
-.play-badge svg {
-  background: rgba(8, 11, 16, 0.65);
+/* The disc is its own element rather than padding on the <svg>. Styling the
+   svg directly relied on content-box sizing: under the global border-box the
+   0.7rem padding ate the whole 1.4rem width, the viewport collapsed to 0x0,
+   and the tile showed a dark circle with no triangle in it. */
+.play-disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  padding: 0.7rem;
-  width: 1.4rem;
-  height: 1.4rem;
+  background: rgba(8, 11, 16, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  transition: background 0.15s ease;
 }
 
-.photo-item:hover .play-badge svg { background: rgba(8, 11, 16, 0.85); }
+.play-disc svg {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  /* A triangle's optical centre sits left of its bounding box, so nudge it. */
+  margin-left: 3px;
+}
+
+.photo-item:hover .play-disc { background: rgba(8, 11, 16, 0.8); }
 
 .album-page { max-width: none; }
 

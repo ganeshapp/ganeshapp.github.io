@@ -18,7 +18,9 @@ layout: default
            aria-label="{% if item.caption %}{{ item.caption | escape }}{% else %}{{ page.title }} video {{ forloop.index }}{% endif %}">
           <video src="{{ item.url | relative_url }}" preload="metadata" muted playsinline></video>
           <span class="play-badge" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="play-disc">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
           </span>
         </a>
         {% else %}
