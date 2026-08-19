@@ -33,16 +33,38 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 
 **Wiki page:** drop a `.md` file straight into `_wiki/` — no folders, no filing decisions. Use normal markdown links (not `[[wikilinks]]`). Front matter needs `title:` and a `permalink:` like `/wiki/Page-Name/` (dashes for spaces). Topic hub pages (Running, Living in Korea, etc.) are just ordinary wiki pages with curated link lists; the start page at `wiki/index.md` links to the hubs. People navigate by hopping links or searching.
 
-**Album (remote — the normal way):** push a folder to the `ganeshapp/album` repo, e.g. `jeju_2026/`:
-- `0.jpg` (or `.png` etc.) — the cover image shown on the /albums/ grid
-- `album.md` — plain text blurb, no front matter needed
-- any other images — shown in the album's photo grid
+**Album:** create a folder under `assets/albums/`, e.g. `jeju_2026/`:
+- `0.jpg` (or `.png` etc.) — the cover shown on the /albums/ grid. It also appears first inside the album, since files sort by name.
+- `0001.jpg`, `0002.mp4`, … — the rest of the photos and videos, in filename order
+- `album.md` — plain-text blurb, no front matter needed
+- `album.json` — optional per-photo captions (see below)
 
-Folder name becomes the title (`jeju_2026` → "Jeju 2026"). At build time this site lists that repo and serves the photos through jsDelivr's free CDN, pinned to the latest commit SHA — so photos never count against GitHub Pages storage or bandwidth limits. The site rebuilds daily (cron in `deploy.yml`), so a new album shows up within a day, or immediately if you trigger the "Build and deploy" workflow manually.
+Folder name becomes the title (`jeju_2026` → "Jeju 2026"). Photos live in this repo and are served
+directly, so there is no CDN and no second repo to keep in sync.
 
-One-time setup for the album repo: copy `extras/album-repo-resize-workflow.yml` into `ganeshapp/album` as `.github/workflows/resize.yml`. It auto-resizes every pushed image to max 1600px, recompresses, and strips EXIF (including GPS location) — keeps the repo small and your location private.
+**Captions** are optional and per photo. `album.json` looks like this, and is written by
+[glickr](https://github.com/ganeshapp/glickr) — but it is plain JSON, one entry per line, so it is
+easy to edit by hand:
 
-**Album (local):** the same folder structure also works inside this repo under `assets/albums/` (see `test_album`). Good for small one-off albums; remote is better for anything big. If a local and remote album share a name, local wins.
+```json
+{
+  "version": 1,
+  "album": "jeju_2026",
+  "pad": 4,
+  "next": 3,
+  "items": {
+    "0001.jpg": "6am start, still dark",
+    "0002.jpg": "Puncture #1"
+  }
+}
+```
+
+A photo with a caption shows it under the grid tile and in the lightbox, and uses it as the image's
+alt text. A photo without one shows nothing extra.
+
+**Uploading from a phone:** [glickr](https://github.com/ganeshapp/glickr) is an Android app that
+writes albums to this repo through the GitHub API — it compresses and converts the media, numbers
+the files, generates the cover, and commits a whole album in one go.
 
 ## Deploying
 
