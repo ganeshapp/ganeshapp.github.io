@@ -7,18 +7,30 @@ layout: default
   {{ content }}
   <div class="photo-grid" id="photo-grid">
     {% for item in page.images %}
-      {% if item.video %}
-      <a href="{{ item.url | relative_url }}" class="photo-item is-video" data-lightbox data-video aria-label="{{ page.title }} video {{ forloop.index }}">
-        <video src="{{ item.url | relative_url }}" preload="metadata" muted playsinline></video>
-        <span class="play-badge" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-      </a>
-      {% else %}
-      <a href="{{ item.url | relative_url }}" class="photo-item" data-lightbox>
-        <img src="{{ item.url | relative_url }}" alt="{{ page.title }} photo {{ forloop.index }}" loading="lazy">
-      </a>
-      {% endif %}
+      {%- comment -%}
+        A caption, where one exists, is better alt text than "Cycling Trip photo 4",
+        so it doubles as the accessible name.
+      {%- endcomment -%}
+      <figure class="photo-figure">
+        {% if item.video %}
+        <a href="{{ item.url | relative_url }}" class="photo-item is-video" data-lightbox data-video
+           {% if item.caption %}data-caption="{{ item.caption | escape }}"{% endif %}
+           aria-label="{% if item.caption %}{{ item.caption | escape }}{% else %}{{ page.title }} video {{ forloop.index }}{% endif %}">
+          <video src="{{ item.url | relative_url }}" preload="metadata" muted playsinline></video>
+          <span class="play-badge" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </a>
+        {% else %}
+        <a href="{{ item.url | relative_url }}" class="photo-item" data-lightbox
+           {% if item.caption %}data-caption="{{ item.caption | escape }}"{% endif %}>
+          <img src="{{ item.url | relative_url }}"
+               alt="{% if item.caption %}{{ item.caption | escape }}{% else %}{{ page.title }} photo {{ forloop.index }}{% endif %}"
+               loading="lazy">
+        </a>
+        {% endif %}
+        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+      </figure>
     {% endfor %}
   </div>
 </article>

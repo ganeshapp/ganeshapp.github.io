@@ -321,6 +321,17 @@ th { background: var(--bg-raised); }
   margin-top: 1.5rem;
 }
 
+/* The figure is the grid child now, so the caption sits with its photo and
+   the grid stays one column per item. */
+.photo-figure { margin: 0; display: flex; flex-direction: column; }
+
+.photo-figure figcaption {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--muted);
+  padding: 0.35rem 0.1rem 0;
+}
+
 .photo-item { position: relative; display: block; }
 
 .photo-item img,
@@ -378,6 +389,28 @@ th { background: var(--bg-raised); }
   object-fit: contain;
   border-radius: 4px;
 }
+
+/* Solid, not a gradient: a two-line caption over a gradient goes illegible on
+   its top line. Sits below the image rather than over it, so it never covers
+   the photo it describes. */
+.lb-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  max-width: min(60rem, 88vw);
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  background: rgba(8, 11, 16, 0.82);
+  color: #e3e7ee;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  z-index: 201;
+}
+
+.lb-caption[hidden] { display: none; }
 
 .lightbox button {
   position: absolute;

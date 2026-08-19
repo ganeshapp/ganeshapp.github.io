@@ -257,12 +257,20 @@
   if (lb) {
     var lbImg = lb.querySelector('img');
     var lbVideo = lb.querySelector('video');
+    var lbCaption = lb.querySelector('.lb-caption');
     var items = [];
     var idx = 0;
 
     function showItem() {
       var a = items[idx];
       lbVideo.pause();
+      // Captions are optional per photo, so the element is hidden rather than
+      // left empty - an empty bar still eats space under the image.
+      if (lbCaption) {
+        var caption = a.getAttribute('data-caption');
+        lbCaption.textContent = caption || '';
+        lbCaption.hidden = !caption;
+      }
       if (a.hasAttribute('data-video')) {
         lbImg.hidden = true;
         lbImg.src = '';
@@ -287,6 +295,7 @@
 
     function closeLb() {
       lb.hidden = true;
+      if (lbCaption) { lbCaption.textContent = ''; lbCaption.hidden = true; }
       lbImg.src = '';
       lbVideo.pause();
       lbVideo.removeAttribute('src');
