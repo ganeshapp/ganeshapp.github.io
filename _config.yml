@@ -17,11 +17,6 @@ timezone: Asia/Seoul
 
 permalink: /blog/:title/
 
-# Remote photo albums: a separate repo served via jsDelivr CDN
-# (photos don't count against GitHub Pages storage/bandwidth)
-album_repo: "ganeshapp/album"
-album_branch: "main"
-
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

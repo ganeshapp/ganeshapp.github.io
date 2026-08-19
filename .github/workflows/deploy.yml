@@ -4,9 +4,6 @@ on:
   push:
     branches: [main, master]
   workflow_dispatch:
-  schedule:
-    # daily rebuild so new albums pushed to the album repo show up automatically
-    - cron: "30 21 * * *"
 
 permissions:
   contents: read
@@ -24,7 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3"
+          # Read from .ruby-version so this and any other host
+          # (Cloudflare Pages reads the same file) cannot drift apart.
+          ruby-version: .ruby-version
           bundler-cache: true
       - uses: actions/configure-pages@v5
         id: pages
