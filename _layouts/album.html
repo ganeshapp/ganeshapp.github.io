@@ -19,7 +19,9 @@ layout: default
           <video src="{{ item.url | relative_url }}" preload="metadata" muted playsinline></video>
           <span class="play-badge" aria-hidden="true">
             <span class="play-disc">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <!-- width/height are attributes, not just CSS, so the triangle
+                   still has a size if the stylesheet is stale or fails. -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </span>
           </span>
         </a>
