@@ -19,7 +19,7 @@ permalink: /albums/
       {% endif %}
       <div class="card-body">
         <h3>{{ album.title }}</h3>
-        <p>{{ album.blurb }}</p>
+        <p class="summary">{{ album.summary | escape }}</p>
       </div>
     </a>
   {% endfor %}

@@ -37,13 +37,15 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 - `0001.jpg`, `0002.mp4`, … — the photos and videos, in filename order
 - the **first image** is the album's cover on the /albums/ grid. There's no separate cover
   file — the cover is simply the first photo, and it appears in the album like any other.
-- `album.md` — plain-text blurb, no front matter needed
-- `album.json` — optional per-photo captions (see below)
+- `album.json` — optional one-line `"summary"` (plain text, shown on the /albums/ card and under
+  the album title) and per-photo captions (see below)
+- `album.md` — optional long note in markdown (who came, the story), shown only on the album page
+  between the summary and the photos
 
 Folder name becomes the title (`jeju_2026` → "Jeju 2026"). Photos live in this repo and are served
 directly, so there is no CDN and no second repo to keep in sync.
 
-**Captions** are optional and per photo. `album.json` looks like this, and is written by
+**Summary and captions** are optional. `album.json` looks like this, and is written by
 [glickr](https://github.com/ganeshapp/glickr) — but it is plain JSON, one entry per line, so it is
 easy to edit by hand:
 
@@ -53,6 +55,7 @@ easy to edit by hand:
   "album": "jeju_2026",
   "pad": 4,
   "next": 3,
+  "summary": "Jeju by bike, three days",
   "items": {
     "0001.jpg": "6am start, still dark",
     "0002.jpg": "Puncture #1"
