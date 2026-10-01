@@ -36,7 +36,7 @@ layout: default
                loading="lazy">
         </a>
         {% endif %}
-        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+        {% if item.caption %}<figcaption>{{ item.caption | escape }}</figcaption>{% endif %}
       </figure>
     {% endfor %}
   </div>
