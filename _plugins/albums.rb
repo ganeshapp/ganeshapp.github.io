@@ -5,8 +5,8 @@
 #   assets/albums/cycling_trip/
 #     0001.jpg     <- the first photo, and therefore the album's cover
 #     0002.mp4
-#     album.md     <- the album blurb, plain text
-#     album.json   <- optional per-photo captions, written by glickr
+#     album.json   <- optional one-line "summary" and per-photo captions, written by glickr
+#     album.md     <- optional long note, markdown, shown only on the album page
 #
 # Conventions, which the glickr app also implements:
 #   - folder name -> title  ("cycling_trip" -> "Cycling Trip")
@@ -29,23 +29,19 @@ module Albums
   VIDEO_EXT = %w[.mp4 .webm .mov].freeze
 
   class AlbumPage < Jekyll::PageWithoutAFile
-    def initialize(site, slug, title, blurb_md, cover, images)
+    def initialize(site, slug, title, summary, note_md, cover, images)
       super(site, site.source, File.join("albums", slug), "index.md")
-      @site = site
-      self.content = blurb_md
+      self.content = note_md
       self.data = {
         "layout" => "album",
         "title" => title,
-        "blurb" => first_lines(blurb_md),
+        "summary" => summary,
         "cover" => cover,
         "images" => images,
-        "search" => true
+        # The note is markdown typed in glickr, not a template: a stray `{%`
+        # must not fail the whole site build.
+        "render_with_liquid" => false
       }
-    end
-
-    def first_lines(md)
-      text = md.to_s.gsub(/^#.*$/, "").gsub(/[*_`\[\]()>#]/, "").strip
-      text.split(/\n+/).first(2).join(" ").strip
     end
   end
 
@@ -58,17 +54,22 @@ module Albums
       text.sub(/\A---\s*\n.*?\n---\s*\n/m, "")
     end
 
-    # Parse an album.json written by glickr into { filename => caption }.
-    #
-    # Values are polymorphic on purpose: a bare string in the common case, so
-    # the file stays hand-editable, and an object when there is more than a
-    # caption to store. Never raises - a hand-mangled file should cost captions,
-    # not the whole build.
-    def self.captions(path)
+    # Parse an album.json written by glickr. Never raises - a hand-mangled file
+    # should cost the summary and captions, not the whole build.
+    def self.read_json(path)
       return {} unless File.exist?(path)
 
       data = JSON.parse(File.read(path))
-      return {} unless data.is_a?(Hash)
+      data.is_a?(Hash) ? data : {}
+    rescue StandardError => e
+      Jekyll.logger.warn "Albums:", "bad album.json at #{path}: #{e.message}"
+      {}
+    end
+
+    # { filename => caption }. Values are polymorphic on purpose: a bare string
+    # in the common case, so the file stays hand-editable, and an object when
+    # there is more than a caption to store.
+    def self.captions(data)
       items = data["items"]
       return {} unless items.is_a?(Hash)
 
@@ -80,9 +81,6 @@ module Albums
           end
         out[name] = caption if caption.is_a?(String) && !caption.empty?
       end
-    rescue StandardError => e
-      Jekyll.logger.warn "Albums:", "bad album.json at #{path}: #{e.message}"
-      {}
     end
   end
 
@@ -110,9 +108,10 @@ module Albums
         gallery = (images + videos).sort
         cover_file = images.first
 
-        blurb_path = File.join(dir, "album.md")
-        blurb = File.exist?(blurb_path) ? Helpers.strip_front_matter(File.read(blurb_path)) : ""
-        captions = Helpers.captions(File.join(dir, "album.json"))
+        note_path = File.join(dir, "album.md")
+        note = File.exist?(note_path) ? Helpers.strip_front_matter(File.read(note_path)) : ""
+        json = Helpers.read_json(File.join(dir, "album.json"))
+        captions = Helpers.captions(json)
 
         base = "/assets/albums/#{folder}"
         items = gallery.map do |f|
@@ -127,7 +126,8 @@ module Albums
           site,
           Jekyll::Utils.slugify(folder),
           Helpers.titleize(folder),
-          blurb,
+          json["summary"],
+          note,
           cover_file ? "#{base}/#{cover_file}" : nil,
           items
         )

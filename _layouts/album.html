@@ -3,7 +3,10 @@ layout: default
 ---
 <article class="prose album-page">
   <p class="breadcrumb"><a href="{{ '/albums/' | relative_url }}">albums</a></p>
-  <h1 class="page-title">{{ page.title }}</h1>
+  <header class="post-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="post-meta">{{ page.summary | escape }}</p>{% endif %}
+  </header>
   {{ content }}
   <div class="photo-grid" id="photo-grid">
     {% for item in page.images %}
@@ -33,7 +36,7 @@ layout: default
                loading="lazy">
         </a>
         {% endif %}
-        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+        {% if item.caption %}<figcaption>{{ item.caption | escape }}</figcaption>{% endif %}
       </figure>
     {% endfor %}
   </div>

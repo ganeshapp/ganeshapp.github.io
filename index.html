@@ -28,8 +28,9 @@ hide_title: true
 
   <h2>recently in the wiki</h2>
   <ul class="page-list">
-    {% assign recent_wiki = site.wiki | where_exp: "d", "d.date" | sort: "date" %}
-    {% for doc in recent_wiki reversed limit: 5 %}
+    {%- comment -%} site.wiki is sorted oldest-first by date. Reverse BEFORE the loop: `for ... reversed limit: 5` limits first, so it showed the 5 oldest. {%- endcomment -%}
+    {% assign recent_wiki = site.wiki | reverse %}
+    {% for doc in recent_wiki limit: 5 %}
       <li>
         <span class="date">{{ doc.date | date: "%b %-d, %Y" }}</span>
         <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
