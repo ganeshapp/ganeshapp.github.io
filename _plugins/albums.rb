@@ -31,7 +31,6 @@ module Albums
   class AlbumPage < Jekyll::PageWithoutAFile
     def initialize(site, slug, title, summary, note_md, cover, images)
       super(site, site.source, File.join("albums", slug), "index.md")
-      @site = site
       self.content = note_md
       self.data = {
         "layout" => "album",
@@ -39,7 +38,9 @@ module Albums
         "summary" => summary,
         "cover" => cover,
         "images" => images,
-        "search" => true
+        # The note is markdown typed in glickr, not a template: a stray `{%`
+        # must not fail the whole site build.
+        "render_with_liquid" => false
       }
     end
   end
@@ -110,7 +111,6 @@ module Albums
         note_path = File.join(dir, "album.md")
         note = File.exist?(note_path) ? Helpers.strip_front_matter(File.read(note_path)) : ""
         json = Helpers.read_json(File.join(dir, "album.json"))
-        summary = json["summary"].to_s.strip
         captions = Helpers.captions(json)
 
         base = "/assets/albums/#{folder}"
@@ -126,7 +126,7 @@ module Albums
           site,
           Jekyll::Utils.slugify(folder),
           Helpers.titleize(folder),
-          summary.empty? ? nil : summary,
+          json["summary"],
           note,
           cover_file ? "#{base}/#{cover_file}" : nil,
           items
