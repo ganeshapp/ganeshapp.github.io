@@ -26,6 +26,16 @@ A passage might begin with notes already held from the previous card. Thirty-two
 
 So the shuffle idea went first. Cards would stay in order, grouped by piece. Then came the bigger question: who would make them? Manually translating five little tunes was possible. Building a useful collection that way would be tedious, and every transcription was another opportunity for a mistake.
 
+Here is a mockup of where that card idea was heading. The front has four pairs of hand rows, with eight action steps in each pair. The example is a little original exercise, rather than a transcription of a song. Card **01–01** means piece 01, card 01.
+
+![Front of a landscape piano practice card: 32 numbered steps in four pairs of right- and left-hand rows, with stacked chords and colored add and release instructions](/assets/images/projects/piano-card-front.svg)
+
+*Front: just the next actions. Steps 17–24 show why selective additions and releases matter: C4 stays held while other right-hand notes change.*
+
+![Back of the same piano card: practice instructions, four matching rows of timing values, and a compact guide to the notation symbols](/assets/images/projects/piano-card-back.svg)
+
+*Back: the timing and a reminder of the symbols. Each timing value says how long to wait after the corresponding front-side action. Equal spacing would be a first practice pass; the reverse would supply the intended rhythm. These are enlarged concept mockups, not a card-printing feature in the finished app.*
+
 The useful part of the idea was the compact instruction sequence. The physical card was just the first container I had imagined for it.
 
 ## The discovery that changed the plan
