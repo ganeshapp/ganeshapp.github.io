@@ -19,4 +19,3 @@ My starting baseline:
 <div style="text-align: center;">
   <iframe width="315" height="560" src="https://www.youtube.com/embed/rATUO72cLQg" title="YouTube video player" style="width: 100%; max-width: 360px; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 12px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
 </div>
-
