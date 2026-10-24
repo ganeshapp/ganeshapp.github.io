@@ -10,7 +10,7 @@ A free, offline-first Flutter app for planning Korea's national bicycle certific
 
 For navigation while riding, open any checkpoint in Kakao Maps or Naver Maps. For ride recording, use Strava, your Garmin watch, or any other cycling app — K-Pedal stays out of the way.
 
-Project site: [K-Pedal](www.gapp.in/k-pedal)
+Project site: [K-Pedal](/k-pedal/)
 
 ## Screenshots
 

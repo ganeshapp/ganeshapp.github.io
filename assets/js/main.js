@@ -20,6 +20,7 @@
   var resultsEl = document.getElementById('search-results');
   var searchBtn = document.getElementById('search-toggle');
   var index = null;
+  var indexLoading = false;
   var selected = -1;
 
   function openSearch() {
@@ -28,11 +29,28 @@
     resultsEl.innerHTML = '';
     selected = -1;
     input.focus();
-    if (!index) {
-      fetch(BASE + '/search.json')
-        .then(function (r) { return r.json(); })
-        .then(function (data) { index = data; });
-    }
+    if (!index) loadSearchIndex();
+  }
+
+  function loadSearchIndex() {
+    if (indexLoading) return;
+    indexLoading = true;
+    resultsEl.innerHTML = '<li class="empty">loading search…</li>';
+    fetch(BASE + '/search.json')
+      .then(function (r) {
+        if (!r.ok) throw new Error('Search unavailable');
+        return r.json();
+      })
+      .then(function (data) {
+        if (!Array.isArray(data)) throw new Error('Invalid search index');
+        index = data;
+        indexLoading = false;
+        if (!overlay.hidden) runSearch(input.value.trim());
+      })
+      .catch(function () {
+        indexLoading = false;
+        resultsEl.innerHTML = '<li class="empty">Search could not load. Close and reopen to retry.</li>';
+      });
   }
 
   function closeSearch() { overlay.hidden = true; }
@@ -70,7 +88,8 @@
   }
 
   function runSearch(q) {
-    if (!index || q.length < 2) { resultsEl.innerHTML = ''; return; }
+    if (!index) return;
+    if (q.length < 2) { resultsEl.innerHTML = ''; return; }
     var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
     var scored = [];
     for (var i = 0; i < index.length; i++) {

@@ -19,9 +19,9 @@ Here are the three settings for a treadmill:
 | Day | Workout                                                                                                       |
 | --- | ------------------------------------------------------------------------------------------------------------- |
 | Sun | Long Run                                                                                                      |
-| Mon | 10 min Row +  [Full Body Weights](Weight%20Training%20for%20Running.md) (Barbell Squats, KB Swings, Pull-ups) |
+| Mon | 10 min Row +  [Full Body Weights](/wiki/Weight-Training-for-Running/) (Barbell Squats, KB Swings, Pull-ups) |
 | Tue | Speed Intervals/Hill Intervals                                                                                |
 | Wed | Spin bike (Zone 2)                                                                                            |
 | Thu | Tempo Run                                                                                                     |
-| Fri | [Core](Running%20Core%20Exercises.md)/Stretching                                                              |
-| Sat | Easy Run + [Strides](Strides.md)                                                                              |
+| Fri | [Core](/wiki/Running-Core-Exercises/)/Stretching                                                              |
+| Sat | Easy Run + [Strides](/wiki/Strides/)                                                                              |

@@ -3,6 +3,7 @@ permalink: /wiki/Excalidraw-as-a-Drawing-Engine/
 title: "Excalidraw as a Drawing Engine"
 date: 2026-05-22
 tags: [web, tools]
+render_with_liquid: false
 ---
 
 Excalidraw is a free, open-source whiteboard / sketching app distinguished by its hand-drawn aesthetic. Beyond using it as a finished product, the same React component is usable as a *drawing engine* inside other apps — meaning you can build entirely new note-taking, diagramming, or design tools around it without writing the drawing logic yourself.

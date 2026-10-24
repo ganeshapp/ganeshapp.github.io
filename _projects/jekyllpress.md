@@ -1,7 +1,7 @@
 ---
 title: "Jekyll Press"
 date: 2026-01-11
-excerpt_text: "An Android App to publish Jekyll blogposts to Github Pages"
+excerpt_text: "Publish Jekyll posts to GitHub Pages from Android, macOS, and Linux"
 teaser: /assets/images/projects/jekyllpress.png
 permalink: /projects/jekyllpress/
 ---
@@ -26,7 +26,7 @@ On mobile, it's even worse. The GitHub mobile app is designed for code review, n
 
 ## The Solution
 
-**Jekyll Press** is a Flutter-based Android app that treats your GitHub repository like a Headless CMS. It abstracts away the Git complexity and gives you a WordPress-like experience.
+**Jekyll Press** is a Flutter app for Android, macOS, and Linux that treats your GitHub repository like a Headless CMS. It abstracts away the Git complexity and gives you a WordPress-like experience.
 
 ![](/assets/images/projects/jekyllpress.png)
 
@@ -36,7 +36,7 @@ On mobile, it's even worse. The GitHub mobile app is designed for code review, n
 * **Mobile-First Editor:** Write in Markdown with a live preview toggle.
 * **Automated Frontmatter:** The app handles the dates, titles, and file naming conventions for you.
 * **Smart Image Handling:** Pick an image from your gallery.
-    * **Auto-Compression:** Resizes to max 1080p and compresses (JPEG 85%) to save bandwidth.
+    * **Auto-Compression:** Resizes to a maximum dimension of 1600 pixels and compresses (JPEG 85%) to save bandwidth.
     * **Privacy:** Strips EXIF metadata (GPS location) before upload.
     * **Auto-Upload:** Uploads to your configured assets folder and inserts the correct Markdown link automatically.
 * **Offline Support:** Write drafts on the plane; sync when you land.
@@ -49,7 +49,7 @@ I made specific technical trade-offs to keep the app lightweight and fast.
 * **Decision:** We use the **GitHub REST API** exclusively. We do *not* clone the repository.
 * **Why:** A standard `git clone` downloads the entire history of the repository. On a mobile device, this bloats storage and eats data.
 * **Trade-off:** We lose the ability to do complex merges.
-* **Mitigation:** The app is designed for *content appending*. It assumes you are the primary writer. If a file conflict occurs (rare), the API rejects the update, protecting your data.
+* **Trade-off in practice:** This is a personal writing tool. An update retries against the latest file version, keeping my edits when a conflict occurs.
 
 ### 2. The "Local-First" Image Resolver
 * **Problem:** When you add an image in the editor, it takes time to upload. If you are offline, you can't upload it. How do you preview it?
@@ -60,14 +60,14 @@ I made specific technical trade-offs to keep the app lightweight and fast.
         * **No:** Load from GitHub Raw URL.
 
 ### 3. Read-Only Titles for Existing Posts
-* **Decision:** You cannot edit the Title or Date of an *existing* published post.
-* **Why:** In Jekyll, the filename (derived from date+title) dictates the permalink URL. Changing the title would rename the file, breaking all existing links to that post on the internet (SEO disaster).
+* **Decision:** Existing post titles and filenames stay fixed. Post settings let me change the publication date, layout, categories, and tags.
+* **Why:** Keeping the filename avoids renaming the source file. Date and category edits can still change a public URL, depending on the site’s permalink settings.
 * **Trade-off:** Slightly less flexibility for the user.
-* **Benefit:** Prevents accidental broken links.
+* **Benefit:** Routine text edits keep the existing filename.
 
 ## Tech Stack
 
-* **Framework:** [Flutter](https://flutter.dev) (Android target)
+* **Framework:** [Flutter](https://flutter.dev) (Android, macOS, and Linux)
 * **State Management:** [Riverpod](https://riverpod.dev)
 * **Networking:** [Dio](https://pub.dev/packages/dio) (HTTP client)
 * **Local DB:** [Hive](https://docs.hivedb.dev/) (NoSQL for drafts & config)
@@ -75,7 +75,7 @@ I made specific technical trade-offs to keep the app lightweight and fast.
 
 ## Download and Repository
 
-APK Download: [Jekyll Press APK](https://github.com/ganeshapp/JekyllPress/releases/tag/v1.0.0)
+Downloads: [Latest JekyllPress release](https://github.com/ganeshapp/JekyllPress/releases/latest)
 
 Github Repo: [Jekyll Press](https://github.com/ganeshapp/jekyllpress)
 

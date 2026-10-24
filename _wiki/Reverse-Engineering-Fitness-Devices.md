@@ -5,7 +5,7 @@ date: 2026-05-22
 tags: [cycling, treadmill, bluetooth, ftms]
 ---
 
-Most consumer treadmills, smart bikes, and smart trainers expose a generic Bluetooth interface and can be read and controlled by any app that understands the [FTMS protocol](Smart%20Trainer%20and%20Smart%20Bike%20Setup.md). The challenge is rarely the protocol — it's confirming that the specific machine in front of you obeys the standard, and discovering the quirks the manufacturer baked in.
+Most consumer treadmills, smart bikes, and smart trainers expose a generic Bluetooth interface and can be read and controlled by any app that understands the [FTMS protocol](/wiki/Smart-Trainer-and-Smart-Bike-Setup/). The challenge is rarely the protocol — it's confirming that the specific machine in front of you obeys the standard, and discovering the quirks the manufacturer baked in.
 
 This page describes the workflow for verifying and characterising a device before writing app code, and a few of the gotchas that come up in practice.
 
