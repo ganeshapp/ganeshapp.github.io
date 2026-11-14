@@ -83,3 +83,9 @@ Built by `.github/workflows/deploy.yml` (GitHub Actions → GitHub Pages). In th
 bundle install
 bundle exec jekyll serve
 ```
+
+## Roundup publishing
+
+Roundups are a Jekyll collection stored in `_roundup/`. In Glean, select this repository, its publishing branch, and `_roundup` as the content folder. The website URL is `https://www.gapp.in`.
+
+Each issue is a Markdown file with `layout: roundup`, a title, date, and stable permalink such as `/roundup/2026-W46/`. Its body preserves the card order selected in Glean. The index at `/roundup/` lists issues by date, and site search includes their content. Glean's `glean_issue` and `glean_revision` fields let the app verify that the uploaded version has reached the live website.

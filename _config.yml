@@ -26,6 +26,9 @@ feed:
   path: feed.xml
 
 collections:
+  roundup:
+    output: true
+    permalink: /roundup/:path/
   wiki:
     output: true
     permalink: /wiki/:path/
@@ -37,6 +40,12 @@ collections:
     permalink: /essays/:path/
 
 defaults:
+  - scope:
+      path: ""
+      type: roundup
+    values:
+      layout: roundup
+      render_with_liquid: false
   - scope:
       path: ""
       type: posts

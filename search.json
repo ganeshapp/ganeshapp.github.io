@@ -4,6 +4,7 @@ layout: null
 [
 {% assign sep = "" %}
 {% for post in site.posts %}{{ sep }}{"title": {{ post.title | jsonify }}, "url": {{ post.url | jsonify }}, "type": "blog · {{ post.date | date: '%Y' }}", "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}}{% assign sep = "," %}{% endfor %}
+{% for doc in site.roundup %}{{ sep }}{"title": {{ doc.title | jsonify }}, "url": {{ doc.url | jsonify }}, "type": "roundup", "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}}{% assign sep = "," %}{% endfor %}
 {% for doc in site.wiki %}{{ sep }}{"title": {{ doc.title | jsonify }}, "url": {{ doc.url | jsonify }}, "type": "wiki", "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}}{% assign sep = "," %}{% endfor %}
 {% for doc in site.essays %}{{ sep }}{"title": {{ doc.title | jsonify }}, "url": {{ doc.url | jsonify }}, "type": "essay", "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}}{% assign sep = "," %}{% endfor %}
 {% for doc in site.projects %}{{ sep }}{"title": {{ doc.title | jsonify }}, "url": {{ doc.url | jsonify }}, "type": "project", "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}}{% assign sep = "," %}{% endfor %}

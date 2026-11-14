@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% if page.glean_issue %}<meta name="glean-issue" content="{{ page.glean_issue | escape }}">{% endif %}
+{% if page.glean_revision != nil %}<meta name="glean-revision" content="{{ page.glean_revision }}">{% endif %}
+<article class="prose roundup-issue">
+  <p class="breadcrumb"><a href="{{ '/roundup/' | relative_url }}">roundup</a></p>
+  <header class="post-header">
+    <h1 class="page-title">{{ page.title | escape }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+  </header>
+  {{ content }}
+  <nav class="post-nav" aria-label="Roundup navigation">
+    <a href="{{ '/roundup/' | relative_url }}">&larr; All roundups</a>
+  </nav>
+</article>

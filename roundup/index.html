@@ -1,0 +1,23 @@
+---
+layout: default
+title: Roundup
+permalink: /roundup/
+---
+<div class="prose">
+  <h1 class="page-title">Roundup</h1>
+  <p class="post-meta">Interesting things I read, watched, and thought about.</p>
+  {% assign issues = site.roundup | sort: "date" | reverse %}
+  {% if issues.size == 0 %}<p>The first roundup is on its way.</p>{% endif %}
+  {% assign by_year = issues | group_by_exp: "issue", "issue.date | date: '%Y'" %}
+  {% for year in by_year %}
+    <h2 class="year-heading">{{ year.name }}</h2>
+    <ul class="page-list">
+      {% for issue in year.items %}
+        <li>
+          <span class="date">{{ issue.date | date: "%b %-d" }}</span>
+          <a href="{{ issue.url | relative_url }}">{{ issue.title | escape }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>
