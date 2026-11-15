@@ -1,27 +1,22 @@
 <header class="site-header">
-  <nav class="site-nav" aria-label="Main navigation">
+  <nav class="site-nav">
     <a class="site-title" href="{{ '/' | relative_url }}" data-hangul="갭"><span class="site-title-text">gapp</span><span class="birthday-candle" hidden> 🎂</span></a>
-    <button id="nav-toggle" class="icon-btn nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links" hidden>
-      <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
-    </button>
-    <div id="nav-links" class="nav-links">
+    <div class="nav-links">
       <a href="{{ '/blog/' | relative_url }}">blog</a>
-      <a href="{{ '/roundup/' | relative_url }}">roundup</a>
-      <a href="{{ '/essays/' | relative_url }}">essays</a>
-      <a href="{{ '/wiki/' | relative_url }}">wiki</a>
-      <a href="{{ '/projects/' | relative_url }}">projects</a>
       <a href="{{ '/albums/' | relative_url }}">albums</a>
+      <a href="{{ '/projects/' | relative_url }}">projects</a>
+      <a href="{{ '/roundup/' | relative_url }}">roundup</a>
+      <a href="{{ '/wiki/' | relative_url }}">wiki</a>
       <a href="{{ '/now/' | relative_url }}">now</a>
-    </div>
-    <div class="nav-actions">
-      <button id="search-toggle" class="icon-btn" title="Search (press /)" aria-label="Search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-      </button>
-      <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
-        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.6" y1="4.6" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.4" y2="4.6"/></svg>
-      </button>
+      <div class="nav-tools">
+        <button id="search-toggle" class="icon-btn" title="Search (press /)" aria-label="Search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </button>
+        <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle dark/light mode">
+          <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.6" y1="4.6" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.4" y2="4.6"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
 </header>

@@ -41,9 +41,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
-  essays:
-    output: true
-    permalink: /essays/:path/
 
 defaults:
   - scope:
@@ -67,11 +64,6 @@ defaults:
       type: projects
     values:
       layout: project
-  - scope:
-      path: ""
-      type: essays
-    values:
-      layout: essay
   - scope:
       path: ""
     values:

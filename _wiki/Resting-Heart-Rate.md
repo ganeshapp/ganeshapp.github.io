@@ -1,4 +1,5 @@
 ---
+permalink: /wiki/Resting-Heart-Rate/
 title: "Resting Heart Rate"
 date: 2025-12-07
 tags: [Health]

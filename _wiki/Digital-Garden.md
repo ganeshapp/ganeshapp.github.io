@@ -1,4 +1,5 @@
 ---
+permalink: /wiki/Digital-Garden/
 title: "Digital Garden"
 date: 2026-01-03
 tags: [Catalyst, Conversation, Ideas]

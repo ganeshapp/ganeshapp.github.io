@@ -35,6 +35,7 @@ The standard longevity advice — lift, cardio, sleep, social, scans, learn thin
 
 ## Cardio
 
+- [Resting Heart Rate](/wiki/Resting-Heart-Rate/) — notes on resting heart rate, exercise, nutrition, and recovery.
 - [VO2 Max Intervals on Smart Bike](/wiki/VO2-Max-Intervals-on-Smart-Bike/) — the Wisløff 4×4 protocol with specific HR zones and RPM targets.
 
 ## Eating

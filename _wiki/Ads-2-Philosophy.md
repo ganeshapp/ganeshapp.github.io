@@ -1,4 +1,5 @@
 ---
+permalink: /wiki/Ads-2-Philosophy/
 title: "Ads 2.0 Philosophy"
 date: 2024-12-25
 tags: [Conversation, Trend]

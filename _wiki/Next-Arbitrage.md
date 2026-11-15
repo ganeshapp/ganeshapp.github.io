@@ -1,4 +1,5 @@
 ---
+permalink: /wiki/Next-Arbitrage/
 title: "Next Arbitrage"
 date: 2026-04-07
 tags: [Trend]

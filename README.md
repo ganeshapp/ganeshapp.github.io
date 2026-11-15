@@ -1,12 +1,11 @@
 # gapp.in
 
-A minimal, hand-rolled Jekyll theme combining the blog, wiki, essays, projects, albums and now page into one site. No theme dependency, no framework — vanilla CSS and JS.
+A minimal, hand-rolled Jekyll theme combining the blog, wiki, projects, albums, roundup and now page into one site. No theme dependency, no framework — vanilla CSS and JS.
 
 ## Structure
 
 ```
 _posts/       blog posts (URL: /blog/<slug>/)
-_essays/      timeless writing (URL: /essays/<slug>/)
 _projects/    portfolio entries (URL from `permalink` in front matter)
 _wiki/        the wiki, one flat folder — digital-garden style (URL: /wiki/<Page-Name>/)
 assets/albums/  photo albums (auto-scanned, see below)
@@ -17,7 +16,6 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 ## Features
 
 - Dark mode by default, light toggle (persisted in localStorage)
-- Collapsible mobile navigation with keyboard support and always-visible search/theme controls
 - Site-wide search: press `/` or click the magnifier (index built at compile time into `search.json`)
 - Hover previews on every internal link (300 ms delay, fetched once, cached)
 - Lightbox on album photos (arrow keys / swipe)
@@ -32,7 +30,7 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 
 **Blog post:** drop `YYYY-MM-DD-slug.md` in `_posts/` with `title:` and `date:` front matter.
 
-**Wiki page:** drop a `.md` file straight into `_wiki/` — no folders, no filing decisions. Use normal markdown links (not `[[wikilinks]]`). Front matter needs `title:` and a `permalink:` like `/wiki/Page-Name/` (dashes for spaces). Topic hub pages (Running, Living in Korea, etc.) are just ordinary wiki pages with curated link lists; the start page at `wiki/index.md` links to the hubs. People navigate by hopping links or searching.
+**Wiki page:** drop a `.md` file straight into `_wiki/` — no folders, no filing decisions. Use normal markdown links (not `[[wikilinks]]`). Front matter needs `title:` and a `permalink:` like `/wiki/Page-Name/` (dashes for spaces). Topic hub pages (Running, Living in Korea, etc.) are just ordinary wiki pages with curated link lists; the start page at `wiki/index.md` links to the hubs. People navigate by hopping links or searching. Former essays now live in the wiki under their relevant topic hubs; the pages in `essays/` only redirect old URLs to their new locations.
 
 **Album:** create a folder under `assets/albums/`, e.g. `jeju_2026/`:
 - `0001.jpg`, `0002.mp4`, … — the photos and videos, in filename order

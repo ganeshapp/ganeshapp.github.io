@@ -1,4 +1,5 @@
 ---
+permalink: /wiki/Core-Areas/
 title: "Core Areas"
 date: 2023-01-25
 tags: [Catalyst, Conversation, Ideas]

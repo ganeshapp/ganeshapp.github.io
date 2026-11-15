@@ -15,5 +15,6 @@ Notes on the web — its history, its hosting tools, and the techniques for runn
 
 ## Internet history and theory
 
+- [Digital Garden](/wiki/Digital-Garden/) — personal publishing, the old web, and reclaiming a space outside the feed.
 - [Why the Web Got Walled](/wiki/Why-the-Web-Got-Walled/) — the first-principles economic story of how the open web became a small set of walled platforms.
 - [Prompting LLMs for First-Principles Synthesis](/wiki/Prompting-LLMs-for-First-Principles-Synthesis/) — how to get language models to actually think rather than produce salad-bowl essays.

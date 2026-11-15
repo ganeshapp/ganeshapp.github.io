@@ -11,3 +11,7 @@ Notes on design system thinking for someone building multiple small apps.
 - [Japanese Minimal vs Founder Minimal](/wiki/Japanese-Minimal-vs-Founder-Minimal/) — comparing two minimalist design philosophies and where each fits.
 - [Monospace Fonts for Branding](/wiki/Monospace-Fonts-for-Branding/) — JetBrains Mono vs IBM Plex Mono and how to choose.
 - [Energy Tokens in Design Systems](/wiki/Energy-Tokens-in-Design-Systems/) — accent colors as emotional voltage, not decoration.
+
+## Product messaging
+
+- [Ads 2.0 Philosophy](/wiki/Ads-2-Philosophy/) — selling what a product helps someone become.

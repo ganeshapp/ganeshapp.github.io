@@ -1,46 +1,7 @@
-/* gapp.in — vanilla JS: navigation, theme toggle, search, hover previews, lightbox */
+/* gapp.in — vanilla JS: theme toggle, search, hover previews, lightbox */
 (function () {
   'use strict';
   var BASE = window.SITE_BASEURL || '';
-
-  /* ---------- mobile navigation ---------- */
-  var navToggle = document.getElementById('nav-toggle');
-  var navLinks = document.getElementById('nav-links');
-  var siteNav = navToggle && navToggle.closest('.site-nav');
-
-  function closeNavigation(returnFocus) {
-    if (!siteNav) return;
-    siteNav.classList.remove('nav-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open navigation');
-    if (returnFocus) navToggle.focus();
-  }
-
-  if (siteNav && navLinks) {
-    var mobileNav = window.matchMedia('(max-width: 760px)');
-    navToggle.hidden = false;
-    siteNav.classList.add('nav-ready');
-    navToggle.addEventListener('click', function () {
-      var open = navToggle.getAttribute('aria-expanded') !== 'true';
-      siteNav.classList.toggle('nav-open', open);
-      navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-    });
-    navLinks.addEventListener('click', function (e) {
-      if (e.target.closest('a')) closeNavigation(false);
-    });
-    document.addEventListener('click', function (e) {
-      if (!siteNav.contains(e.target)) closeNavigation(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-        closeNavigation(true);
-      }
-    });
-    mobileNav.addEventListener('change', function () {
-      closeNavigation(mobileNav.matches && navLinks.contains(document.activeElement));
-    });
-  }
 
   /* ---------- theme toggle ---------- */
   var themeBtn = document.getElementById('theme-toggle');
@@ -63,7 +24,6 @@
   var selected = -1;
 
   function openSearch() {
-    closeNavigation(false);
     overlay.hidden = false;
     input.value = '';
     resultsEl.innerHTML = '';
