@@ -17,6 +17,7 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 ## Features
 
 - Dark mode by default, light toggle (persisted in localStorage)
+- Collapsible mobile navigation with keyboard support and always-visible search/theme controls
 - Site-wide search: press `/` or click the magnifier (index built at compile time into `search.json`)
 - Hover previews on every internal link (300 ms delay, fetched once, cached)
 - Lightbox on album photos (arrow keys / swipe)

@@ -1,7 +1,11 @@
 <header class="site-header">
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="Main navigation">
     <a class="site-title" href="{{ '/' | relative_url }}" data-hangul="갭"><span class="site-title-text">gapp</span><span class="birthday-candle" hidden> 🎂</span></a>
-    <div class="nav-links">
+    <button id="nav-toggle" class="icon-btn nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links" hidden>
+      <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+    </button>
+    <div id="nav-links" class="nav-links">
       <a href="{{ '/blog/' | relative_url }}">blog</a>
       <a href="{{ '/roundup/' | relative_url }}">roundup</a>
       <a href="{{ '/essays/' | relative_url }}">essays</a>
@@ -9,6 +13,8 @@
       <a href="{{ '/projects/' | relative_url }}">projects</a>
       <a href="{{ '/albums/' | relative_url }}">albums</a>
       <a href="{{ '/now/' | relative_url }}">now</a>
+    </div>
+    <div class="nav-actions">
       <button id="search-toggle" class="icon-btn" title="Search (press /)" aria-label="Search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
       </button>
