@@ -84,6 +84,68 @@ bundle install
 bundle exec jekyll serve
 ```
 
+## Analytics
+
+The shared template supports [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/about/),
+a free service for traffic and page-performance reporting. Your site stays on
+GitHub Pages with its existing domain and DNS. Analytics is disabled until you
+add the public beacon token to `_config.yml`:
+
+```yaml
+analytics:
+  cloudflare:
+    token: "YOUR_CLOUDFLARE_BEACON_TOKEN"
+```
+
+This is the `token` value from Cloudflare's `data-cf-beacon` snippet, **not a
+Cloudflare API token or API key**. It appears in public page source and can be
+committed. Leave it blank to turn analytics off.
+
+### Create the account and connect this site
+
+1. Create a free [Cloudflare account](https://dash.cloudflare.com/sign-up), or
+   sign in to your existing account.
+2. Open **Web Analytics → Add a site**, enter **www.gapp.in** as the hostname,
+   select the matching entry, and choose **Done**. You do not need to move your
+   domain, change nameservers, or switch hosting.
+3. Open **Manage site** and find the JavaScript snippet. If Cloudflare offers
+   automatic installation because your site is already proxied through it,
+   choose **Enable with JS Snippet installation** so this template controls
+   installation and you do not load the beacon twice.
+4. Copy only the `token` value from `data-cf-beacon` into the config above. The
+   template already inserts the script on every page; do not paste another copy.
+5. Pull the latest posts, commit the config change, pull again before pushing,
+   and push to the publishing branch. The existing GitHub Actions workflow
+   builds with `JEKYLL_ENV=production` and deploys to GitHub Pages.
+6. After deployment, visit a few pages, navigate away, then open your site's
+   **Web Analytics** dashboard. Data may take a few minutes to appear. Browsers
+   blocking analytics will not send visits, and earlier visits cannot be recovered.
+
+Cloudflare's [setup guide](https://developers.cloudflare.com/web-analytics/get-started/)
+covers the current dashboard screens.
+
+### What the dashboard shows
+
+- **Visits and page views:** traffic volume over your chosen date range. Visits
+  are counted from external referrals or direct entries, not unique people.
+- **Paths:** which blog posts, wiki pages, albums, and other URLs get traffic.
+- **Referers:** which external sites sent visits.
+- **Country, device type, browser, and operating system:** traffic breakdowns.
+- **Page load time and Core Web Vitals:** how fast pages load and respond.
+
+Cloudflare Web Analytics does **not** provide time spent reading each page or
+individual visitor journeys. **Page load time measures loading speed, not time
+spent on the site.** Search overlay interactions and album lightbox opens are
+not separate page views or custom events in this integration. See the
+[metrics](https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/)
+and [dimensions](https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/)
+references for available reports.
+
+Normal `bundle exec jekyll serve` previews do not load analytics. Any production
+build with a token does, including test deployments; clear the token in a test
+repo or override config to exclude those visits. Add `analytics: false` to an
+individual page's front matter to exclude it.
+
 ## Roundup publishing
 
 Roundups are a Jekyll collection stored in `_roundup/`. In Glean, select this repository, its publishing branch, and `_roundup` as the content folder. The website URL is `https://www.gapp.in`.

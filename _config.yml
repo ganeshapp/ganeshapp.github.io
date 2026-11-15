@@ -9,6 +9,12 @@ copyright: "Ganesh APP"
 twitter_username: sagaro
 github_username: ganeshapp
 
+# Cloudflare Web Analytics. Paste the public token from its JS snippet to enable.
+# Leave blank to disable. Only loaded in JEKYLL_ENV=production builds.
+analytics:
+  cloudflare:
+    token: ""
+
 markdown: kramdown
 kramdown:
   input: GFM
@@ -72,6 +78,7 @@ defaults:
       layout: page
 
 exclude:
+  - AGENTS.md
   - extras
   - Gemfile
   - Gemfile.lock
