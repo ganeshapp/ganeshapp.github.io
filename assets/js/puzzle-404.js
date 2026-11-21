@@ -7,11 +7,16 @@
   // Choose once. Resizing or rotating should never discard a player's progress.
   var mobile = window.matchMedia('(max-width: 760px), (hover: none) and (pointer: coarse)').matches;
   var game = mobile ? 'undead' : 'map';
+  var undeadSize = 4;
+  var undeadWidth = undeadSize + 2.5;
+  var undeadHeight = undeadSize + 3.5;
   var canvas = document.getElementById('puzzlecanvas');
   var loading = document.getElementById('puzzle-loading');
   var puzzle = document.getElementById('puzzle');
   var ready = false;
   section.dataset.game = game;
+  section.style.setProperty('--undead-width', undeadWidth);
+  section.style.setProperty('--undead-height', undeadHeight);
   document.getElementById('puzzle-invitation').textContent = mobile ? 'Place the monsters.' : 'Color the map.';
   document.getElementById(game + '-instructions').hidden = false;
   document.getElementById('monster-controls').hidden = !mobile;
@@ -159,10 +164,10 @@
       // Use the engine's persistent keyboard cursor for touch selection. Mouse
       // selection toggles off on repeat clicks and disappears after each move.
       // Moving from the top-left also makes this independent of prior key input.
-      for (var i = 0; i < 7; i++) sendKey('ArrowLeft');
-      for (var j = 0; j < 7; j++) sendKey('ArrowUp');
-      var column = Math.floor(position.x * 9.5 - 1.25);
-      var row = Math.floor(position.y * 10.5 - 2.25);
+      for (var i = 0; i < undeadSize; i++) sendKey('ArrowLeft');
+      for (var j = 0; j < undeadSize; j++) sendKey('ArrowUp');
+      var column = Math.floor(position.x * undeadWidth - 1.25);
+      var row = Math.floor(position.y * undeadHeight - 2.25);
       for (i = 0; i < column; i++) sendKey('ArrowRight');
       for (j = 0; j < row; j++) sendKey('ArrowDown');
       if (enginePencil !== pencil) { sendKey('Enter'); enginePencil = pencil; }
@@ -170,8 +175,8 @@
     function inGrid(position) {
       // Undead's board has a quarter-tile border, one clue column either side,
       // and two rows above the grid (monster totals, then clues).
-      return position.x > 1.25 / 9.5 && position.x < 8.25 / 9.5 &&
-        position.y > 2.25 / 10.5 && position.y < 9.25 / 10.5;
+      return position.x > 1.25 / undeadWidth && position.x < (undeadSize + 1.25) / undeadWidth &&
+        position.y > 2.25 / undeadHeight && position.y < (undeadSize + 2.25) / undeadHeight;
     }
     function place(monster) {
       if (!selected) {
@@ -265,7 +270,13 @@
     });
   }
 
-  window.GappPuzzle = {game: game, params: mobile ? '7x7dt' : '30x25n75dh', ready: start, fail: fail};
+  window.GappPuzzle = {
+    game: game, params: mobile ? undeadSize + 'x' + undeadSize + 'dn' : '30x25n75dh',
+    // Undead shares COL_BACKGROUND/TEXT with eyes, teeth, hair and outlines.
+    // Keep monster artwork consistent with the toolbar in either theme.
+    monsterColours: mobile ? {0: '#f6f8fa', 2: '#21262e'} : null,
+    ready: start, fail: fail
+  };
   var engine = document.createElement('script');
   engine.src = section.dataset.engineUrl;
   engine.onerror = fail;

@@ -16,6 +16,10 @@ so a single shared loader serves both. Local changes:
 - Call page ready/error hooks and remove the global error-alert handler.
 - Allow the preset menu to be absent.
 - Do not autofocus the canvas on page load, or scroll it into view on commands.
+- Use the adapter's monsterColours override for Undead's artwork: circles,
+  polygons, one-pixel facial lines and single-pixel pupils. Hair and outlines
+  stay dark; eyes and teeth stay white. Text, backgrounds and thick mirror
+  strokes continue to use the theme palette. Maps has no artwork override.
 
 The separate assets/js/puzzle-404.js adapter chooses the game once at load,
 updates the palette on theme changes, fits the board to the viewport, and adds
@@ -28,7 +32,7 @@ the loader URL. All three must be deployed together, including under a baseurl.
 
 Fixed game IDs (parameters only, no seed or description):
 Map: 30x25n75dh (30 columns, 25 rows, 75 regions, Hard)
-Undead: 7x7dt (7 columns, 7 rows, Tricky)
+Undead: 4x4dn (4 columns, 4 rows, Normal)
 
 Palette indices come from the engines' COL_* enumerations:
 Map: background, grid, colour 0/1/2/3, error, error text.

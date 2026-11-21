@@ -7,8 +7,9 @@ const root = path.join(__dirname, '..');
 
 // Run the real WASM engines and page adapter. Only browser drawing/DOM services
 // are stubbed; moves, generation, difficulty, history and solving are real.
-async function openPuzzle(mobile) {
+async function openPuzzle(mobile, theme = 'dark') {
   let resolve, reject, context;
+  const drawings = [];
   const loaded = new Promise((r, j) => { resolve = r; reject = j; });
   function element() {
     const events = {};
@@ -33,6 +34,12 @@ async function openPuzzle(mobile) {
     el.parentNode = {removeChild() {}};
     el.getContext = () => new Proxy({
       canvas: el, measureText: () => ({width: 40}),
+      beginPath() { this.path = 'path'; },
+      arc() { this.path = 'circle'; },
+      fill() { drawings.push({kind: 'fill', path: this.path, colour: this.fillStyle}); },
+      stroke() { drawings.push({kind: 'stroke', path: this.path, colour: this.strokeStyle, width: Number(this.lineWidth)}); },
+      fillRect(x, y, w, h) { drawings.push({kind: 'rect', colour: this.fillStyle, w, h}); },
+      fillText() { drawings.push({kind: 'text', colour: this.fillStyle}); },
       getImageData: (x, y, w, h) => ({data: new Uint8Array(w * h * 4)})
     }, {get: (o, k) => k in o ? o[k] : () => {}});
     return el;
@@ -61,11 +68,17 @@ async function openPuzzle(mobile) {
       vm.runInContext(fs.readFileSync(path.join(root, 'assets/puzzles/engine.js'), 'utf8'), context);
     }}
   };
+  document.documentElement.setAttribute('data-theme', theme);
+  const themeColours = {
+    '--bg-raised': theme === 'light' ? '#edf0f5' : '#242935',
+    '--text': theme === 'light' ? '#21262e' : '#e4e7ed',
+    '--text-muted': '#98a2b3', '--text-faint': '#697586', '--accent': '#58b7e0'
+  };
   const requested = [];
   context = vm.createContext({
     document, location: {href: 'http://test/a/missing/page#invalid', pathname: '/a/missing/page', hash: '#invalid'},
     getComputedStyle: () => ({fontStyle: 'normal', fontWeight: '400', fontFamily: 'monospace',
-      backgroundColor: 'rgb(36, 41, 53)', getPropertyValue: () => '#242935'}),
+      backgroundColor: 'rgb(36, 41, 53)', getPropertyValue: name => themeColours[name]}),
     console, WebAssembly, TextDecoder, TextEncoder, Uint8Array, ArrayBuffer, Response,
     fetch: async url => {
       requested.push(url);
@@ -89,13 +102,14 @@ async function openPuzzle(mobile) {
     return text;
   }
   function field(name) { return save().match(new RegExp('^' + name + '\\s*:\\d+:(.*)$', 'm'))?.[1]; }
-  function tap(col, row) { ids.puzzlecanvas.dispatch('pointerdown', {clientX: (col + 1.75) * 40, clientY: (row + 2.75) * 40}); }
-  return {context, ids, monsters, requested, save, field, tap,
+  function cellPoint(col, row) { return {clientX: (col + 1.75) * 380 / 6.5, clientY: (row + 2.75) * 420 / 7.5}; }
+  function tap(col, row) { ids.puzzlecanvas.dispatch('pointerdown', cellPoint(col, row)); }
+  return {context, ids, monsters, requested, save, field, tap, cellPoint, drawings, themeColours,
     click: id => ids[id].dispatch('click'),
     monster: index => monsters[index].dispatch('click')};
 }
 
-for (const [mobile, name, params] of [[false, 'Map', '30x25n75dh'], [true, 'Undead', '7x7dt']]) {
+for (const [mobile, name, params] of [[false, 'Map', '30x25n75dh'], [true, 'Undead', '4x4dn']]) {
   test(`${name}: fixed difficulty, fresh generation, solve, undo, redo and restart`, async () => {
     const p = await openPuzzle(mobile);
     assert.equal(p.field('GAME'), name);
@@ -178,7 +192,7 @@ test('Undead: tap, drag, erase, pencil marks and cancelled drags use real engine
   p.monster(0);
   assert.equal(p.field('STATEPOS'), '1', 'no selection does not place a monster');
   let cell;
-  for (let row = 0; row < 7 && !cell; row++) for (let col = 0; col < 7 && !cell; col++) {
+  for (let row = 0; row < 4 && !cell; row++) for (let col = 0; col < 4 && !cell; col++) {
     p.tap(col, row); p.monster(0);
     if (p.field('STATEPOS') !== '1') cell = {col, row};
   }
@@ -198,7 +212,7 @@ test('Undead: tap, drag, erase, pencil marks and cancelled drags use real engine
   assert.equal(p.ids['pencil-mode'].getAttribute('aria-pressed'), 'false');
   const vampire = p.monsters[1];
   vampire.dispatch('pointerdown', {clientX: 130, clientY: 450});
-  const target = {clientX: (cell.col + 1.75) * 40, clientY: (cell.row + 2.75) * 40};
+  const target = p.cellPoint(cell.col, cell.row);
   vampire.dispatch('pointermove', target); vampire.dispatch('pointerup', target); vampire.dispatch('click');
   assert.match(p.save(), /^MOVE\s*:\d+:V\d+$/m);
   const after = p.save();
@@ -210,4 +224,19 @@ test('Undead: tap, drag, erase, pencil marks and cancelled drags use real engine
   assert.equal(p.save(), after, 'cancelled pointer input has no effect');
   p.click('pencil-mode'); p.click('restart'); p.tap(cell.col, cell.row); p.monster(1);
   assert.match(p.save().trim().split('\n').at(-1), /^MOVE\s*:\d+:v\d+$/, 'pencil mode remains consistent after restart');
+});
+
+test('Undead: monster details keep their colours while clues, mirrors and cells follow the theme', async () => {
+  for (const theme of ['dark', 'light']) {
+    const p = await openPuzzle(true, theme);
+    p.drawings.length = 0;
+    p.context.Module._rescale_puzzle();
+    const circles = p.drawings.filter(d => d.path === 'circle');
+    assert.ok(circles.some(d => d.kind === 'fill' && d.colour === '#21262e'), 'vampire hair stays dark');
+    assert.ok(circles.some(d => d.kind === 'fill' && d.colour === '#f6f8fa'), 'eyes and teeth stay white');
+    assert.ok(circles.filter(d => d.kind === 'stroke').every(d => d.colour === '#21262e'), 'monster outlines stay dark');
+    assert.ok(p.drawings.some(d => d.kind === 'text' && d.colour === p.themeColours['--text']), 'clues use theme text');
+    assert.ok(p.drawings.some(d => d.kind === 'rect' && d.w > 1 && d.h > 1 && d.colour === p.themeColours['--bg-raised']), 'cells use theme backgrounds');
+    assert.ok(p.drawings.some(d => d.kind === 'stroke' && d.width > 1 && d.colour === p.themeColours['--text']), 'mirrors stay readable');
+  }
 });

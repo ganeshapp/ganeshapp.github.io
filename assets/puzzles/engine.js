@@ -1928,21 +1928,28 @@ function _js_canvas_copy_to_blitter(id, x, y, w, h) {
   });
   blitter_ctx.drawImage(offscreen_canvas, x, y, w, h, 0, 0, w, h);
 }
+// Undead uses circles/polygons, one-pixel lines and single-pixel pupils for
+// monster artwork. Give that artwork its own black/white without changing
+// clue text, cell backgrounds or the thicker mirror strokes. Maps has no override.
+function canvas_drawing_colour(index, monsterDetail) {
+  var palette = monsterDetail && window.GappPuzzle && window.GappPuzzle.monsterColours;
+  return palette && palette[index] || colours[index];
+}
 function _js_canvas_draw_circle(x, y, r, fill, outline) {
   ctx.beginPath();
   ctx.arc(x + 0.5, y + 0.5, r, 0, 2 * Math.PI);
   if (fill >= 0) {
-    ctx.fillStyle = colours[fill];
+    ctx.fillStyle = canvas_drawing_colour(fill, true);
     ctx.fill();
   }
   ctx.lineWidth = '1';
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
-  ctx.strokeStyle = colours[outline];
+  ctx.strokeStyle = canvas_drawing_colour(outline, true);
   ctx.stroke();
 }
 function _js_canvas_draw_line(x1, y1, x2, y2, width, colour) {
-  colour = colours[colour];
+  colour = canvas_drawing_colour(colour, width === 1);
   ctx.beginPath();
   ctx.moveTo(x1 + 0.5, y1 + 0.5);
   ctx.lineTo(x2 + 0.5, y2 + 0.5);
@@ -1961,17 +1968,17 @@ function _js_canvas_draw_poly(pointptr, npoints, fill, outline) {
   for (var i = 1; i < npoints; i++) ctx.lineTo(getValue(pointptr + 8 * i, 'i32') + 0.5, getValue(pointptr + 8 * i + 4, 'i32') + 0.5);
   ctx.closePath();
   if (fill >= 0) {
-    ctx.fillStyle = colours[fill];
+    ctx.fillStyle = canvas_drawing_colour(fill, true);
     ctx.fill();
   }
   ctx.lineWidth = '1';
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
-  ctx.strokeStyle = colours[outline];
+  ctx.strokeStyle = canvas_drawing_colour(outline, true);
   ctx.stroke();
 }
 function _js_canvas_draw_rect(x, y, w, h, colour) {
-  ctx.fillStyle = colours[colour];
+  ctx.fillStyle = canvas_drawing_colour(colour, w === 1 && h === 1);
   ctx.fillRect(x, y, w, h);
 }
 function _js_canvas_draw_text(x, y, halign, colour, fontsize, monospaced, text) {

@@ -46,8 +46,8 @@
 [data-game="undead"] #puzzle { display: block; }
 [data-game="undead"] .puzzle-stage { max-width: 24rem; margin: 0 auto; }
 [data-game="undead"] .puzzle-controls { order: 1; }
-[data-game="undead"] .puzzle-board { max-width: calc(var(--board-height, 420px) * 9.5 / 10.5); margin: 0 auto; }
-[data-game="undead"] #puzzlecanvascontain { aspect-ratio: 9.5 / 10.5; }
+[data-game="undead"] .puzzle-board { max-width: calc(var(--board-height, 420px) * var(--undead-width) / var(--undead-height)); margin: 0 auto; }
+[data-game="undead"] #puzzlecanvascontain { aspect-ratio: var(--undead-width) / var(--undead-height); }
 [data-game="undead"] .puzzle-instructions { max-width: 30rem; margin: 1.25rem auto 0; padding-top: 0; }
 [data-game="undead"] .puzzle-controls li { flex: 1; }
 [data-game="undead"] .puzzle-controls button { width: 100%; padding: .4rem .2rem; font-size: .75rem; }

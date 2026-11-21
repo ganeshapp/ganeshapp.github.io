@@ -13,7 +13,7 @@ body_class: error-404
     <p>This page went for a long run and never came back.</p>
   </header>
 
-  <section class="puzzle-section" aria-labelledby="puzzle-prompt" data-engine-url="{{ '/assets/puzzles/engine.js' | relative_url }}">
+  <section class="puzzle-section" aria-labelledby="puzzle-prompt" data-engine-url="{{ '/assets/puzzles/engine.js' | relative_url }}?v={{ site.time | date: '%s' }}">
     <p id="puzzle-prompt" class="puzzle-prompt">While you're here — <strong id="puzzle-invitation">Color the map.</strong></p>
     <p id="puzzle-loading" role="status">Generating your puzzle…</p>
     <noscript><style>#puzzle, #puzzle-loading { display: none; }</style><p>Enable JavaScript to play a puzzle, or use the links below to find your way back.</p></noscript>
