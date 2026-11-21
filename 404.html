@@ -4,79 +4,84 @@ title: "404"
 permalink: /404.html
 search: false
 sitemap: false
+body_class: error-404
 ---
 <link rel="stylesheet" href="{{ '/assets/css/puzzle-404.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <section class="error-page">
   <header class="error-heading">
     <h1 class="page-title">404</h1>
     <p>This page went for a long run and never came back.</p>
-    <p class="post-meta no-preview">
-      <a href="{{ '/' | relative_url }}">go home</a> ·
-      <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button>
-    </p>
   </header>
 
-  <section class="puzzle-section" aria-labelledby="puzzle-title" data-engine-url="{{ '/assets/puzzles/engine.js' | relative_url }}">
-    <header class="puzzle-heading">
-      <h2 id="puzzle-title">A little detour</h2>
-      <p id="puzzle-description" class="post-meta">A fresh puzzle while you're here.</p>
-    </header>
+  <section class="puzzle-section" aria-labelledby="puzzle-prompt" data-engine-url="{{ '/assets/puzzles/engine.js' | relative_url }}">
+    <p id="puzzle-prompt" class="puzzle-prompt">While you're here — <strong id="puzzle-invitation">Color the map.</strong></p>
     <p id="puzzle-loading" role="status">Generating your puzzle…</p>
-    <noscript><style>#puzzle, #puzzle-loading { display: none; }</style><p>Enable JavaScript to play a puzzle, or use the links above to find your way back.</p></noscript>
+    <noscript><style>#puzzle, #puzzle-loading { display: none; }</style><p>Enable JavaScript to play a puzzle, or use the links below to find your way back.</p></noscript>
     <div id="puzzle" aria-busy="true" style="visibility: hidden;">
-      <form id="gamemenu" class="puzzle-controls" aria-label="Puzzle controls">
-        <ul>
-          <li><button type="button" id="restart" disabled>Restart</button></li>
-          <li><button type="button" id="undo" disabled>Undo</button></li>
-          <li><button type="button" id="redo" disabled>Redo</button></li>
-          <li><button type="button" id="solve" disabled>Solve game</button></li>
-        </ul>
-      </form>
-      <div class="puzzle-board">
-        <div id="puzzlecanvascontain">
-          <canvas id="puzzlecanvas" tabindex="0" aria-label="Puzzle board" aria-describedby="puzzle-instructions"></canvas>
+      <div class="puzzle-stage">
+        <form id="gamemenu" class="puzzle-controls" aria-label="Puzzle controls">
+          <ul>
+            <li><button type="button" id="restart" disabled>Restart</button></li>
+            <li><button type="button" id="undo" disabled>Undo</button></li>
+            <li><button type="button" id="redo" disabled>Redo</button></li>
+            <li><button type="button" id="solve" disabled>Solve game</button></li>
+          </ul>
+        </form>
+        <div id="monster-controls" hidden>
+          <div class="monster-palette" role="group" aria-label="Place a monster">
+            <button type="button" data-monster="g" aria-label="Ghost">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-ghost"></use></svg><span>Ghost</span>
+            </button>
+            <button type="button" data-monster="v" aria-label="Vampire">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-vampire"></use></svg><span>Vampire</span>
+            </button>
+            <button type="button" data-monster="z" aria-label="Zombie">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-zombie"></use></svg><span>Zombie</span>
+            </button>
+            <button type="button" data-monster="Backspace" aria-label="Erase">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 11h21v26H19L6 24Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m23 18 12 12m0-12L23 30" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Erase</span>
+            </button>
+            <button type="button" id="pencil-mode" aria-label="Pencil marks" aria-pressed="false" title="Pencil marks off">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 30-3 11 11-3L39 17 31 9Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="m26 14 8 8M10 30l8 8M7 41l6-2-4-4Z" fill="none" stroke="currentColor" stroke-width="2.5"/></svg><span>Pencil</span>
+            </button>
+          </div>
+          <p class="monster-help">Tap a cell, then an icon. Or drag an icon.</p>
+          <p id="monster-hint" class="puzzle-sr-only" role="status"></p>
         </div>
-        <div id="statusbar" role="status" aria-live="polite"></div>
-      </div>
-      <div id="monster-controls" hidden>
-        <div class="monster-palette" role="group" aria-label="Place a monster">
-          <button type="button" data-monster="g" aria-label="Ghost">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-ghost"></use></svg><span>Ghost</span>
-          </button>
-          <button type="button" data-monster="v" aria-label="Vampire">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-vampire"></use></svg><span>Vampire</span>
-          </button>
-          <button type="button" data-monster="z" aria-label="Zombie">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-zombie"></use></svg><span>Zombie</span>
-          </button>
-          <button type="button" data-monster="Backspace" aria-label="Erase">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 11h21v26H19L6 24Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m23 18 12 12m0-12L23 30" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Erase</span>
-          </button>
+        <div class="puzzle-board">
+          <div id="puzzlecanvascontain">
+            <canvas id="puzzlecanvas" tabindex="0" aria-label="Puzzle board" aria-describedby="puzzle-instructions"></canvas>
+          </div>
+          <div id="statusbar" role="status" aria-live="polite"></div>
         </div>
-        <button type="button" id="pencil-mode" aria-pressed="false">Pencil marks <span>off</span></button>
-        <p id="monster-hint" class="post-meta" role="status">Tap a square, then a monster. Or drag a monster onto a square.</p>
       </div>
-    </div>
-    <div id="puzzle-instructions" class="puzzle-instructions prose">
-      <div id="map-instructions" hidden>
-        <h3>How to play</h3>
-        <p>Colour the map with four colours, so that no two adjacent regions have the same colour. (Regions touching at only one corner do not count as adjacent.) There is a unique colouring consistent with the coloured regions you are already given.</p>
-        <p>Drag from a coloured region to a blank one to colour the latter the same colour as the former. Drag from outside the grid into a region to erase its colour. (You cannot change the colours of the regions you are given at the start of the game.)</p>
-        <p>Right-drag from a coloured region to a blank one to add dots marking the latter region as <em>possibly</em> the same colour as the former, or to remove those dots again.</p>
-      </div>
-      <div id="undead-instructions" hidden>
-        <h3>How to play</h3>
-        <p>Fill every empty square with a ghost, vampire or zombie. Match the monster totals above the grid. Each number around the edge tells you how many monsters you should see looking into that row or column, following any mirrors.</p>
-        <ul>
-          <li><strong>Ghosts</strong> are visible only in a mirror.</li>
-          <li><strong>Vampires</strong> are visible only when viewed directly, without a mirror.</li>
-          <li><strong>Zombies</strong> are always visible.</li>
-        </ul>
-        <p>Tap a square, then a monster icon to fill it. You can also drag an icon onto a square. Use Erase to clear a square. Mirrors and monsters given at the start cannot be changed.</p>
-        <p>Turn on <strong>Pencil marks</strong> to mark possible monsters in an empty square. Tap the same monster again to remove its mark. Tap an edge number to mark it as done, or tap again to unmark it.</p>
-      </div>
+      <aside id="puzzle-instructions" class="puzzle-instructions">
+        <div id="map-instructions" hidden>
+          <h3>How to play</h3>
+          <p>Use four colours. Neighbouring regions must differ. Touching only at a corner doesn't count.</p>
+          <p><strong>Colour:</strong> Drag from a coloured region to a blank one.</p>
+          <p><strong>Erase:</strong> Drag from outside the grid into a region. Starting colours are fixed.</p>
+          <p><strong>Pencil marks:</strong> Right-drag from a coloured region to add or remove dots for a possible colour.</p>
+          <p>This puzzle has one solution.</p>
+        </div>
+        <div id="undead-instructions" hidden>
+          <h3>How to play</h3>
+          <p>Fill every empty square with a ghost, vampire or zombie. Match the monster totals above the grid. Each number around the edge tells you how many monsters you should see looking into that row or column, following any mirrors.</p>
+          <ul>
+            <li><strong>Ghosts</strong> are visible only in a mirror.</li>
+            <li><strong>Vampires</strong> are visible only when viewed directly, without a mirror.</li>
+            <li><strong>Zombies</strong> are always visible.</li>
+          </ul>
+          <p>Tap a square, then a monster icon to fill it. You can also drag an icon onto a square. Use Erase to clear a square. Mirrors and monsters given at the start cannot be changed.</p>
+          <p>Tap the <strong>pencil icon</strong> (it lights up when on) to mark possible monsters in an empty square. Tap the same monster again to remove its mark. Tap an edge number to mark it as done, or tap again to unmark it.</p>
+        </div>
+      </aside>
     </div>
   </section>
+  <p class="error-recovery post-meta no-preview">
+    <a href="{{ '/' | relative_url }}">go home</a> ·
+    <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button>
+  </p>
 </section>
 <svg class="monster-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>

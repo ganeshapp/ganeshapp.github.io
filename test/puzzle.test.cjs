@@ -17,10 +17,11 @@ async function openPuzzle(mobile) {
       classList: {add() {}, remove() {}}, clientWidth: 380, clientHeight: 420,
       addEventListener(type, fn) { (events[type] ||= []).push(fn); },
       dispatch(type, data = {}) {
-        const event = {isPrimary: true, pointerId: 1, button: 0, preventDefault() {}, ...data};
+        const event = {isPrimary: true, pointerId: 1, button: 0, preventDefault() {}, stopImmediatePropagation() {}, ...data};
         if (this['on' + type]) this['on' + type](event);
         for (const fn of events[type] || []) fn(event);
       },
+      click() { this.dispatch('click'); },
       setAttribute(k, v) { this.attributes[k] = v; },
       getAttribute(k) { return this.attributes[k]; },
       getBoundingClientRect() { return {left: 0, top: 0, width: 380, height: 420}; },
@@ -37,8 +38,8 @@ async function openPuzzle(mobile) {
   }
   const ids = Object.fromEntries([
     'puzzlecanvas', 'puzzlecanvascontain', 'gamemenu', 'puzzle', 'undo', 'redo',
-    'restart', 'solve', 'statusbar', 'puzzle-loading', 'puzzle-title',
-    'puzzle-description', 'map-instructions', 'undead-instructions',
+    'restart', 'solve', 'statusbar', 'puzzle-loading', 'puzzle-invitation',
+    'map-instructions', 'undead-instructions',
     'monster-controls', 'monster-hint', 'pencil-mode'
   ].map(id => [id, element()]));
   const section = element(); section.dataset.engineUrl = 'http://test/assets/puzzles/engine.js';
@@ -48,7 +49,7 @@ async function openPuzzle(mobile) {
   const document = {
     getElementById: id => ids[id] || null,
     createElement: element,
-    querySelector: selector => selector === '.puzzle-section' ? section : null,
+    querySelector: selector => selector === '.puzzle-section' ? section : element(),
     querySelectorAll: selector => selector === '[data-monster]' ? monsters : [],
     documentElement: element(), addEventListener() {},
     currentScript: {src: section.dataset.engineUrl},
@@ -72,7 +73,8 @@ async function openPuzzle(mobile) {
     },
     localStorage: {getItem: () => null}, setTimeout, clearTimeout, performance,
     requestAnimationFrame: () => 1, cancelAnimationFrame() {}, addEventListener() {},
-    MutationObserver: class {observe() {}},
+    MutationObserver: class {observe() {}}, ResizeObserver: class {observe() {}},
+    innerHeight: 720, scrollY: 0,
     matchMedia: () => ({matches: mobile, addListener() {}, removeListener() {}}),
     devicePixelRatio: 1, alert: message => { throw Error(message); }
   });
@@ -107,6 +109,14 @@ for (const [mobile, name, params] of [[false, 'Map', '30x25n75dh'], [true, 'Unde
     assert.equal(p.ids.redo.disabled, false);
     p.click('redo');
     assert.equal(p.field('STATEPOS'), '2');
+    p.ids.puzzle.dispatch('keydown', {key: 'z', metaKey: true});
+    assert.equal(p.field('STATEPOS'), '1', 'Command+Z undoes the move');
+    p.ids.puzzle.dispatch('keydown', {key: 'Z', metaKey: true, shiftKey: true});
+    assert.equal(p.field('STATEPOS'), '2', 'Command+Shift+Z redoes the move');
+    p.ids.puzzle.dispatch('keydown', {key: 'z', ctrlKey: true});
+    assert.equal(p.field('STATEPOS'), '1', 'Control+Z still works');
+    p.ids.puzzle.dispatch('keydown', {key: 'z', ctrlKey: true, shiftKey: true});
+    assert.equal(p.field('STATEPOS'), '2');
     p.click('restart');
     assert.equal(p.field('DESC'), description, 'restart preserves the original puzzle');
     assert.match(p.save(), /^RESTART\s*:/m);
@@ -131,12 +141,15 @@ test('Undead: tap, drag, erase, pencil marks and cancelled drags use real engine
   p.monster(3);
   assert.match(p.save(), /^MOVE\s*:\d+:E\d+$/m);
   p.click('pencil-mode'); p.monster(0); p.monster(2);
+  assert.equal(p.ids['pencil-mode'].getAttribute('aria-pressed'), 'true');
+  assert.equal(p.ids['pencil-mode'].getAttribute('title'), 'Pencil marks on');
   assert.match(p.save(), /^MOVE\s*:\d+:g\d+$/m);
   assert.match(p.save(), /^MOVE\s*:\d+:z\d+$/m);
   const before = Number(p.field('STATEPOS'));
   p.monster(2);
   assert.equal(Number(p.field('STATEPOS')), before + 1, 'same pencil icon removes its mark');
   p.click('pencil-mode');
+  assert.equal(p.ids['pencil-mode'].getAttribute('aria-pressed'), 'false');
   const vampire = p.monsters[1];
   vampire.dispatch('pointerdown', {clientX: 130, clientY: 450});
   const target = {clientX: (cell.col + 1.75) * 40, clientY: (cell.row + 2.75) * 40};

@@ -18,7 +18,9 @@ so a single shared loader serves both. Local changes:
 - Do not autofocus the canvas on page load, or scroll it into view on commands.
 
 The separate assets/js/puzzle-404.js adapter chooses the game once at load,
-updates the palette on theme changes, and adds pointer-based Undead controls.
+updates the palette on theme changes, fits the board to the viewport, and adds
+pointer-based Undead controls. Command/Ctrl+Z and Command/Ctrl+Shift+Z route to
+Undo and Redo while the board or its controls have focus.
 WASM files sit next to engine.js because Emscripten resolves them relative to
 the loader URL. All three must be deployed together, including under a baseurl.
 

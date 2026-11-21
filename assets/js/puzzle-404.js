@@ -12,16 +12,39 @@
   var puzzle = document.getElementById('puzzle');
   var ready = false;
   section.dataset.game = game;
-  document.getElementById('puzzle-title').textContent = mobile ? 'Undead' : 'Maps';
-  document.getElementById('puzzle-description').textContent = mobile ? '7 × 7 · Tricky' : '30 × 25 · 75 regions · Hard';
+  document.getElementById('puzzle-invitation').textContent = mobile ? 'Place the monsters.' : 'Color the map.';
   document.getElementById(game + '-instructions').hidden = false;
   document.getElementById('monster-controls').hidden = !mobile;
   canvas.setAttribute('aria-label', mobile ? 'Undead puzzle board' : 'Maps puzzle board');
+  if (mobile) document.querySelector('.puzzle-stage').appendChild(document.getElementById('gamemenu'));
+
+  function fitBoard() {
+    var board = document.querySelector('.puzzle-board');
+    var viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    var top = board.getBoundingClientRect().top + window.scrollY;
+    var reserve = 12;
+    if (!mobile) {
+      // Leave room for the recovery links and footer below the whole game.
+      ['.error-recovery', '.site-footer'].forEach(function (selector) {
+        var element = document.querySelector(selector);
+        var style = getComputedStyle(element);
+        reserve += element.getBoundingClientRect().height +
+          (parseFloat(style.marginTop) || 0) + (parseFloat(style.marginBottom) || 0);
+      });
+      reserve += parseFloat(getComputedStyle(document.querySelector('.content')).paddingBottom) || 0;
+    }
+    // Keep cells usable in very short windows; normal page scrolling remains
+    // available for zoom/accessibility and landscape phone viewports.
+    section.style.setProperty('--board-height', Math.floor(Math.max(mobile ? 240 : 260, viewportHeight - top - reserve)) + 'px');
+  }
+  fitBoard();
+  window.addEventListener('resize', fitBoard);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fitBoard);
 
   function fail() {
     clearTimeout(loadTimeout);
     loading.hidden = false;
-    loading.textContent = 'The puzzle could not load. Refresh to try again, or use the links above to head back.';
+    loading.textContent = 'The puzzle could not load. Refresh to try again, or use the links below to head back.';
     puzzle.hidden = true;
     puzzle.setAttribute('aria-busy', 'false');
   }
@@ -47,13 +70,27 @@
   function start() {
     clearTimeout(loadTimeout);
     ready = true;
-    applyTheme();
     loading.hidden = true;
     puzzle.hidden = false;
     puzzle.style.visibility = '';
     puzzle.setAttribute('aria-busy', 'false');
+    fitBoard();
+    applyTheme();
+    new ResizeObserver(function () {
+      window.Module._rescale_puzzle();
+    }).observe(document.getElementById('puzzlecanvascontain'));
     document.getElementById('restart').disabled = false;
     document.getElementById('solve').disabled = false;
+    // Handle history shortcuts across the board and its touch controls. The
+    // original engine recognises Ctrl but not the Mac Command modifier.
+    puzzle.addEventListener('keydown', function (event) {
+      if ((event.metaKey || event.ctrlKey) && !event.altKey && event.key.toLowerCase() === 'z') {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var button = document.getElementById(event.shiftKey ? 'redo' : 'undo');
+        if (!button.disabled) button.click();
+      }
+    }, true);
     // A new puzzle is intentionally available only by reloading the page.
     canvas.addEventListener('keydown', function (event) {
       if (event.key.toLowerCase() === 'n') {
@@ -134,7 +171,7 @@
       if (inGrid(position)) {
         selected = position;
         select(position);
-        hint.textContent = pencil ? 'Choose a possible monster below.' : 'Choose a monster below, or Erase.';
+        hint.textContent = pencil ? 'Choose a possible monster above.' : 'Choose a monster above, or Erase.';
       } else {
         selected = null;
         clickAt(position, 0); // Edge clues can still be marked done.
@@ -144,7 +181,7 @@
     pencilButton.addEventListener('click', function () {
       pencil = !pencil;
       pencilButton.setAttribute('aria-pressed', String(pencil));
-      pencilButton.querySelector('span').textContent = pencil ? 'on' : 'off';
+      pencilButton.setAttribute('title', 'Pencil marks ' + (pencil ? 'on' : 'off'));
       if (selected) select(selected);
       hint.textContent = pencil ? 'Mark possible monsters in an empty square.' : 'Tap a square, then a monster. Or drag a monster onto a square.';
     });
