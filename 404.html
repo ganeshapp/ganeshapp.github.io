@@ -3,130 +3,94 @@ layout: default
 title: "404"
 permalink: /404.html
 search: false
+sitemap: false
 ---
-<div class="prose" style="text-align:center; padding-top: 2rem;">
-  <h1 class="page-title" style="font-family: ui-monospace, Menlo, monospace; margin-bottom:0.2rem;">404</h1>
-  <p style="margin-top:0;">This page went for a long run and never came back.</p>
-  <p class="post-meta">While you're here — <strong>White to move, mate in one.</strong></p>
+<link rel="stylesheet" href="{{ '/assets/css/puzzle-404.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<section class="error-page">
+  <header class="error-heading">
+    <h1 class="page-title">404</h1>
+    <p>This page went for a long run and never came back.</p>
+    <p class="post-meta no-preview">
+      <a href="{{ '/' | relative_url }}">go home</a> ·
+      <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button>
+    </p>
+  </header>
 
-  <div id="chess" class="chess-board" aria-label="Chess puzzle: white to move, mate in one"></div>
-  <p id="chess-msg" class="chess-msg">Tap the piece you want to move, then its destination.</p>
-
-  <p class="post-meta no-preview"><a href="{{ '/' | relative_url }}">go home</a> &middot; <button class="linkish" onclick="document.getElementById('search-toggle').click()">search the site</button></p>
-</div>
-
-<style>
-  .chess-board {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    width: min(20rem, 90vw);
-    margin: 1.5rem auto 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    user-select: none;
-  }
-  .chess-board .sq {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: min(6vw, 1.9rem);
-    line-height: 1;
-    cursor: default;
-  }
-  .chess-board .light { background: #b6c0cc; }
-  .chess-board .dark { background: #6a7684; }
-  .chess-board .piece { cursor: pointer; }
-  .chess-board .sel { outline: 3px solid var(--accent); outline-offset: -3px; }
-  .chess-board .hint { box-shadow: inset 0 0 0 3px var(--accent); }
-  .chess-piece-w { color: #fbfbfb; text-shadow: 0 1px 1px rgba(0,0,0,.5); }
-  .chess-piece-b { color: #14181d; text-shadow: 0 1px 1px rgba(255,255,255,.25); }
-  .chess-msg { min-height: 1.4rem; font-size: 0.9rem; color: var(--text-muted); }
-  .chess-msg.win { color: var(--accent); font-weight: 700; }
-  .linkish { background:none; border:none; color:var(--accent); font:inherit; text-decoration:underline; cursor:pointer; padding:0; }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
-  .chess-board.shake { animation: shake .3s; }
-</style>
-
-<script>
-(function () {
-  var board = document.getElementById('chess');
-  var msg = document.getElementById('chess-msg');
-  if (!board) return;
-
-  // White to move, mate in one: Ra1-a8#
-  var pieces = { g8: '♚', f7: '♟', g7: '♟', h7: '♟', a1: '♖', g1: '♔' };
-  var white = { a1: true, g1: true };
-  var files = ['a','b','c','d','e','f','g','h'];
-  var selected = null;
-  var solved = false;
-
-  function build() {
-    board.innerHTML = '';
-    for (var r = 8; r >= 1; r--) {
-      for (var f = 0; f < 8; f++) {
-        var id = files[f] + r;
-        var sq = document.createElement('div');
-        sq.className = 'sq ' + (((f + r) % 2 === 0) ? 'dark' : 'light');
-        sq.dataset.sq = id;
-        if (pieces[id]) {
-          var span = document.createElement('span');
-          span.textContent = pieces[id];
-          span.className = 'piece ' + (white[id] ? 'chess-piece-w' : 'chess-piece-b');
-          sq.appendChild(span);
-          if (white[id]) sq.dataset.movable = '1';
-        }
-        board.appendChild(sq);
-      }
-    }
-  }
-
-  function cell(id) { return board.querySelector('[data-sq="' + id + '"]'); }
-  function clearSel() {
-    board.querySelectorAll('.sel,.hint').forEach(function (e) { e.classList.remove('sel','hint'); });
-  }
-
-  board.addEventListener('click', function (e) {
-    if (solved) return;
-    var sq = e.target.closest('.sq');
-    if (!sq) return;
-    var id = sq.dataset.sq;
-
-    if (!selected) {
-      if (!white[id]) return; // only white pieces are yours to move
-      selected = id;
-      clearSel();
-      sq.classList.add('sel');
-      msg.textContent = 'Now tap the square to move to.';
-      return;
-    }
-
-    if (id === selected) { selected = null; clearSel(); return; }
-
-    // the one winning move
-    if (selected === 'a1' && id === 'a8') {
-      pieces.a8 = pieces.a1; delete pieces.a1;
-      white.a8 = true; delete white.a1;
-      solved = true;
-      build();
-      cell('a8').classList.add('hint');
-      cell('g8').classList.add('hint');
-      msg.textContent = 'Ra8# — checkmate. Now go find what you were looking for.';
-      msg.classList.add('win');
-      return;
-    }
-
-    // any other move: not mate
-    selected = null;
-    clearSel();
-    board.classList.remove('shake');
-    void board.offsetWidth;
-    board.classList.add('shake');
-    msg.textContent = 'Not mate. White to move, mate in one — the rook is lonely on a1.';
-  });
-
-  build();
-})();
-</script>
+  <section class="puzzle-section" aria-labelledby="puzzle-title" data-engine-url="{{ '/assets/puzzles/engine.js' | relative_url }}">
+    <header class="puzzle-heading">
+      <h2 id="puzzle-title">A little detour</h2>
+      <p id="puzzle-description" class="post-meta">A fresh puzzle while you're here.</p>
+    </header>
+    <p id="puzzle-loading" role="status">Generating your puzzle…</p>
+    <noscript><style>#puzzle, #puzzle-loading { display: none; }</style><p>Enable JavaScript to play a puzzle, or use the links above to find your way back.</p></noscript>
+    <div id="puzzle" aria-busy="true" style="visibility: hidden;">
+      <form id="gamemenu" class="puzzle-controls" aria-label="Puzzle controls">
+        <ul>
+          <li><button type="button" id="restart" disabled>Restart</button></li>
+          <li><button type="button" id="undo" disabled>Undo</button></li>
+          <li><button type="button" id="redo" disabled>Redo</button></li>
+          <li><button type="button" id="solve" disabled>Solve game</button></li>
+        </ul>
+      </form>
+      <div class="puzzle-board">
+        <div id="puzzlecanvascontain">
+          <canvas id="puzzlecanvas" tabindex="0" aria-label="Puzzle board" aria-describedby="puzzle-instructions"></canvas>
+        </div>
+        <div id="statusbar" role="status" aria-live="polite"></div>
+      </div>
+      <div id="monster-controls" hidden>
+        <div class="monster-palette" role="group" aria-label="Place a monster">
+          <button type="button" data-monster="g" aria-label="Ghost">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-ghost"></use></svg><span>Ghost</span>
+          </button>
+          <button type="button" data-monster="v" aria-label="Vampire">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-vampire"></use></svg><span>Vampire</span>
+          </button>
+          <button type="button" data-monster="z" aria-label="Zombie">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#icon-zombie"></use></svg><span>Zombie</span>
+          </button>
+          <button type="button" data-monster="Backspace" aria-label="Erase">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 11h21v26H19L6 24Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m23 18 12 12m0-12L23 30" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Erase</span>
+          </button>
+        </div>
+        <button type="button" id="pencil-mode" aria-pressed="false">Pencil marks <span>off</span></button>
+        <p id="monster-hint" class="post-meta" role="status">Tap a square, then a monster. Or drag a monster onto a square.</p>
+      </div>
+    </div>
+    <div id="puzzle-instructions" class="puzzle-instructions prose">
+      <div id="map-instructions" hidden>
+        <h3>How to play</h3>
+        <p>Colour the map with four colours, so that no two adjacent regions have the same colour. (Regions touching at only one corner do not count as adjacent.) There is a unique colouring consistent with the coloured regions you are already given.</p>
+        <p>Drag from a coloured region to a blank one to colour the latter the same colour as the former. Drag from outside the grid into a region to erase its colour. (You cannot change the colours of the regions you are given at the start of the game.)</p>
+        <p>Right-drag from a coloured region to a blank one to add dots marking the latter region as <em>possibly</em> the same colour as the former, or to remove those dots again.</p>
+      </div>
+      <div id="undead-instructions" hidden>
+        <h3>How to play</h3>
+        <p>Fill every empty square with a ghost, vampire or zombie. Match the monster totals above the grid. Each number around the edge tells you how many monsters you should see looking into that row or column, following any mirrors.</p>
+        <ul>
+          <li><strong>Ghosts</strong> are visible only in a mirror.</li>
+          <li><strong>Vampires</strong> are visible only when viewed directly, without a mirror.</li>
+          <li><strong>Zombies</strong> are always visible.</li>
+        </ul>
+        <p>Tap a square, then a monster icon to fill it. You can also drag an icon onto a square. Use Erase to clear a square. Mirrors and monsters given at the start cannot be changed.</p>
+        <p>Turn on <strong>Pencil marks</strong> to mark possible monsters in an empty square. Tap the same monster again to remove its mark. Tap an edge number to mark it as done, or tap again to unmark it.</p>
+      </div>
+    </div>
+  </section>
+</section>
+<svg class="monster-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <symbol id="icon-ghost" viewBox="0 0 48 48">
+      <path d="M7 42V22a17 17 0 0 1 34 0v20l-8-7-9 7-9-7Z" fill="#70c9cc" stroke="#21262e" stroke-width="1.5"/>
+      <g fill="#f6f8fa" stroke="#21262e"><circle cx="17" cy="22" r="4"/><circle cx="31" cy="22" r="4"/></g><g fill="#21262e"><circle cx="18" cy="22" r="1.5"/><circle cx="30" cy="22" r="1.5"/></g>
+    </symbol>
+    <symbol id="icon-vampire" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="19" fill="#d9a8c0" stroke="#21262e" stroke-width="1.5"/><path d="M6 19Q9-2 24 7 40-2 42 19Q33 7 24 13 15 7 6 19" fill="#21262e"/>
+      <g fill="#f6f8fa" stroke="#21262e"><circle cx="17" cy="22" r="3"/><circle cx="31" cy="22" r="3"/><path d="m15 32 4 7 2-5m6 0 2 5 4-7"/></g><g fill="#21262e"><circle cx="17" cy="22" r="1"/><circle cx="31" cy="22" r="1"/></g><path d="M12 29q12 11 24 0" fill="none" stroke="#21262e"/>
+    </symbol>
+    <symbol id="icon-zombie" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="19" fill="#96c786" stroke="#21262e" stroke-width="1.5"/><path d="m13 16 8 8m0-8-8 8m14-8 8 8m0-8-8 8M12 32h24" fill="none" stroke="#21262e" stroke-width="1.5"/><path d="M17 32q3 9 7 0" fill="#f6f8fa" stroke="#21262e"/>
+    </symbol>
+  </defs>
+</svg>
+<script src="{{ '/assets/js/puzzle-404.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

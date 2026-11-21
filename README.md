@@ -26,7 +26,7 @@ _plugins/     albums generator + baseurl link rewriter (run by GitHub Actions)
 
 **Math:** add `math: true` to a page's front matter to load KaTeX on that page only (nothing ships on pages that don't need it). Write inline math as `$...$` and display math as `$$...$$`.
 
-**Easter eggs:** open devtools for a console greeting + a rot13 Fermi question; hover the `gapp` logo to flip it to 갭; on June 12 the title gets a birthday candle and the footer counts days alive; the 404 page has a mate-in-one chess puzzle.
+**Easter eggs:** open devtools for a console greeting + a rot13 Fermi question; hover the `gapp` logo to flip it to 갭; on June 12 the title gets a birthday candle and the footer counts days alive; the 404 page generates a fresh Maps puzzle on desktop (30×25, 75 regions, Hard) or Undead on mobile (7×7, Tricky), with touch controls and both site themes. The locally hosted engines and their license are in `assets/puzzles/`.
 
 **Blog post:** drop `YYYY-MM-DD-slug.md` in `_posts/` with `title:` and `date:` front matter.
 

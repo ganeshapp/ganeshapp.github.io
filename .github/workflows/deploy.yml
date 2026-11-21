@@ -28,8 +28,8 @@ jobs:
           bundler-cache: true
       - uses: actions/configure-pages@v5
         id: pages
-      - name: Check search behavior
-        run: node --test test/search.test.cjs
+      - name: Check search and puzzle behavior
+        run: node --test test/*.test.cjs
       - name: Build site
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
