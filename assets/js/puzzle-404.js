@@ -15,6 +15,7 @@
   document.getElementById('puzzle-invitation').textContent = mobile ? 'Place the monsters.' : 'Color the map.';
   document.getElementById(game + '-instructions').hidden = false;
   document.getElementById('monster-controls').hidden = !mobile;
+  document.getElementById('map-pencil-control').hidden = mobile;
   canvas.setAttribute('aria-label', mobile ? 'Undead puzzle board' : 'Maps puzzle board');
   if (mobile) document.querySelector('.puzzle-stage').appendChild(document.getElementById('gamemenu'));
 
@@ -102,6 +103,33 @@
       attributes: true, attributeFilter: ['data-theme']
     });
     if (mobile) enableMonsterControls();
+    else enableMapPencil();
+  }
+
+  function enableMapPencil() {
+    var pencil = false;
+    var button = document.getElementById('map-pencil-mode');
+    var mouseDown = canvas.onmousedown;
+    button.addEventListener('click', function () {
+      pencil = !pencil;
+      button.setAttribute('aria-pressed', String(pencil));
+      button.setAttribute('title', pencil ?
+        'Pencil marks on — drag to add or remove dots' :
+        'Pencil marks off — click to mark with a normal drag');
+    });
+    canvas.onmousedown = function (event) {
+      if (!pencil || event.button !== 0 || event.shiftKey || event.ctrlKey) {
+        mouseDown.call(canvas, event);
+        return;
+      }
+      // Use the engine's Ctrl-drag mapping. It tracks the physical button
+      // through move/release, so a whole drag uses the mode it started with.
+      mouseDown.call(canvas, {
+        button: event.button, pageX: event.pageX, pageY: event.pageY,
+        shiftKey: false, ctrlKey: true,
+        preventDefault: function () { event.preventDefault(); }
+      });
+    };
   }
 
   function enableMonsterControls() {

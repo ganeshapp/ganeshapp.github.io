@@ -19,7 +19,9 @@ so a single shared loader serves both. Local changes:
 
 The separate assets/js/puzzle-404.js adapter chooses the game once at load,
 updates the palette on theme changes, fits the board to the viewport, and adds
-pointer-based Undead controls. Command/Ctrl+Z and Command/Ctrl+Shift+Z route to
+pointer-based Undead controls and a Maps pencil toggle for ordinary left-drags.
+Maps right-drags and Ctrl-drags still mark possibilities in either mode.
+Command/Ctrl+Z and Command/Ctrl+Shift+Z route to
 Undo and Redo while the board or its controls have focus.
 WASM files sit next to engine.js because Emscripten resolves them relative to
 the loader URL. All three must be deployed together, including under a baseurl.

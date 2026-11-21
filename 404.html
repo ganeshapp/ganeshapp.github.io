@@ -25,6 +25,11 @@ body_class: error-404
             <li><button type="button" id="undo" disabled>Undo</button></li>
             <li><button type="button" id="redo" disabled>Redo</button></li>
             <li><button type="button" id="solve" disabled>Solve game</button></li>
+            <li id="map-pencil-control" hidden>
+              <button type="button" id="map-pencil-mode" aria-label="Pencil marks" aria-pressed="false" title="Pencil marks off — click to mark with a normal drag">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 30-3 11 11-3L39 17 31 9Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="m26 14 8 8M10 30l8 8M7 41l6-2-4-4Z" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+              </button>
+            </li>
           </ul>
         </form>
         <div id="monster-controls" hidden>
@@ -61,7 +66,7 @@ body_class: error-404
           <p>Use four colours. Neighbouring regions must differ. Touching only at a corner doesn't count.</p>
           <p><strong>Colour:</strong> Drag from a coloured region to a blank one.</p>
           <p><strong>Erase:</strong> Drag from outside the grid into a region. Starting colours are fixed.</p>
-          <p><strong>Pencil marks:</strong> Right-drag from a coloured region to add or remove dots for a possible colour.</p>
+          <p><strong>Pencil marks:</strong> Turn on the pencil and drag a colour to add or remove dots. Turn it off to fill. Right-drag also works.</p>
           <p>This puzzle has one solution.</p>
         </div>
         <div id="undead-instructions" hidden>

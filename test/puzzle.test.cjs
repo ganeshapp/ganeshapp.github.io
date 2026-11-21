@@ -15,6 +15,7 @@ async function openPuzzle(mobile) {
     const el = {
       style: {setProperty() {}}, dataset: {}, attributes: {}, events,
       classList: {add() {}, remove() {}}, clientWidth: 380, clientHeight: 420,
+      offsetWidth: 380, offsetHeight: 420,
       addEventListener(type, fn) { (events[type] ||= []).push(fn); },
       dispatch(type, data = {}) {
         const event = {isPrimary: true, pointerId: 1, button: 0, preventDefault() {}, stopImmediatePropagation() {}, ...data};
@@ -40,7 +41,7 @@ async function openPuzzle(mobile) {
     'puzzlecanvas', 'puzzlecanvascontain', 'gamemenu', 'puzzle', 'undo', 'redo',
     'restart', 'solve', 'statusbar', 'puzzle-loading', 'puzzle-invitation',
     'map-instructions', 'undead-instructions',
-    'monster-controls', 'monster-hint', 'pencil-mode'
+    'monster-controls', 'monster-hint', 'pencil-mode', 'map-pencil-control', 'map-pencil-mode'
   ].map(id => [id, element()]));
   const section = element(); section.dataset.engineUrl = 'http://test/assets/puzzles/engine.js';
   const monsters = ['g', 'v', 'z', 'Backspace'].map(monster => {
@@ -127,8 +128,53 @@ for (const [mobile, name, params] of [[false, 'Map', '30x25n75dh'], [true, 'Unde
   });
 }
 
+test('Map: pencil toggle supports left-drag, history and the original right/Ctrl-drag', async () => {
+  const p = await openPuzzle(false);
+  const button = p.ids['map-pencil-mode'];
+  assert.equal(p.ids['map-pencil-control'].hidden, false);
+  const points = [];
+  for (let row = 0; row < 25; row++) for (let col = 0; col < 30; col++) {
+    points.push({pageX: (col + 1) * 380 / 31, pageY: (row + 1) * 420 / 26});
+  }
+  function drag(from, to, modifiers = {}) {
+    p.ids.puzzlecanvas.dispatch('mousedown', {...from, ...modifiers});
+    p.ids.puzzlecanvas.dispatch('mousemove', {...to, ...modifiers});
+    p.ids.puzzlecanvas.dispatch('mouseup', {...to, ...modifiers});
+  }
+  p.click('map-pencil-mode');
+  assert.equal(button.getAttribute('aria-pressed'), 'true');
+  assert.match(button.getAttribute('title'), /Pencil marks on/);
+  // Find a given colour and an empty region in this freshly generated board.
+  let source, target;
+  findMove: for (const from of points) for (const to of points) {
+    drag(from, to);
+    if (p.field('STATEPOS') !== '1') { source = from; target = to; break findMove; }
+  }
+  assert.ok(source, 'a normal drag creates a pencil mark');
+  const mark = p.field('MOVE');
+  assert.match(mark, /^p[0-3]:\d+$/);
+  p.click('undo'); assert.equal(p.field('STATEPOS'), '1');
+  p.click('redo'); assert.equal(p.field('STATEPOS'), '2');
+  drag(source, target);
+  assert.equal(p.field('STATEPOS'), '3', 'repeating the drag removes the dot');
+  assert.equal(p.save().trim().split('\n').at(-1).split(':').slice(2).join(':'), mark);
+  p.click('map-pencil-mode');
+  assert.equal(button.getAttribute('aria-pressed'), 'false');
+  drag(source, target);
+  assert.match(p.save().trim().split('\n').at(-1), /^MOVE\s*:\d+:[0-3]:\d+$/, 'mode off fills with colour');
+  p.click('undo');
+  drag(source, target, {button: 2});
+  assert.match(p.save().trim().split('\n').at(-1), /^MOVE\s*:\d+:p[0-3]:\d+$/, 'right-drag still adds dots');
+  drag(source, target, {ctrlKey: true});
+  assert.equal(p.field('STATEPOS'), '5', 'Ctrl-drag removes the dot again');
+  p.click('map-pencil-mode'); p.click('restart');
+  drag(source, target);
+  assert.match(p.save().trim().split('\n').at(-1), /^MOVE\s*:\d+:p[0-3]:\d+$/, 'pencil mode survives restart');
+});
+
 test('Undead: tap, drag, erase, pencil marks and cancelled drags use real engine moves', async () => {
   const p = await openPuzzle(true);
+  assert.equal(p.ids['map-pencil-control'].hidden, true);
   p.monster(0);
   assert.equal(p.field('STATEPOS'), '1', 'no selection does not place a monster');
   let cell;
